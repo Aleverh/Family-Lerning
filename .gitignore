@@ -1,0 +1,23 @@
+# bin and artifacts
+build
+node_modules
+.cache
+.eslintcache
+
+# user/ide configs
+.env
+.idea
+.vscode
+.DS_Store
+schema.product.gql
+frontend.config.json
+*.npmrc*
+
+# logs
+yarn-error.log
+npm-debug.log*
+coverage
+report.*
+
+#graphql schema generated with download:schema script
+schema.gql
