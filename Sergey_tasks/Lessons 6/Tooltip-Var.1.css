@@ -3,9 +3,7 @@
     {   background-color: rgb(160, 242, 38); 
         font-size: 40px; 
         border: solid;
-        margin-top: 5cm;
-        margin-right: 400px;
-        margin-left: 400px;
+        margin: 400px 400px;
         padding: 10px;
         border-radius: 40px;
         text-align: center;
