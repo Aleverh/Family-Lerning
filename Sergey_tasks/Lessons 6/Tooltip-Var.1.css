@@ -1,0 +1,55 @@
+
+.Tooltip
+    {   background-color: rgb(160, 242, 38); 
+        font-size: 40px; 
+        border: solid;
+        margin-top: 5cm;
+        margin-right: 400px;
+        margin-left: 400px;
+        padding: 10px;
+        border-radius: 40px;
+        text-align: center;
+        position: relative;  
+        
+    }
+.Tooltip::before
+    {   content: 'I am, a tooltip before';
+        font-size: 30px;
+        background-color: rgb(237, 47, 47); 
+        border: solid;
+        padding: 30px;
+        border-radius: 40px;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        
+        position: absolute;
+        bottom: -100%;
+        left: -150px;
+    }
+.Tooltip:hover::before
+    {   opacity: 1;
+        visibility: visible;
+    }
+.Tooltip::after
+    {   content: 'I am, a tooltip after';
+        font-size: 30px;
+        background-color: rgb(237, 47, 47); 
+        border: solid;
+        padding: 30px;
+        border-radius: 40px;
+        opacity: 1;
+        text-align: center;
+        opacity: 0;
+        position: absolute;
+        bottom: 75%;
+        right:  -150px;
+        visibility: hidden;
+        
+    }
+.Tooltip:hover::after
+    {   opacity: 1;
+        visibility: visible;
+        position: absolute;
+        z-index: -1;
+    }
