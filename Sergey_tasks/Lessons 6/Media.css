@@ -1,0 +1,14 @@
+
+.Media
+   {  background-color: rgb(160, 242, 38); 
+      font-size: 20px; 
+      border: solid;
+      padding: 10px;
+      border-radius: 40px;
+      text-align: center;  
+   }
+@media  (max-width: 600px)
+   {
+      body { background-color: rgb(235, 117, 38);}
+   }
+  

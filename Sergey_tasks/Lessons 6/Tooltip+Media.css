@@ -51,8 +51,7 @@
       z-index: -1;
    }
 @media (max-width: 768px)
-   {
-      .Tooltip
+   {.Tooltip
          {  
             background-color: rgb(190, 245, 72);
          }
