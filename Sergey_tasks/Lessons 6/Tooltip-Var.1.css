@@ -18,8 +18,8 @@
         padding: 30px;
         border-radius: 40px;
         text-align: center;
-        opacity: 0;
-        visibility: hidden;
+        
+        
         
         position: absolute;
         bottom: -100%;
@@ -27,9 +27,9 @@
     }
 .Tooltip:hover::before
     {   opacity: 1;
-        visibility: visible;
+        
     }
-.Tooltip::after
+.Tooltip:hover::after
     {   content: 'I am, a tooltip after';
         font-size: 30px;
         background-color: rgb(237, 47, 47); 
@@ -38,16 +38,8 @@
         border-radius: 40px;
         opacity: 1;
         text-align: center;
-        opacity: 0;
+        
         position: absolute;
         bottom: 75%;
         right:  -150px;
-        visibility: hidden;
-        
-    }
-.Tooltip:hover::after
-    {   opacity: 1;
-        visibility: visible;
-        position: absolute;
-        z-index: -1;
     }

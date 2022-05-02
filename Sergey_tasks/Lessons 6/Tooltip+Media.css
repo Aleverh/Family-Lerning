@@ -79,5 +79,9 @@
             background-color: rgb(190, 245, 72);
             font-size: 15px;
             margin: 100px 150px 0 150px;
-         }  
+         } 
+      p.visibility 
+         {  visibility: hidden;
+
+         } 
    }
