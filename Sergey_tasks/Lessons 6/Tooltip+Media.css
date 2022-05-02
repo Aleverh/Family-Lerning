@@ -19,7 +19,6 @@
       border-radius: 40px;
       text-align: center;
       opacity: 0;
-      visibility: hidden;
       position: absolute;
       bottom: -50%;
       left: -150px;
@@ -41,11 +40,9 @@
       position: absolute;
       bottom: 70%;
       right:  -150px;
-      visibility: hidde;
    }
 .Tooltip:hover::after
    {  opacity: 1;
-      visibility: visible;
       position: absolute;
       z-index: -1;
    }
@@ -53,8 +50,7 @@
    {  .Tooltip
          {  text-transform: 66;
             background-color: rgb(174, 246, 18);
-            font-size: 20px;
-            position: relative;
+            font-size: 25px;
             margin: 100px 300px 0 300px;
          }
       body { background-color: blue;}
@@ -72,7 +68,6 @@
          {  text-transform: 66;
             background-color: rgb(190, 245, 72);
             font-size: 20px;
-            position: relative;
             margin: 100px 200px 0 200px;
          }
    }
@@ -83,7 +78,6 @@
          {  text-transform: 66;
             background-color: rgb(190, 245, 72);
             font-size: 15px;
-            position: relative;
             margin: 100px 150px 0 150px;
          }  
    }
