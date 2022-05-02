@@ -21,3 +21,5 @@ report.*
 
 #graphql schema generated with download:schema script
 schema.gql
+
+.vscode
