@@ -39,6 +39,9 @@ input:hover + .slider-red{
 input:checked + .slider::before{
     transform: translatex(90px);
 }
-input:checked + .slider-greene{
+input:checked + .slider-blue{
     background: blue;
+}
+input:checked + .slider-red{
+    background: red;
 }
