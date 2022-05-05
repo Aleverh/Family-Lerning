@@ -49,7 +49,7 @@ body {
 }
 
 input:checked+.slider-green {
-    background-color: rgba(0, 128, 0, 0.8);
+    background-color: rgba(0, 128, 128, 0.8);
 }
 
 input:checked+.slider-green::before {
@@ -116,7 +116,7 @@ input:checked+.slider-red::before {
 }
 
 input:checked+.slider-blue {
-    background-color: rgba(0, 128, 0, 0.8);
+    background-color: rgba(0, 0, 128, 0.8);
 }
 
 input:checked+.slider-blue::before {
