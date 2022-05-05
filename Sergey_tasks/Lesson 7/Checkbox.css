@@ -1,85 +1,63 @@
-body 
-   { padding: 20px;
-   }
-.h1
-   {  text-align: center;
-   }
-.block
-   {  border: 3px solid cornflowerblue;
+body { 
+   padding: 20px;
+}
+.h1{  
+   text-align: center;
+}
+.block{  
+      border: 3px solid cornflowerblue;
       max-width: 500px;
       margin: 0px auto;
       height: 500px;
       background-color: bisque;
+}
+.checkbox{
+    display: none;
    }
-.checkbox
-   { display: none;
-   }
-.toggle
-   {  font-size: 20px;
+.toggle{  
+      font-size: 20px;
       margin-left: 10px;
-      margin-top: 50px; /*???????????????????????????????*/
-   }  
-   .newcheckbox
-   {  display: inline-block;
+}  
+.grey{
+     display: inline-block;
       width: 43px;
       height: 24px;
       border: 1px solid black;
       border-radius: 12px;
       position: relative;
       top: 6px;
-      background-color: rgb(247, 248, 242);
-   }
-   .newcheckbox1 
-   {  display: inline-block;
-      width: 43px;
-      height: 24px;
-      border: 1px solid black;
-      border-radius: 12px;
-      position: relative;
-      top: 6px;
-      background-color: #f8f5f2;
-   }
-.newcheckbox::before
-   {  content: "";
+      background-color: rgb(136, 138, 133);
+}
+.grey::before{
+      content: "";
       position: absolute;
       width: 20px;
       height: 20px;
       border: 0.5px solid;
       border-radius: 50%;
-      background-color: rgb(255, 72, 0);
+      background-color: rgb(187, 185, 184);
       top: 1.5px;
       padding-left: 1px;
-   }
-   .newcheckbox1::before
-   {  content: "";
+}
+.checkbox:checked ~ .grey::before{
       position: absolute;
-      width: 20px;
-      height: 20px;
-      border: 0.5px solid;
-      border-radius: 50%;
-      background-color: rgb(6, 186, 222);
-      top: 1.5px;
-      padding-left: 1px;
-   }
-.checkbox:checked ~ .newcheckbox::before
-   {  position: absolute;
       left: 20px;
       width: 20px;
       height: 20px;
-      background-color: rgb(7, 144, 39);
-   }
-   .checkbox:checked ~ .newcheckbox
-   {  
-      background-color: rgb(208, 249, 7);
-   }
-   .checkbox:checked ~ .newcheckbox1::before
-   {  position: absolute;
-      left: 20px;
-      width: 20px;
-      height: 20px;
-      background-color: rgb(28, 29, 26);
-   }
-   .checkbox:checked ~ .newcheckbox1
-   {  
-      background-color: rgb(236, 89, 148);
-   }
+      background-color: rgb(84, 230, 118);
+}
+.checkbox:checked ~ .green{  
+      background-color: rgb(7, 103, 36);
+} 
+.checkbox:checked ~ .blue::before{
+      background-color: rgb(49, 130, 244);
+}
+.checkbox:checked ~ .blue {  
+      background-color:rgb(9, 15, 176);
+}
+.checkbox:checked ~ .red::before{
+      background-color: #ef5622;
+}
+.checkbox:checked ~ .red{  
+      background-color: rgb(168, 54, 13);
+}
