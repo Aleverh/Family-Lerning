@@ -49,15 +49,15 @@ body {
 .checkbox:checked ~ .green{  
       background-color: rgb(7, 103, 36);
 } 
-.checkbox:checked ~ .blue::before{
+.checkbox:checked + .grey.blue::before{
       background-color: rgb(49, 130, 244);
 }
-.checkbox:checked ~ .blue {  
+.checkbox:checked + .grey.blue {  
       background-color:rgb(9, 15, 176);
 }
-.checkbox:checked ~ .red::before{
+.checkbox:checked + .red::before{
       background-color: #ef5622;
 }
-.checkbox:checked ~ .red{  
+.checkbox:checked + .red{  
       background-color: rgb(168, 54, 13);
 }
