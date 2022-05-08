@@ -11,44 +11,49 @@
 .border{  
    border: 3px solid rgb(9, 9, 10);
    max-width: 416px;
-   margin: 0px auto;
    height: 416px;
+   margin: 0px auto; 
+   float: left;
 }
 .feild{
-   width: 483px;
-   height: 480px;
-   background-color: rgb(172, 179, 162);
+   height: 522px;
+   background-color: #a0a29c;
    border: 4px solid black;
+   width: 522px;  
 }
-.horizontal{ 
-   letter-spacing: 1px;
+.place_woords{
+   width: 516px;
+   height: 50px;
+   background-color: #a0a29c;
+   float: left;
+}
+.woords{ 
+   font-size: 22px;
    text-align: center;
-   line-height: 2;
-   word-spacing: 35px;
-   width: 423px;
-   height: 30px;
-   background-color: rgb(172, 179, 162);
+   text-transform: capitalize;
+   width: 52px;
+   height: 50px;
+   padding-top: 10px;
    float: left; 
 }
-.vertical, .vertical1{  
-   width: 30px;
-   height: 480px;
-   background-color: rgb(172, 179, 162);
-   float: left; 
+.place_number{
+   width: 50px;
+   height: 416px;
+   float: left;
+   background-color: #a0a29c;
 }
-.vertical1{   
-   float: right; 
-}
-p{
-   font-size: 16px;
-   line-height: 1.9;
+.number { 
+   font-size: 22px; 
    text-align: center;
-   padding-top: 8px;
+   width: 50px;
+   height: 52px;
+   display: block;
+   float: left;
 }
-/*.clearfix::before{
+.clearfix::before{
+   /*overflow: auto;*/
    content: "";
    clear: both;
-   display: table;
-}*/
-
+   
+}
 
