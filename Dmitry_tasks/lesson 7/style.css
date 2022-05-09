@@ -33,13 +33,13 @@
 input:checked + .slider{
     background-color: green;
 }
-input:hover + .slider-red{
+input:hover + .slider{
     box-shadow: 0 0 15px #2196F3;
 }
 input:checked + .slider::before{
     transform: translatex(90px);
 }
-input:checked + .slider-blue{
+input:checked + .slider-blue {
     background: blue;
 }
 input:checked + .slider-red{
