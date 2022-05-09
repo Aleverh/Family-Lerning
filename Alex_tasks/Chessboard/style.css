@@ -1,0 +1,47 @@
+.board {
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 25%;
+    border: 3px solid black;
+    width: 830px;
+    height: 830px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.marks {
+    background-color: white;
+    width: 800px;
+    height: 30px;
+    padding-left: 30px;
+    margin: 0px;
+    letter-spacing: 88px;
+}
+
+.white-square {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    margin: 0px 0px 0px 0px;
+}
+
+.row{
+    background-color: white;
+    width: 30px;
+    height: 100px;
+    float: left;
+    margin: 0px;
+}
+
+.white1 {
+    float: left;
+    margin-right: 100px;
+}
+
+.white2 {
+    float: right;
+    margin-left: 100px;
+}
