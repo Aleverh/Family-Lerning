@@ -291,14 +291,14 @@ body {
 }
 .block__3-1 {
     display: flex;
+    gap: 31px;
 }
 .card{
     overflow: hidden;
     box-shadow: var(--black) 0 8px 16px;
     background-color: var(--white);
-    width: 320px;
+    flex: 1;
     height: 449px;
-    margin-right: 31px;
     display: flex;
 }
 
@@ -334,14 +334,15 @@ body {
     width: 362px;
 }
 .block__3-thirdcard {
-    width: 365px;
+    flex: 1 365px;
+    /* width: 365px; */
     height: 324px;
     margin-bottom: 71px;
     display: flex;
     flex-direction: column;
 }
 .thirdcard__title {
-    width: 365px;
+    /* width: 365px; */
     height: 144px;
     margin-bottom: 24px;
     font-family: "Playfair Display";
@@ -360,8 +361,10 @@ body {
 .block__4 {
     margin-top: 131px;
     display: flex;
+    gap: 32px;
+    /* justify-content: space-between; */
     width: 100%;
-    height: 139px;
+    height: 239px;
 }
 .block__4-1 {
     background: url('../img/photo5.png');
@@ -373,7 +376,7 @@ body {
     background: url('../img/photo4.png');
 }
 .block__4-body{
-    width: 342px;
+    flex: 1;
     height: 239px;
     /* margin-right: 32px; */
     color: var(--white);
@@ -383,10 +386,10 @@ body {
     height: 40px;
     margin-left: 153px 0 0 27px;
 }
-/* .block__4.block__4-1:nth-last-child{
+.block__4-body:last-child{
     margin: 0;
 }
- */.title__name {
+.title__name {
     font-size: 2.25rem;
     font-weight: 900;
     line-height: 2.66rem;
@@ -395,4 +398,21 @@ body {
     font-size: 1.26rem;
     font-weight: 700;
     line-height: 1.46rem;
+}
+
+/* ---------------Block5-------------- */
+.block__5 {
+    width: 100%;
+
+    margin-top: 40px;
+}
+.block__5-title {
+}
+.block__5-form {
+}
+.block__5-input {
+}
+.block__5-button {
+}
+.block__5-tx {
 }
