@@ -52,5 +52,6 @@
 .clearfix::before{
     content: "";
     clear: both;
+    flex-wrap: ;
 }
 
