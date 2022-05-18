@@ -73,24 +73,21 @@ header{
     width: 100%;
     background-color: var(--green);
     border: 0;
-}
-.sign{
+    height: 100%;
     margin: auto;
     font-weight: 800;
     font-size: 17px;
     letter-spacing: 1.275px;
     color: var(--white);
-}.right_block{
-     background: url('pictures/right_block.png') 100% no-repeat;
-     height: 383px;
- }
+}
  .sec1{
-     width: 77%;
+     width: 1088px;
      height: 383px;
-     margin: 100px auto;
+     margin: 200px auto;
+     background: url('pictures/right_block.png') 100% no-repeat;
  }
  .left_block{
-     position: absolute;
+     width: 489px;
  }
  .text_top{
      font-size: 59px;
@@ -99,34 +96,28 @@ header{
      font-size: 19px;
      font-weight: 500;
  }
- .button_left{
+ button{
      display: inline-flex;
+     font-size: 21px;
+     font-family: Raleway;
+     font-weight: 900;
+     align-items: center;
+     justify-content: center;
+     min-width: 200px;
+     height: 65px;
+ }
+ .button_left{
      background: var(--green);
      color: var(--white);
      border: 0;
-     font-size: 21px;
-     font-family: Raleway;
-     font-weight: 900;
-     align-items: center;
      letter-spacing: 1.05px;
      margin-right: 20px;
-     min-height: 65px;
-     min-width: 200px;
-     justify-content: center;
  }
  .button_right{
-     display: inline-flex;
      background: var(--white);
      color: var(--green);
      border: 3px solid var(--green);
-     font-size: 21px;
-     font-family: Raleway;
-     font-weight: 900;
-     min-height: 65px;
      letter-spacing: 2.1px;
-     min-width: 200px;
-     justify-content: center;
-     align-items: center;
  }
  .sec2{
      width: 77%;
@@ -143,18 +134,12 @@ header{
      padding-top: 100px;
  }
  .button_sec2{
-     display: flex;
-     justify-content: center;
- }
- .text_button_sec2{
      background: var(--white);
      color: var(--green);
      font-size: 21px;
      border: 0;
-     font-family: Raleway;
-     font-weight: 900;
-     min-height: 65px;
-     min-width: 200px;
+     margin: 0 auto;
+     display: block;
  }
  .sec3{
      width: 76.25%;
@@ -162,6 +147,7 @@ header{
      margin: 50px auto;
      display: flex;
  }
+ /*Width*/
  .thumb1{
      background: url("pictures/thumb1.png")  no-repeat;
      width: 320px;
@@ -192,17 +178,16 @@ header{
      width: 320px;
      height: 445px;
      display: inline-flex;
-     align-items: flex-end;
      box-shadow: var(--black) 0 0 30px;
      align-self: flex-end;
-     margin-left: 30px;
+     margin-left: 40px;
  }
  .sec3-text {
      display: inline-flex;
      width: 365px;
      height: 324px;
      flex-direction: column;
-     margin-left: 30px;
+     margin-left: 35px;
      margin-top: 130px;
  }
  .sec3-h{
@@ -231,7 +216,7 @@ header{
 }
  .sec4-study{
      background: url("pictures/sec4-photo.png") no-repeat;
-     width: 342px;
+     flex: 1;
      height: 239px;
      display: flex;
      flex-direction: column;
@@ -242,7 +227,7 @@ header{
      flex-direction: column;
      justify-content: end;
      background: url("pictures/sec4-photo-2.png") no-repeat;
-     width: 342px;
+     flex: 1;
      height: 239px;
  }
  .sec4-study3{
@@ -250,7 +235,7 @@ header{
      flex-direction: column;
      justify-content: end;
      background: url("pictures/sec4-photo-3.png") no-repeat;
-     width: 341px;
+     flex: 1;
      height: 239px;
  }
 .sec4-p-top{
@@ -259,7 +244,6 @@ header{
     font-size: 34px;
     line-height: 40px;
     height: fit-content;
-    margin: 0;
     margin-left: 20px;
 }
 .sec4-p-bottom{
@@ -272,10 +256,11 @@ header{
     margin-left: 20px;
 }
  .sec4-h{
-     display: flex;
+     width: 60%;
+    text-align: center;
      font-size: 44px;
      line-height: 48px;
-     justify-content: center;
+     margin: 36px auto;
  }
  .sec4-form-p{
      color: var(--green);
@@ -285,26 +270,19 @@ header{
      margin-left: 21%;
  }
  .sec4-form{
-     display: flex;
-     justify-content: center;
+     margin: 15px;
+     text-align: center;
      height: 65px;
  }
  .sec4-button{
-     display: flex;
-     flex-direction: row;
      width: 20.6%;
      color: var(--white);
      background: var(--green);
      border: 0;
-     justify-content: center;
-     align-items: center;
-     font-family: Raleway;
-     font-size: 21px;
-     line-height: 25px;
-     font-weight: 900;
      margin-left: 27px;
  }
 .sec4-input{
+    height: 100%;
     width: 39.5%;
     font-size: 21px;
     line-height: 25px;
@@ -319,11 +297,11 @@ header{
     margin: 0 auto;
 }
 .sec5-h{
+    margin: 0 auto;
+    width: 500px;
     display: flex;
-    justify-content: center;
     font-size: 44px;
     line-height: 48px;
-    width: 100%;
     height: 124px;
     font-weight: 900;
     text-align: center;
@@ -373,18 +351,10 @@ header{
     margin-bottom: 0;
 }
 .sec6-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 13.88%;
-    height: 65px;
     color: var(--green);
     border: 0;
     background: var(--white);
-    font-family: Raleway;
-    font-weight: 900;
-    font-size: 21px;
-    line-height: 25px;
     letter-spacing: 1.05px;
 }
 footer{
