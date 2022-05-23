@@ -61,7 +61,7 @@ header{
     letter-spacing: 1.275px;
 }
 .link{
-    width: 100px;
+    width: 23.64%;
     font-weight: 800;
     text-align: center;
     padding-top: 8px;
@@ -81,13 +81,13 @@ header{
     color: var(--white);
 }
  .sec1{
-     width: 1088px;
+     width: 75.55%;
      height: 383px;
      margin: 200px auto;
      background: url('pictures/right_block.png') 100% no-repeat;
  }
  .left_block{
-     width: 489px;
+     width: 44.94%;
  }
  .text_top{
      font-size: 59px;
@@ -146,6 +146,7 @@ header{
      height: 533px;
      margin: 50px auto;
      display: flex;
+     justify-content: space-between;
  }
  /*Width*/
  .thumb1{
@@ -252,8 +253,7 @@ header{
     font-size: 19px;
     line-height: 22px;
     height: fit-content;
-    margin: 5px;
-    margin-left: 20px;
+    margin: 0 0 10px 20px;
 }
  .sec4-h{
      width: 60%;
@@ -381,8 +381,8 @@ footer{
 .text-footer{
     display: inline-flex;
 }
-.footer-ul{
-    display: flex;
+.footer-ulik{
+    display: inline-flex;
     width: 39%;
     font-family: Raleway;
     font-size: 19px;
@@ -390,7 +390,7 @@ footer{
     font-weight: 700;
     padding-left: 0;
 }
-.footer-ol{
+.footer-ul{
     padding-left: 0;
 }
 .footer-p{

@@ -1,0 +1,556 @@
+@media screen and (max-width:425px) {
+    body{
+        margin: 0;
+    }
+    .DeskTop {
+        width: 425px;
+    }
+
+    header {
+        height: 62px;
+        width: 100%;
+    }
+
+    .box {
+        height: 52px;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .mail {
+        width: 84px;
+        height: 42px;
+    }
+
+    .text {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .sec1 {
+        width: 100%;
+        display: inline-flex;
+        margin: 70px auto;
+        background-size: 100%;
+
+    }
+
+    .left_block {
+        width: 100%;
+        height: 425px;
+    }
+
+    .text_top {
+        display: flex;
+        margin-top: 0;
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .text_bottom {
+        margin-top: 245px;
+        display: flex;
+        width: 90.6%;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    button {
+        display: inline-flex;
+        font-size: 13px;
+        font-family: Raleway;
+        font-weight: 900;
+        align-items: center;
+        justify-content: center;
+        min-width: 65px;
+        max-width: 143px;
+        height: 40px;
+    }
+    .button_left{
+        width: 143px;
+        margin-left: 10%;
+    }
+    .button_right{
+        width: 143px;
+    }
+    .sec2{
+        height: 252px;
+        width: 100%;
+        background-size: 100% 150%;
+    }
+    .sec2-h2{
+        font-size: 22px;
+        line-height: 29px;
+        padding-top: 43px;
+    }
+    .button_sec2{
+        width: 65px;
+        height: 21px;
+        font-size: 6px;
+        line-height: 7px;
+    }
+    .sec3{
+        width: 98%;
+        height: 823px;
+        flex-direction: column;
+    }
+    .thumb1{
+        background-size: 100% 50%;
+        width: 209px;
+        min-height: 294px;
+
+    }
+    .thumb1-text, .thumb2-text{
+        height: 128px;
+        font-size: 12px;
+        line-height: 16px;
+        margin: 0;
+    }
+    .thumb1-p, .thumb2-p{
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 0;
+        height: 79px;
+        width: 164px;
+    }
+    .thumb2{
+        margin-top: 20px;
+        margin-right: 10px;
+        width: 209px;
+        background-size: 100% 50%;
+        min-height: 290px;
+    }
+    .thumb2-p{
+        height: 90px;
+        width: 170px;
+    }
+    .sec3-text{
+        width: 72.5%;
+        height: 206px;
+        margin: 18px auto;
+    }
+    .sec3-h{
+        font-size: 28px;
+        line-height: 31px;
+        text-align: center;
+    }
+    .sec3-p{
+        font-size: 12px;
+        line-height: 16px;
+        width: 63.43%;
+    }
+    .sec4{
+        width: 74.68%;
+        height: 843px;
+        display: flex;
+        flex-direction: column;
+    }
+    .sec4-studies{
+        flex-direction: column;
+        width: 100%;
+    }
+    .sec4-study{
+        background-size: 100% ;
+        min-height: 157px;
+    }
+    .sec4-study2{
+        background-size: 100% ;
+        margin-top: 30px;
+        min-height: 157px;
+    }
+    .sec4-study3{
+        background-size: 100% 100%;
+        margin-top: 30px;
+        min-height: 157px;
+    }
+    .sec4-p-top{
+        font-weight: 900;
+        font-size: 22px;
+        line-height: 26px;
+        margin-bottom: 10px;
+    }
+    .sec4-p-bottom{
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .sec4-h {
+        font-size: 26px;
+        line-height: 36px;
+        font-weight: 900;
+        width: 100%;
+    }
+    .sec4-form-p{
+        margin-left: 0;
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .sec4-input{
+        width: 100%;
+        height: 42px;
+    }
+    .sec4-button{
+        width: 144px;
+        height: 42px;
+        margin: 10px auto;
+    }
+    .sec5{
+       margin: 54px auto;
+        width: 87.81%;
+        height: 242px;
+        display: flex;
+        flex-direction: column;
+    }
+    .sec5-h{
+        width: 281px;
+        height: 110px;
+        font-size: 26px;
+        line-height: 36px;
+        display: flex;
+
+    }
+    .sec5-logos{
+        flex-wrap: wrap;
+        width: 100%;
+        height: 137px;
+        justify-content: center;
+        gap: 0 80px;
+    }
+    .sec5-photo1{
+        order: 3;
+        width: 35%;
+    }
+    .sec5-photo2{
+        order: 1;
+        width: 35%;
+    }
+    .sec5-photo3{
+        order: 5;
+        width: 35%;
+    }
+    .sec5-photo4{
+        order: 4;
+        width: 35%;
+    }
+    .sec5-photo5{
+        order: 2;
+        width: 35%;
+    }
+    .sec6{
+        height: 290px;
+    }
+    .sec6-h{
+        text-align: center;
+        width: 80.93%;
+        height: 127px;
+        font-size: 42px;
+        line-height: 48px;
+    }
+    .sec6-button{
+        width: 40.93%;
+        height: 42px;
+    }
+    footer {
+        padding: 0;
+        width: 100%;
+        height: 486px;
+    }
+    .box-footer{
+       flex-direction: column;
+        align-items: start;
+    }
+    .logo-footer{
+        font-size: 16px;
+        line-height: 19px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .footer-ulik{
+        font-size: 12px;
+        /*line-height: 14px;*/
+        width: 50%;
+        flex-wrap: wrap;
+
+    }
+    .footer-ul{
+        margin: 0;
+        min-width: 106px;
+        padding-inline-start: 0;
+    }
+    .footer-ul1{
+        order: 1;
+        max-height: 60px;
+    }
+    .footer-ul2{
+        order: 3;
+    }
+    .footer-ul3{
+        order: 2;
+    }
+    .footer-ul4{
+        order: 4;
+    }
+    .footer-ol{
+        padding-left: 30px;
+    }
+    .footer-p{
+        margin-left: 30px;
+        flex-direction: column;
+        font-size: 9px;
+        line-height: 19px;
+    }
+}
+@media screen and (max-width: 768px){
+    body{
+        margin: 0;
+    }
+    .DeskTop{
+        width: 768px;
+    }
+    .header{
+        width: 100%;
+        max-height: 67px;
+    }
+    .box{
+        height: 66px;
+    }
+    .logo{
+        align-items: center;
+        width: 13.28%;
+        margin-left: 0;
+    }
+    .text{
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .mail{
+         height: 50%;
+    }
+    .link_place{
+        width: 57.68%;
+        height: 25px;
+        margin-right: 16px;
+    }
+    .links{
+        font-size: 11px;
+        line-height: 13px;
+        letter-spacing: 0.82px;
+    }
+    .link{
+        min-width: 61px;
+        border-bottom: 3px solid var(--green);
+        height: 13px;
+    }
+    .button_header{
+        font-size: 11px;
+        line-height: 13px;
+    }
+    button{
+        display: inline-flex;
+        font-size: 13px;
+        line-height: 15px;
+        font-family: Raleway;
+        font-weight: 900;
+        align-items: center;
+        justify-content: center;
+        min-width: 110px;
+        min-height: 25px;
+        max-height: 42px;
+    }
+    .sec1{
+        width: 92.57%;
+        height: 250px;
+        background-size: 70% ;
+        margin: 103px auto;
+    }
+    .left_block{
+        width: 44.3%;
+    }
+    .text_top{
+        font-size: 38px;
+        line-height: 46px;
+    }
+    .text_bottom{
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 25px;
+    }
+    .button_left{
+        letter-spacing: 0.65px;
+        width: 131px;
+    }
+    .button_right{
+        width: 131px;
+        letter-spacing: 1.3px;
+    }
+    .sec2{
+        width: 80.2%;
+        height: 347px;
+        background-size: 100%;
+    }
+    .sec2-h2{
+        min-width: 416px;
+        text-align: center;
+        font-size: 28px;
+        line-height: 51px;
+        padding-top: 50px;
+    }
+    .button_sec2{
+        width: 132px;
+        height: 42px;
+        font-size: 13px;
+        line-height: 15px;
+    }
+    .sec3{
+        width: 92.57%;
+        height: 348px;
+    }
+    .thumb1{
+        background-size: 100%;
+        width: 29.43%;
+        height: 294px;
+    }
+    .thumb1-text, .thumb2-text{
+        height: 128px;
+    }
+    .thumb1-p, .thumb2-p{
+        height: 79px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .thumb1-p{
+        margin: 17px 25px 0 20px;
+    }
+    .thumb2-p{
+        margin: 16px 19px 0 20px;
+    }
+    .sec3-ref{
+        height: 18px;
+        line-height: 14px;
+        font-size: 12px;
+        margin-left: 20px;
+    }
+    .thumb2{
+        width: 29.43%;
+        height: 290px;
+        background-size: 100%;
+    }
+    .sec3-text{
+        width: 32.67%;
+        height: 206px;
+        margin-top: 67px;
+    }
+    .sec3-h{
+        font-size: 28px;
+        line-height: 31px;
+        height: 93px;
+    }
+    .sec3-p{
+        width: 87.5%;
+        height: 96px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .sec4{
+        width: 92%;
+        height: 345px;
+        margin: 87px auto;
+    }
+    .sec4-study{
+        background-size: 100%;
+        height: 157px;
+        max-width: 31.4%;
+    }
+    .sec4-study2{
+        background-size: 100%;
+        height: 157px;
+        max-width: 31.4%;
+    }
+    .sec4-study3{
+        background-size: 100%;
+        height: 157px;
+        max-width: 31.4%;
+    }
+    .sec4-p-top{
+        font-size: 22px;
+        line-height: 26px;
+        margin-bottom: 5px;
+    }
+    .sec4-p-bottom {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .sec4-h{
+        width: 83.47%;
+        font-size: 28px;
+        height: 89px;
+    }
+    .sec4-form{
+        font-size: 13px;
+        line-height: 15px;
+        height: 70px;
+    }
+    .sec4-button{
+        width: 144px;
+        height: 42px;
+    }
+    .sec4-input {
+        height: 42px;
+        width: 275px;
+    }
+    .sec4-form-p{
+        margin-left: 120px;
+    }
+    .sec5{
+        width: 80.33%;
+        height: 138px;
+    }
+    .sec5-h{
+        font-size: 28px;
+        line-height: 36px;
+        width: 50%;
+        height: 80px;
+        justify-content: center;
+    }
+    .sec6 {
+        height: 240px;
+    }
+    .sec6-h{
+        width: 80.3%;
+        height: 81px;
+        font-size: 42px;
+        line-height: 56px;
+    }
+    .sec6-button{
+        width: 131px;
+        height: 42px;
+        letter-spacing: 0.65px;
+    }
+    .box-footer{
+        justify-content: normal;
+    }
+    .logo-footer{
+
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .mail-footer{
+        margin-top: 13px;
+        width: 30%;
+        height: 30%;
+    }
+    .footer-ulik{
+        width: 47.91%;
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .footer-ol{
+        padding-left: 30px;
+    }
+    .footer-p{
+        font-size: 9px;
+        line-height: 11px;
+        width: 96%;
+    }
+}
