@@ -1,0 +1,361 @@
+$grey: #474747;
+$pink: #F64872;
+$black: #000000;
+$white: #ffffff;
+$desktop: #F9F9F9;
+body{
+  background-color: $desktop;
+}
+h5{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24.4px;
+  color: $grey;
+}
+h2{
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 49px;
+}
+p{
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20.4px;
+}
+%rectangle{
+  transform: rotate(44.41deg);
+  width: 10px;
+  height: 10px;
+}
+
+main{
+  font-family: "Open Sans";
+  width: 1169px * 100% / 1920px;
+  margin: 0 auto;
+}
+header {
+  margin: 40px auto;
+  width: 1169px * 100% / 1920px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .logotype{
+    background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-size: 40px;
+    line-height: 48.41px;
+    font-family: Inter;
+    font-weight: 800;
+  }
+  .link-place {
+    min-width: 675px * 100% / 1169px;
+    height: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+      .link {
+        margin: 0 8px;
+        display: inline-flex;
+        font-size: 20px;
+        line-height: 27px;
+        font-family: "Open Sans";
+        color: $grey;
+        &:hover {
+          border-bottom: 3px solid $pink;
+        }
+      }
+  .vector{
+    line-height: 27px;
+    display: inline-flex;
+    min-width: 56px;
+    height: 20px;
+    background: url("pictures/Vector (1).png") 100% no-repeat;
+  }
+
+.sec1 {
+  height: 639px;
+  width: 100%;
+  background: url("pictures/sec1.png") 100% no-repeat;
+}
+  .sec1-text {
+    width: 650px * 100% / 1169px;
+  }
+    .sec1-h2{
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 65px;
+    }
+    .sec1-p{
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24.5px;
+      margin-bottom: 58px;
+    }
+      .rectangles {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 10px;
+        height: 70px;
+        margin-bottom: 47px;
+      }
+        .rectangle1 {
+          background-color: $black;
+          @extend %rectangle
+        }
+        .rectangle2 {
+          background-color: $pink;
+          @extend %rectangle
+        }
+        .rectangle3 {
+          background-color: $pink;
+          @extend %rectangle
+        }
+        .rectangle4 {
+          background-color: $black;
+          @extend %rectangle
+        }
+      .sec1-button {
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: 800;
+        width: 251px;
+        height: 74px;
+        color: $white;
+        background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+        border: 0;
+        border-radius: 18px;
+      }
+        .button-arrow{
+          display: inline-flex;
+          width: 15px;
+          height: 15px;
+          margin-left: 26px;
+          background: url("pictures/vector right.png") no-repeat;
+        }
+.our-service {
+  width: 101%;
+  height: 622px;
+}
+  .our-service-h5{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24.51px;
+  }
+  .our-service-h2{
+    width: 580px * 100% / 1169px;
+    height: 98px;
+  }
+  .block-img{
+    display: inline-flex;
+    width: 300px;
+    height: 387px;
+    background: url("pictures/services.png") no-repeat;
+  }
+  .services {
+    display: grid;
+    grid-template-columns: 300px 366px 366px;
+    grid-template-rows: 107px 107px;
+    gap: 50px 28px;
+    width: 100%;
+    height: 387px;
+  }
+    .service-img {
+      img {
+        margin-left: 10px;
+      }
+      min-width: 110px;
+      min-height: 110px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("pictures/services/Ellipse 1 (1).png");
+    }
+    .service-text {
+      width: 241px;
+      display: flex;
+      flex-direction: column;
+    }
+      .service-h5 {
+        margin-top: 0;
+        margin-bottom: 22px;
+      }
+      .service-p {
+        margin: 0;
+      }
+    .service1{
+      display: inline-flex;
+      justify-content: space-between;
+    }
+    .service2{
+      display: inline-flex;
+      justify-content: space-between;
+    }
+    .service3{
+      display: inline-flex;
+      justify-content: space-between;
+      grid-column: 2 / 3;
+    }
+    .service4{
+      display: inline-flex;
+      justify-content: space-between;
+    }
+  .our-service-button {
+    grid-column: 2;
+    margin-left: 80px;
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    width: 200px;
+    height: 27px;
+    border: 0;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+  }
+    .button-arrow2{
+      display: inline-flex;
+      width: 15px;
+      height: 15px;
+      margin-left: 26px;
+      background: url("pictures/Vector2purpl.png") no-repeat;
+    }
+.about-us{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  position: relative;
+  &::before{
+    content: "";
+    background: url("pictures/Subtract.png") no-repeat;
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    z-index: -1;
+    right: -64px;
+  }
+  &::after {
+    content: "";
+    background: url("pictures/block-top.png") no-repeat;
+    position: absolute;
+    width: 436px;
+    height: 436px;
+    top: 60px;
+    right: 0;
+  }
+}
+  .block-top {
+    width: 780px * 100% / 1169px;
+    height: 455px;
+    background-color: $white;
+    border-radius: 30px;
+    padding-left: 66px;
+  }
+    .block-top-h5{
+      margin-top: 70px;
+    }
+    .block-top-h2{
+      width: 531px * 100% / 780px;
+      height: 98px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+    .block-top-p{
+      width: 470px * 100% / 780px;
+      height: 75px;
+      margin-bottom: 40px;
+    }
+    .block-top-button {
+      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      width: 200px;
+      height: 27px;
+      border: 0;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 27px;
+    }
+      .button-arrow2{
+        display: inline-flex;
+        width: 15px;
+        height: 15px;
+        margin-left: 19px;
+        background: url("pictures/Vector2purpl.png") no-repeat;
+      }
+  .block-bottom {
+    margin-top: 102px;
+    width: 780px * 100% / 1169px;
+    height: 713px;
+    background-color: $white;
+    border-radius: 30px;
+    padding-left: 105px;
+  }
+    .block-bottom-h5{
+      margin-top: 70px;
+    }
+    .block-bottom-h2{
+      width: 445px * 100% / 780px;
+      height: 98px;
+      margin-top: 30px;
+      margin-bottom: 8px;
+    }
+    .block-bottom-p{
+      width: 626px * 100% / 780px;
+      height: 75px;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 344px;
+      height: 301px;
+    }
+      .block-bottom-info1, .block-bottom-info2 {
+        gap: 26px;
+        width: 344px;
+        height: 110px;
+        display: flex;
+        flex-direction: row;
+      }
+    .block-bottom-info-text {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .block-bottom-info-h4 {
+      font-size: 20px;
+      line-height: 27px;
+      font-weight: 800;
+      width: 185px;
+      height: 21px;
+      margin-top: 0;
+      margin-bottom: 22px;
+    }
+    .block-bottom-info-p {
+      margin-top: 0;
+      width: 100%;
+      height: 60px;
+    }
+
+    .number2, .number{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background: url("pictures/services/Ellipse 1 (1).png");
+      width: 110px;
+      height: 110px;
+    }
