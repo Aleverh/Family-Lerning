@@ -3,8 +3,13 @@ $pink: #F64872;
 $black: #000000;
 $white: #ffffff;
 $desktop: #F9F9F9;
+$blue: #001AFF;
+$lightgray: #888787;
 body{
   background-color: $desktop;
+}
+h4{
+  color: $black;
 }
 h5{
   font-size: 18px;
@@ -13,6 +18,7 @@ h5{
   color: $grey;
 }
 h2{
+   color: $grey;
   font-size: 36px;
   font-weight: 600;
   line-height: 49px;
@@ -30,7 +36,6 @@ p{
 
 main{
   font-family: "Open Sans";
-  width: 1169px * 100% / 1920px;
   margin: 0 auto;
 }
 header {
@@ -79,8 +84,9 @@ header {
   }
 
 .sec1 {
+  margin: 0 auto;
   height: 639px;
-  width: 100%;
+  width: 1169px * 100% / 1920px;;
   background: url("pictures/sec1.png") 100% no-repeat;
 }
   .sec1-text {
@@ -140,7 +146,8 @@ header {
           background: url("pictures/vector right.png") no-repeat;
         }
 .our-service {
-  width: 101%;
+  margin: 0 auto;
+  width: 1169px * 100% / 1920px;;
   height: 622px;
 }
   .our-service-h5{
@@ -149,6 +156,7 @@ header {
     line-height: 24.51px;
   }
   .our-service-h2{
+    margin-bottom: 78px;
     width: 580px * 100% / 1169px;
     height: 98px;
   }
@@ -231,10 +239,10 @@ header {
       background: url("pictures/Vector2purpl.png") no-repeat;
     }
 .about-us{
-  width: 100%;
+  width: 1169px * 100% / 1920px;;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  margin: 100px auto;
   position: relative;
   &::before{
     content: "";
@@ -298,17 +306,38 @@ header {
       }
   .block-bottom {
     margin-top: 102px;
-    width: 780px * 100% / 1169px;
+    max-width: 780px;
     height: 713px;
     background-color: $white;
     border-radius: 30px;
+    margin-left: 33%;
+    position: relative;
     padding-left: 105px;
+    &::after{
+      content: '';
+      background: url("pictures/block-bottom.png") no-repeat;
+      position: absolute;
+      width: 436px;
+      height: 436px;
+      left: -384px;
+      top: -62px;
+    }
+    &::before{
+      content: "";
+      background: url("pictures/Subtract2.png") no-repeat;
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      z-index: -1;
+      left: -454px;
+      top: 180px;
+    }
   }
     .block-bottom-h5{
       margin-top: 70px;
     }
     .block-bottom-h2{
-      width: 445px * 100% / 780px;
+      width: 445px * 100% / 675px;
       height: 98px;
       margin-top: 30px;
       margin-bottom: 8px;
@@ -359,3 +388,193 @@ header {
       width: 110px;
       height: 110px;
     }
+.prices{
+  width: 100%;
+  display: flex;
+  background: url("pictures/Rectangle 25.png") no-repeat;
+  height: 883px;
+  &-box{
+    width: 1179px * 100% / 1920px;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+.prices-h4{
+  margin-top: 100px;
+}
+.prices-h2{
+  margin-top: 27px;
+  margin-bottom: 52px;
+}
+.cards{
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  height: 529px;
+}
+.card1{
+  display: inline-flex;
+  flex-direction: row;
+  width: 370px * 100% / 1169px;
+  height: 505px;
+  background-color: $white;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+}
+.cost{
+  width: 80px;
+  height: 87px;
+  margin-top: 40px;
+  margin-left: 50px;
+  position: relative;
+  &::before{
+    content: '';
+    background: url("pictures/$ blue.png") no-repeat;
+    position: absolute;
+    top: -13px;
+    left: -20px;
+    width: 12.95px;
+    height: 33px;
+  }
+  &::after{
+    content: 'EVERY MONTH';
+    position: absolute;
+    width: 82px;
+    height: 15px;
+    top: 60px;
+    left: -10px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+}
+  .card1-h4{
+    margin: 88px 35px 40px 23px;
+    font-weight: 800;
+  }
+ul{
+  color: $lightgray;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 0;
+}
+  .card-li-blue{
+    list-style-image: url("pictures/Vector blue.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-left: 0;
+    list-style-position: inside;
+    margin-bottom: 24px;
+  }
+  .card-li-red{
+    list-style-image: url("pictures/Vector red.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding-left: 0;
+    list-style-position: inside;
+    margin-bottom: 24px;
+  }
+  .card1-button{
+    background-color: $blue;
+    font-size: 18px;
+    line-height: 24.5px;
+    width: 166px * 100% / 230px;
+    height: 63px;
+    border-radius: 18px;
+    border: 0;
+    color: $white;
+    font-weight: 800;
+    margin: 30px 10px;
+    img{
+      margin-left: 10px;
+    }
+  }
+  .card2{
+    display: flex;
+    flex-direction: row;
+    width: 398px * 100% / 1169px;
+    height: 529px;
+    box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+    border-radius: 25px;
+    background-color: $white;
+  }
+  .cost2{
+    position: relative;
+    width: 112px;
+    height: 87px;
+    margin: 64px 0 0 41px;
+    &::before{
+      content: '';
+      background: url("pictures/$ red.png") no-repeat;
+      width: 11px;
+      height: 21px;
+      position: absolute;
+      top: -13px;
+      left: -20px;
+    }
+    &::after{
+      content: 'EVERY MONTH';
+      position: absolute;
+      width: 82px;
+      height: 15px;
+      top: 60px;
+      left: 15px;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+  .card2-h4{
+    margin: 122px 49px 40px 14px;
+    font-weight: 800;
+  }
+  .card2-button{
+    background: $pink;
+    font-size: 18px;
+    line-height: 24.5px;
+    width: 166px * 100% / 252px;
+    height: 63px;
+    border-radius: 18px;
+    border: 0;
+    color: $white;
+    font-weight: 800;
+    margin: 30px 30px;
+  }
+  .card3{
+    display: inline-flex;
+    flex-direction: row;
+    width: 370px * 100% / 1169px;
+    height: 505px;
+    background-color: $white;
+    box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+    border-radius: 25px;
+  }
+  .cost3{
+    width: 111px;
+    height: 87px;
+    margin-top: 40px;
+    margin-left: 30px;
+    position: relative;
+    &::before{
+      content: '';
+      background: url("pictures/$ blue.png") no-repeat;
+      position: absolute;
+      top: -13px;
+      left: -20px;
+      width: 12.95px;
+      height: 33px;
+    }
+    &::after{
+      content: 'EVERY MONTH';
+      position: absolute;
+      width: 82px;
+      height: 15px;
+      top: 60px;
+      left: 13px;
+      font-size: 11px;
+      font-weight: 400;
+    }
+  }
+  .card3-h4{
+    margin: 88px 35px 40px 12px;
+    font-weight: 800;
+  }

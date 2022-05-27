@@ -2,6 +2,10 @@ body {
   background-color: #F9F9F9;
 }
 
+h4 {
+  color: #000000;
+}
+
 h5 {
   font-size: 18px;
   font-weight: 700;
@@ -10,6 +14,7 @@ h5 {
 }
 
 h2 {
+  color: #474747;
   font-size: 36px;
   font-weight: 600;
   line-height: 49px;
@@ -30,7 +35,6 @@ p {
 
 main {
   font-family: "Open Sans";
-  width: 60.8854166667%;
   margin: 0 auto;
 }
 
@@ -101,8 +105,9 @@ header {
 }
 
 .sec1 {
+  margin: 0 auto;
   height: 639px;
-  width: 100%;
+  width: 60.8854166667%;
   background: url("pictures/sec1.png") 100% no-repeat;
 }
 
@@ -179,7 +184,8 @@ header {
 }
 
 .our-service {
-  width: 101%;
+  margin: 0 auto;
+  width: 60.8854166667%;
   height: 622px;
 }
 
@@ -190,6 +196,7 @@ header {
 }
 
 .our-service-h2 {
+  margin-bottom: 78px;
   width: 49.6150556031%;
   height: 98px;
 }
@@ -357,7 +364,7 @@ header {
 }
 
 .about-us {
-  width: 100%;
+  width: 60.8854166667%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -365,7 +372,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 100px;
+  margin: 100px auto;
   position: relative;
 }
 .about-us::before {
@@ -439,11 +446,32 @@ header {
 
 .block-bottom {
   margin-top: 102px;
-  width: 66.7236954662%;
+  max-width: 780px;
   height: 713px;
   background-color: #ffffff;
   border-radius: 30px;
+  margin-left: 33%;
+  position: relative;
   padding-left: 105px;
+}
+.block-bottom::after {
+  content: "";
+  background: url("pictures/block-bottom.png") no-repeat;
+  position: absolute;
+  width: 436px;
+  height: 436px;
+  left: -384px;
+  top: -62px;
+}
+.block-bottom::before {
+  content: "";
+  background: url("pictures/Subtract2.png") no-repeat;
+  position: absolute;
+  width: 270px;
+  height: 270px;
+  z-index: -1;
+  left: -454px;
+  top: 180px;
 }
 
 .block-bottom-h5 {
@@ -451,7 +479,7 @@ header {
 }
 
 .block-bottom-h2 {
-  width: 57.0512820513%;
+  width: 65.9259259259%;
   height: 98px;
   margin-top: 30px;
   margin-bottom: 8px;
@@ -530,4 +558,238 @@ header {
   background: url("pictures/services/Ellipse 1 (1).png");
   width: 110px;
   height: 110px;
+}
+
+.prices {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url("pictures/Rectangle 25.png") no-repeat;
+  height: 883px;
+}
+.prices-box {
+  width: 61.40625%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.prices-h4 {
+  margin-top: 100px;
+}
+
+.prices-h2 {
+  margin-top: 27px;
+  margin-bottom: 52px;
+}
+
+.cards {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  width: 100%;
+  height: 529px;
+}
+
+.card1 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 31.6509837468%;
+  height: 505px;
+  background-color: #ffffff;
+  -webkit-box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+          box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+}
+
+.cost {
+  width: 80px;
+  height: 87px;
+  margin-top: 40px;
+  margin-left: 50px;
+  position: relative;
+}
+.cost::before {
+  content: "";
+  background: url("pictures/$ blue.png") no-repeat;
+  position: absolute;
+  top: -13px;
+  left: -20px;
+  width: 12.95px;
+  height: 33px;
+}
+.cost::after {
+  content: "EVERY MONTH";
+  position: absolute;
+  width: 82px;
+  height: 15px;
+  top: 60px;
+  left: -10px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.card1-h4 {
+  margin: 88px 35px 40px 23px;
+  font-weight: 800;
+}
+
+ul {
+  color: #888787;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 0;
+}
+
+.card-li-blue {
+  list-style-image: url("pictures/Vector blue.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-left: 0;
+  list-style-position: inside;
+  margin-bottom: 24px;
+}
+
+.card-li-red {
+  list-style-image: url("pictures/Vector red.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-left: 0;
+  list-style-position: inside;
+  margin-bottom: 24px;
+}
+
+.card1-button {
+  background-color: #001AFF;
+  font-size: 18px;
+  line-height: 24.5px;
+  width: 72.1739130435%;
+  height: 63px;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-weight: 800;
+  margin: 30px 10px;
+}
+.card1-button img {
+  margin-left: 10px;
+}
+
+.card2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 34.0461933276%;
+  height: 529px;
+  -webkit-box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+          box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+
+.cost2 {
+  position: relative;
+  width: 112px;
+  height: 87px;
+  margin: 64px 0 0 41px;
+}
+.cost2::before {
+  content: "";
+  background: url("pictures/$ red.png") no-repeat;
+  width: 11px;
+  height: 21px;
+  position: absolute;
+  top: -13px;
+  left: -20px;
+}
+.cost2::after {
+  content: "EVERY MONTH";
+  position: absolute;
+  width: 82px;
+  height: 15px;
+  top: 60px;
+  left: 15px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.card2-h4 {
+  margin: 122px 49px 40px 14px;
+  font-weight: 800;
+}
+
+.card2-button {
+  background: #F64872;
+  font-size: 18px;
+  line-height: 24.5px;
+  width: 65.873015873%;
+  height: 63px;
+  border-radius: 18px;
+  border: 0;
+  color: #ffffff;
+  font-weight: 800;
+  margin: 30px 30px;
+}
+
+.card3 {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 31.6509837468%;
+  height: 505px;
+  background-color: #ffffff;
+  -webkit-box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+          box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+}
+
+.cost3 {
+  width: 111px;
+  height: 87px;
+  margin-top: 40px;
+  margin-left: 30px;
+  position: relative;
+}
+.cost3::before {
+  content: "";
+  background: url("pictures/$ blue.png") no-repeat;
+  position: absolute;
+  top: -13px;
+  left: -20px;
+  width: 12.95px;
+  height: 33px;
+}
+.cost3::after {
+  content: "EVERY MONTH";
+  position: absolute;
+  width: 82px;
+  height: 15px;
+  top: 60px;
+  left: 13px;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.card3-h4 {
+  margin: 88px 35px 40px 12px;
+  font-weight: 800;
 }
