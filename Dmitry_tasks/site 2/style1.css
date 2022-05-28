@@ -184,7 +184,7 @@ header {
 }
 
 .our-service {
-  margin: 0 auto;
+  margin: 200px auto 107px;
   width: 60.8854166667%;
   height: 622px;
 }
@@ -652,7 +652,7 @@ ul {
   padding-left: 0;
 }
 
-.card-li-blue {
+.card-li-blue, .card-li-red {
   list-style-image: url("pictures/Vector blue.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -663,11 +663,6 @@ ul {
 
 .card-li-red {
   list-style-image: url("pictures/Vector red.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  padding-left: 0;
-  list-style-position: inside;
-  margin-bottom: 24px;
 }
 
 .card1-button {
@@ -792,4 +787,94 @@ ul {
 .card3-h4 {
   margin: 88px 35px 40px 12px;
   font-weight: 800;
+}
+
+.reviews {
+  width: 60.8854166667%;
+  height: 679px;
+  margin: 100px auto;
+}
+.reviews-h4 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24.5px;
+}
+
+.review {
+  margin-left: 86px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 404px;
+  background-color: #ffffff;
+  -webkit-box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+          box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+}
+.review img {
+  width: 380px;
+  height: 404px;
+}
+.review-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 43px 0 0 65px;
+  width: 60.824742268%;
+}
+.review-h4 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27.24px;
+  margin: 0 0 15px;
+}
+.review-h6 {
+  margin: 0 0 30px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #888787;
+}
+.review-p {
+  width: 79.4915254237%;
+  height: 174px;
+  margin: 0 0 30px;
+  color: #888787;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28.8px;
+}
+
+.stars {
+  margin: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.stars-yellow {
+  background: url("pictures/Star yellow.png") no-repeat;
+  width: 23px;
+  height: 23px;
+  margin-right: 11px;
+}
+.stars-grey {
+  background: url("pictures/Star grey.png") no-repeat;
+  width: 23px;
+  height: 23px;
+}
+
+.plus {
+  margin-top: 80px;
+  width: 151.18px;
+  height: 14px;
+  background: url("pictures/plus.png");
+  background-repeat: repeat-x;
 }

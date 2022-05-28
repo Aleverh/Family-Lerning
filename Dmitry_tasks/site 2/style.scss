@@ -18,7 +18,7 @@ h5{
   color: $grey;
 }
 h2{
-   color: $grey;
+  color: $grey;
   font-size: 36px;
   font-weight: 600;
   line-height: 49px;
@@ -46,42 +46,42 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-  .logotype{
-    background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    font-size: 40px;
-    line-height: 48.41px;
-    font-family: Inter;
-    font-weight: 800;
+.logotype{
+  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: 40px;
+  line-height: 48.41px;
+  font-family: Inter;
+  font-weight: 800;
+}
+.link-place {
+  min-width: 675px * 100% / 1169px;
+  height: 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.link {
+  margin: 0 8px;
+  display: inline-flex;
+  font-size: 20px;
+  line-height: 27px;
+  font-family: "Open Sans";
+  color: $grey;
+  &:hover {
+    border-bottom: 3px solid $pink;
   }
-  .link-place {
-    min-width: 675px * 100% / 1169px;
-    height: 27px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-      .link {
-        margin: 0 8px;
-        display: inline-flex;
-        font-size: 20px;
-        line-height: 27px;
-        font-family: "Open Sans";
-        color: $grey;
-        &:hover {
-          border-bottom: 3px solid $pink;
-        }
-      }
-  .vector{
-    line-height: 27px;
-    display: inline-flex;
-    min-width: 56px;
-    height: 20px;
-    background: url("pictures/Vector (1).png") 100% no-repeat;
-  }
+}
+.vector{
+  line-height: 27px;
+  display: inline-flex;
+  min-width: 56px;
+  height: 20px;
+  background: url("pictures/Vector (1).png") 100% no-repeat;
+}
 
 .sec1 {
   margin: 0 auto;
@@ -89,157 +89,157 @@ header {
   width: 1169px * 100% / 1920px;;
   background: url("pictures/sec1.png") 100% no-repeat;
 }
-  .sec1-text {
-    width: 650px * 100% / 1169px;
-  }
-    .sec1-h2{
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 65px;
-    }
-    .sec1-p{
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 24.5px;
-      margin-bottom: 58px;
-    }
-      .rectangles {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 10px;
-        height: 70px;
-        margin-bottom: 47px;
-      }
-        .rectangle1 {
-          background-color: $black;
-          @extend %rectangle
-        }
-        .rectangle2 {
-          background-color: $pink;
-          @extend %rectangle
-        }
-        .rectangle3 {
-          background-color: $pink;
-          @extend %rectangle
-        }
-        .rectangle4 {
-          background-color: $black;
-          @extend %rectangle
-        }
-      .sec1-button {
-        font-size: 20px;
-        line-height: 27px;
-        font-weight: 800;
-        width: 251px;
-        height: 74px;
-        color: $white;
-        background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-        border: 0;
-        border-radius: 18px;
-      }
-        .button-arrow{
-          display: inline-flex;
-          width: 15px;
-          height: 15px;
-          margin-left: 26px;
-          background: url("pictures/vector right.png") no-repeat;
-        }
+.sec1-text {
+  width: 650px * 100% / 1169px;
+}
+.sec1-h2{
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 65px;
+}
+.sec1-p{
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24.5px;
+  margin-bottom: 58px;
+}
+.rectangles {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10px;
+  height: 70px;
+  margin-bottom: 47px;
+}
+.rectangle1 {
+  background-color: $black;
+  @extend %rectangle
+}
+.rectangle2 {
+  background-color: $pink;
+  @extend %rectangle
+}
+.rectangle3 {
+  background-color: $pink;
+  @extend %rectangle
+}
+.rectangle4 {
+  background-color: $black;
+  @extend %rectangle
+}
+.sec1-button {
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 800;
+  width: 251px;
+  height: 74px;
+  color: $white;
+  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+  border: 0;
+  border-radius: 18px;
+}
+.button-arrow{
+  display: inline-flex;
+  width: 15px;
+  height: 15px;
+  margin-left: 26px;
+  background: url("pictures/vector right.png") no-repeat;
+}
 .our-service {
-  margin: 0 auto;
+  margin: 200px auto 107px;
   width: 1169px * 100% / 1920px;;
   height: 622px;
 }
-  .our-service-h5{
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 24.51px;
+.our-service-h5{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24.51px;
+}
+.our-service-h2{
+  margin-bottom: 78px;
+  width: 580px * 100% / 1169px;
+  height: 98px;
+}
+.block-img{
+  display: inline-flex;
+  width: 300px;
+  height: 387px;
+  background: url("pictures/services.png") no-repeat;
+}
+.services {
+  display: grid;
+  grid-template-columns: 300px 366px 366px;
+  grid-template-rows: 107px 107px;
+  gap: 50px 28px;
+  width: 100%;
+  height: 387px;
+}
+.service-img {
+  img {
+    margin-left: 10px;
   }
-  .our-service-h2{
-    margin-bottom: 78px;
-    width: 580px * 100% / 1169px;
-    height: 98px;
-  }
-  .block-img{
-    display: inline-flex;
-    width: 300px;
-    height: 387px;
-    background: url("pictures/services.png") no-repeat;
-  }
-  .services {
-    display: grid;
-    grid-template-columns: 300px 366px 366px;
-    grid-template-rows: 107px 107px;
-    gap: 50px 28px;
-    width: 100%;
-    height: 387px;
-  }
-    .service-img {
-      img {
-        margin-left: 10px;
-      }
-      min-width: 110px;
-      min-height: 110px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url("pictures/services/Ellipse 1 (1).png");
-    }
-    .service-text {
-      width: 241px;
-      display: flex;
-      flex-direction: column;
-    }
-      .service-h5 {
-        margin-top: 0;
-        margin-bottom: 22px;
-      }
-      .service-p {
-        margin: 0;
-      }
-    .service1{
-      display: inline-flex;
-      justify-content: space-between;
-    }
-    .service2{
-      display: inline-flex;
-      justify-content: space-between;
-    }
-    .service3{
-      display: inline-flex;
-      justify-content: space-between;
-      grid-column: 2 / 3;
-    }
-    .service4{
-      display: inline-flex;
-      justify-content: space-between;
-    }
-  .our-service-button {
-    grid-column: 2;
-    margin-left: 80px;
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    width: 200px;
-    height: 27px;
-    border: 0;
-    font-weight: 800;
-    font-size: 20px;
-    line-height: 27px;
-  }
-    .button-arrow2{
-      display: inline-flex;
-      width: 15px;
-      height: 15px;
-      margin-left: 26px;
-      background: url("pictures/Vector2purpl.png") no-repeat;
-    }
+  min-width: 110px;
+  min-height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("pictures/services/Ellipse 1 (1).png");
+}
+.service-text {
+  width: 241px;
+  display: flex;
+  flex-direction: column;
+}
+.service-h5 {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+.service-p {
+  margin: 0;
+}
+.service1{
+  display: inline-flex;
+  justify-content: space-between;
+}
+.service2{
+  display: inline-flex;
+  justify-content: space-between;
+}
+.service3{
+  display: inline-flex;
+  justify-content: space-between;
+  grid-column: 2 / 3;
+}
+.service4{
+  display: inline-flex;
+  justify-content: space-between;
+}
+.our-service-button {
+  grid-column: 2;
+  margin-left: 80px;
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  width: 200px;
+  height: 27px;
+  border: 0;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+}
+.button-arrow2{
+  display: inline-flex;
+  width: 15px;
+  height: 15px;
+  margin-left: 26px;
+  background: url("pictures/Vector2purpl.png") no-repeat;
+}
 .about-us{
-  width: 1169px * 100% / 1920px;;
+  width: 1169px * 100% / 1920px;
   display: flex;
   flex-direction: column;
   margin: 100px auto;
@@ -263,131 +263,131 @@ header {
     right: 0;
   }
 }
-  .block-top {
-    width: 780px * 100% / 1169px;
-    height: 455px;
-    background-color: $white;
-    border-radius: 30px;
-    padding-left: 66px;
+.block-top {
+  width: 780px * 100% / 1169px;
+  height: 455px;
+  background-color: $white;
+  border-radius: 30px;
+  padding-left: 66px;
+}
+.block-top-h5{
+  margin-top: 70px;
+}
+.block-top-h2{
+  width: 531px * 100% / 780px;
+  height: 98px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.block-top-p{
+  width: 470px * 100% / 780px;
+  height: 75px;
+  margin-bottom: 40px;
+}
+.block-top-button {
+  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  width: 200px;
+  height: 27px;
+  border: 0;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+}
+.button-arrow2{
+  display: inline-flex;
+  width: 15px;
+  height: 15px;
+  margin-left: 19px;
+  background: url("pictures/Vector2purpl.png") no-repeat;
+}
+.block-bottom {
+  margin-top: 102px;
+  max-width: 780px;
+  height: 713px;
+  background-color: $white;
+  border-radius: 30px;
+  margin-left: 33%;
+  position: relative;
+  padding-left: 105px;
+  &::after{
+    content: '';
+    background: url("pictures/block-bottom.png") no-repeat;
+    position: absolute;
+    width: 436px;
+    height: 436px;
+    left: -384px;
+    top: -62px;
   }
-    .block-top-h5{
-      margin-top: 70px;
-    }
-    .block-top-h2{
-      width: 531px * 100% / 780px;
-      height: 98px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-    }
-    .block-top-p{
-      width: 470px * 100% / 780px;
-      height: 75px;
-      margin-bottom: 40px;
-    }
-    .block-top-button {
-      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      width: 200px;
-      height: 27px;
-      border: 0;
-      font-weight: 800;
-      font-size: 20px;
-      line-height: 27px;
-    }
-      .button-arrow2{
-        display: inline-flex;
-        width: 15px;
-        height: 15px;
-        margin-left: 19px;
-        background: url("pictures/Vector2purpl.png") no-repeat;
-      }
-  .block-bottom {
-    margin-top: 102px;
-    max-width: 780px;
-    height: 713px;
-    background-color: $white;
-    border-radius: 30px;
-    margin-left: 33%;
-    position: relative;
-    padding-left: 105px;
-    &::after{
-      content: '';
-      background: url("pictures/block-bottom.png") no-repeat;
-      position: absolute;
-      width: 436px;
-      height: 436px;
-      left: -384px;
-      top: -62px;
-    }
-    &::before{
-      content: "";
-      background: url("pictures/Subtract2.png") no-repeat;
-      position: absolute;
-      width: 270px;
-      height: 270px;
-      z-index: -1;
-      left: -454px;
-      top: 180px;
-    }
+  &::before{
+    content: "";
+    background: url("pictures/Subtract2.png") no-repeat;
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    z-index: -1;
+    left: -454px;
+    top: 180px;
   }
-    .block-bottom-h5{
-      margin-top: 70px;
-    }
-    .block-bottom-h2{
-      width: 445px * 100% / 675px;
-      height: 98px;
-      margin-top: 30px;
-      margin-bottom: 8px;
-    }
-    .block-bottom-p{
-      width: 626px * 100% / 780px;
-      height: 75px;
-    }
-    .info {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 344px;
-      height: 301px;
-    }
-      .block-bottom-info1, .block-bottom-info2 {
-        gap: 26px;
-        width: 344px;
-        height: 110px;
-        display: flex;
-        flex-direction: row;
-      }
-    .block-bottom-info-text {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-    .block-bottom-info-h4 {
-      font-size: 20px;
-      line-height: 27px;
-      font-weight: 800;
-      width: 185px;
-      height: 21px;
-      margin-top: 0;
-      margin-bottom: 22px;
-    }
-    .block-bottom-info-p {
-      margin-top: 0;
-      width: 100%;
-      height: 60px;
-    }
+}
+.block-bottom-h5{
+  margin-top: 70px;
+}
+.block-bottom-h2{
+  width: 445px * 100% / 675px;
+  height: 98px;
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+.block-bottom-p{
+  width: 626px * 100% / 780px;
+  height: 75px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 344px;
+  height: 301px;
+}
+.block-bottom-info1, .block-bottom-info2 {
+  gap: 26px;
+  width: 344px;
+  height: 110px;
+  display: flex;
+  flex-direction: row;
+}
+.block-bottom-info-text {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.block-bottom-info-h4 {
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 800;
+  width: 185px;
+  height: 21px;
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+.block-bottom-info-p {
+  margin-top: 0;
+  width: 100%;
+  height: 60px;
+}
 
-    .number2, .number{
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      background: url("pictures/services/Ellipse 1 (1).png");
-      width: 110px;
-      height: 110px;
-    }
+.number2, .number{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: url("pictures/services/Ellipse 1 (1).png");
+  width: 110px;
+  height: 110px;
+}
 .prices{
   width: 100%;
   display: flex;
@@ -448,133 +448,202 @@ header {
     font-weight: 400;
   }
 }
-  .card1-h4{
-    margin: 88px 35px 40px 23px;
-    font-weight: 800;
-  }
+.card1-h4{
+  margin: 88px 35px 40px 23px;
+  font-weight: 800;
+}
 ul{
   color: $lightgray;
   font-size: 14px;
   font-weight: 400;
   padding-left: 0;
 }
-  .card-li-blue{
-    list-style-image: url("pictures/Vector blue.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding-left: 0;
-    list-style-position: inside;
-    margin-bottom: 24px;
+.card-li-blue, .card-li-red{
+  list-style-image: url("pictures/Vector blue.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-left: 0;
+  list-style-position: inside;
+  margin-bottom: 24px;
+}
+.card-li-red{
+  list-style-image: url("pictures/Vector red.png");
+
+}
+.card1-button{
+  background-color: $blue;
+  font-size: 18px;
+  line-height: 24.5px;
+  width: 166px * 100% / 230px;
+  height: 63px;
+  border-radius: 18px;
+  border: 0;
+  color: $white;
+  font-weight: 800;
+  margin: 30px 10px;
+  img{
+    margin-left: 10px;
   }
-  .card-li-red{
-    list-style-image: url("pictures/Vector red.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    padding-left: 0;
-    list-style-position: inside;
-    margin-bottom: 24px;
+}
+.card2{
+  display: flex;
+  flex-direction: row;
+  width: 398px * 100% / 1169px;
+  height: 529px;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+  background-color: $white;
+}
+.cost2{
+  position: relative;
+  width: 112px;
+  height: 87px;
+  margin: 64px 0 0 41px;
+  &::before{
+    content: '';
+    background: url("pictures/$ red.png") no-repeat;
+    width: 11px;
+    height: 21px;
+    position: absolute;
+    top: -13px;
+    left: -20px;
   }
-  .card1-button{
-    background-color: $blue;
+  &::after{
+    content: 'EVERY MONTH';
+    position: absolute;
+    width: 82px;
+    height: 15px;
+    top: 60px;
+    left: 15px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+}
+.card2-h4{
+  margin: 122px 49px 40px 14px;
+  font-weight: 800;
+}
+.card2-button{
+  background: $pink;
+  font-size: 18px;
+  line-height: 24.5px;
+  width: 166px * 100% / 252px;
+  height: 63px;
+  border-radius: 18px;
+  border: 0;
+  color: $white;
+  font-weight: 800;
+  margin: 30px 30px;
+}
+.card3{
+  display: inline-flex;
+  flex-direction: row;
+  width: 370px * 100% / 1169px;
+  height: 505px;
+  background-color: $white;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+}
+.cost3{
+  width: 111px;
+  height: 87px;
+  margin-top: 40px;
+  margin-left: 30px;
+  position: relative;
+  &::before{
+    content: '';
+    background: url("pictures/$ blue.png") no-repeat;
+    position: absolute;
+    top: -13px;
+    left: -20px;
+    width: 12.95px;
+    height: 33px;
+  }
+  &::after{
+    content: 'EVERY MONTH';
+    position: absolute;
+    width: 82px;
+    height: 15px;
+    top: 60px;
+    left: 13px;
+    font-size: 11px;
+    font-weight: 400;
+  }
+}
+.card3-h4{
+  margin: 88px 35px 40px 12px;
+  font-weight: 800;
+}
+.reviews{
+  width: 1169px *100% / 1920px;
+  height: 679px;
+  margin: 100px auto;
+  &-h4{
     font-size: 18px;
+    font-weight: 700;
     line-height: 24.5px;
-    width: 166px * 100% / 230px;
-    height: 63px;
-    border-radius: 18px;
-    border: 0;
-    color: $white;
-    font-weight: 800;
-    margin: 30px 10px;
-    img{
-      margin-left: 10px;
-    }
   }
-  .card2{
+}
+.review{
+  margin-left: 86px;
+  display: inline-flex;
+  flex-direction: row;
+  height: 404px;
+  background-color: $white;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+  img{
+    width: 380px;
+    height: 404px;
+  }
+  &-text{
     display: flex;
-    flex-direction: row;
-    width: 398px * 100% / 1169px;
-    height: 529px;
-    box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
-    border-radius: 25px;
-    background-color: $white;
+    flex-direction: column;
+    margin: 43px 0 0 65px;
+    width: 590px * 100% / 970px;
   }
-  .cost2{
-    position: relative;
-    width: 112px;
-    height: 87px;
-    margin: 64px 0 0 41px;
-    &::before{
-      content: '';
-      background: url("pictures/$ red.png") no-repeat;
-      width: 11px;
-      height: 21px;
-      position: absolute;
-      top: -13px;
-      left: -20px;
-    }
-    &::after{
-      content: 'EVERY MONTH';
-      position: absolute;
-      width: 82px;
-      height: 15px;
-      top: 60px;
-      left: 15px;
-      font-size: 11px;
-      font-weight: 400;
-    }
-  }
-  .card2-h4{
-    margin: 122px 49px 40px 14px;
-    font-weight: 800;
-  }
-  .card2-button{
-    background: $pink;
+  &-h4{
     font-size: 18px;
-    line-height: 24.5px;
-    width: 166px * 100% / 252px;
-    height: 63px;
-    border-radius: 18px;
-    border: 0;
-    color: $white;
-    font-weight: 800;
-    margin: 30px 30px;
+    font-weight: 700;
+    line-height: 27.24px;
+    margin: 0 0 15px;
   }
-  .card3{
-    display: inline-flex;
-    flex-direction: row;
-    width: 370px * 100% / 1169px;
-    height: 505px;
-    background-color: $white;
-    box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
-    border-radius: 25px;
+  &-h6{
+    margin: 0 0 30px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $lightgray;
   }
-  .cost3{
-    width: 111px;
-    height: 87px;
-    margin-top: 40px;
-    margin-left: 30px;
-    position: relative;
-    &::before{
-      content: '';
-      background: url("pictures/$ blue.png") no-repeat;
-      position: absolute;
-      top: -13px;
-      left: -20px;
-      width: 12.95px;
-      height: 33px;
-    }
-    &::after{
-      content: 'EVERY MONTH';
-      position: absolute;
-      width: 82px;
-      height: 15px;
-      top: 60px;
-      left: 13px;
-      font-size: 11px;
-      font-weight: 400;
-    }
+  &-p{
+    width: 469px *100% / 590px;
+    height: 174px;
+    margin: 0 0 30px;
+    color: $lightgray;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28.8px;
   }
-  .card3-h4{
-    margin: 88px 35px 40px 12px;
-    font-weight: 800;
+}
+.stars{
+  margin: 0;
+  display: inline-flex;
+  &-yellow{
+    background: url("pictures/Star yellow.png") no-repeat;
+    width: 23px;
+    height: 23px;
+    margin-right: 11px;
   }
+  &-grey{
+    background: url("pictures/Star grey.png") no-repeat;
+    width: 23px;
+    height: 23px;
+  }
+}
+.plus{
+  margin-top: 80px;
+  width: 151.18px;
+  height: 14px;
+  background: url("pictures/plus.png");
+  background-repeat: repeat-x ;
+}
