@@ -6,21 +6,31 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="Site2.css">
    <title>Site2</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Open+Sans:ital,wght@0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@500;700;800;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
    <header class="header">
       <div class="container">
          <h5 class="logotype">Busin</h5>  
-         <div class="header-menu">
-            <a class="header__link header__link_border">Home</a>
+         <nav class="nav">
+            <a class="header__link">Home</a>
             <a class="header__link">Portfolio</a>
             <a class="header__link">Pages</a>
             <a class="header__link">Blog</a>
             <a class="header__link">Shop</a>
             <a class="header__link">Support</a>
-         </div>
+         </nav>
+         <button class="button-header"></button>
       </div>
    </header>
+   <!-- ---------------------------------------------------------- -->
    <main>
       <section class="business">
          <div class="container">
@@ -29,16 +39,21 @@
                   grow your business.</h2>
                <p class="business__text">We help startups and digital agencies launch projects on time, with no pain.</p>
                <div class="business__icon">
+                  <img src="Images/romb1.png">
+                  <img src="Images/romb2.png">
+                  <img src="Images/romb2.png">
+                  <img src="Images/romb1.png">
                </div>
-               <div class="button"> READ MORE    
-                  <img src="Images/Vector.png">
-               </div>
+               <button class="button"> READ MORE   
+                  <div class="button-img button-img__white"></div>
+               </button>
             </div>
             <div class="business__img">
                <img src="Images/business.png">
             </div>
          </div>  
       </section>
+      <!-- ------------------------------------------------------- -->
       <section class="creative">
          <div class="container">
             <div class="creative-block-text"> 
@@ -100,20 +115,22 @@
                         </p>
                      </div>
                   </div>
-                  <a class="creative__a">Lets Talk
-                     <img src="Images/Vector 6.png" width="15px" height="15px">
-                  </a>
+                  <button class="button"> Lets Talk 
+                     <div class="button-img">
+                     </div>
+                  </button>  
                   <p class="creative__p_mod">+++++++++++++</p>
                </div>
             </div>
          </div>
       </section>
+      <!-- -------------------------------------------------- -->
       <section class="ideas">
             <div class="substruct2">
                <img src="Images/Subtract2.png">
             </div>
             <div class="ideas-img">
-               <img src="Images/unsplash_nF8xhLMmg0c.png">
+               <!-- <img src="Images/unsplash_nF8xhLMmg0c.png"> -->
             </div>
             <div class="container">
                <div class="ideas__text">
@@ -122,45 +139,51 @@
                      thinker of fresh ideas</h3>
                   <p class="ideas__p">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the
                      necessary regelialia </p>
-                  <a class="ideas__a"> Read More <img src="Images/Vector 6.png"></a>
+                  <button class="button"> Read More 
+                     <div class="button-img"></div>
+                  </button>  
                </div>
             </div>
       </section>
+      <!-- ----------------------------------------------------- -->
       <section class="experience">
-         <div class="substruct1">
+         <div class="subtruct1">
             <img src="Images/Subtract1.png">
          </div>
          <div class="experience-img">
             <img src="Images/unsplash_376KN_ISplE.png">
          </div>
          <div class="container">
-            <div class="experience-text">
+            <div class="experience-inf">
                <div class="experience__text">
                   <h5 class="experience__h5">The Difference</h5>
-                  <h3 class="experience__h3">Experience true business 
-                     performance increases
-                     </h3>
-                  <p class="experience__p">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the
-                     necessary regelialia  </p>
+                  <div class="experience__h3">
+                     <p>Experience true business </p>
+                     <p>performance increases</p>
+                  </div>
+                  <div class="experience__p">
+                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. A small river named Duden flows by their place and supplies it with the necessary regelialia  
+                     </p>
+                  </div> 
                </div>
                <div class="experience-menu">
-                  <div class="experience__menu1">
+                  <div class="experience__menu">
                      <div class="menu__icon">
                         <img src="Images/87.png">
                      </div>
                      <div class="creative-menu__text">
-                        <h5>Business Increase</h5>
-                        <p>Far far away, behind the word mountains, far from the countries
+                        <h5 class="experience__h51">Business Increase</h5>
+                        <p class="experience__p1">Far far away, behind the word mountains, far from the countries
                         </p>
                      </div>
                   </div>
-                  <div class="experience__menu2">
+                  <div class="experience__menu">
                      <div class="menu__icon">
                         <img src="Images/267.png">
                      </div>
                      <div class="creative-menu__text">
-                        <h5>New Accounts</h5>
-                        <p>Far far away, behind the word mountains, far from the countries
+                        <h5 class="experience__h51">New Accounts</h5>
+                        <p class="experience__p1">Far far away, behind the word mountains, far from the countries
                         </p>
                      </div>
                   </div>
@@ -168,73 +191,117 @@
             </div>
          </div>
       </section>
+      <!-- ------------------------------------------------------- -->
       <section class="plan">
+         <div class="plan-img">
+            <img src="Images/crug.png"> 
+         </div>
          <div class="container">
-            <div class="plan__text">
-               <h5>Pricing Plans</h5>
-               <h3>Lets find the perfect plan</h3>
+            <div class="plan-text">
+               <h5 class="plan-text__h5">Pricing Plans</h5>
+               <h3 class="plan-text__h3">Lets find the perfect plan</h3>
             </div>
             <div class="plan-menu">
                <div class="plan-basic">
                   <div class="price">
-                     <p>$</p>
-                     <img class="" src="Images/80.png">
-                     <p>EVERY MONTH</p>
+                     <div class="price__icon">
+                        <img src="Images/$.png" width="13px" height="33px">
+                        <img class="price__icon_view" src="Images/80.png">
+                     </div>
+                     <p class="price__text">EVERY MONTH</p>
                   </div>
-                  <div class="basic__text">
-                     <h4>Basic
-                        We Think Ahead</h4>
-                     <ul class="basic__ul">
-                        <li>Branding strategy & identity</li>
-                        <li>Marketing campaign & PR</li>
-                        <li>Website and app designing</li>
-                        <li>Video production & editing</li>
-                     </ul>
-                     <button class="button">
+                  <div class="plan-inf">
+                     <h4 class="plan-inf__h4"><b>Basic</b></h4>
+                     <p class="plan-inf__p">We Think Ahead</p>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Branding strategy & identity</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Marketing campaign & PR</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka1.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Website and app designing</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka1.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Video production & editing</p>
+                     </div>
+                     <button class="button button__middle">sign up
+                        <img src="Images/Vector.png">
                      </button>
                   </div>
                </div>
                <div class="plan-standard">
                   <div class="price">
-                     <p>$</p>
-                     <img class="" src="Images/100.png">
-                     <p>EVERY MONTH</p>
+                     <div class="price__icon">
+                        <img src="Images/12.png" width="13px" height="33px">
+                        <img class="price__icon_view" src="Images/100.png">
+                     </div>
+                     <p class="price__text">EVERY MONTH</p>
                   </div>
-                  <div class="standard__text">
-                     <h4>Standard
-                        We Think Ahead</h4>
-                     <ul class="standard__ul">
-                        <li>Branding strategy & identity</li>
-                        <li>Marketing campaign & PR</li>
-                        <li>Website and app designing</li>
-                        <li>Video production & editing</li>
-                     </ul>
-                     <button class="button">
+                  <div class="plan-inf">
+                     <h4 class="plan-inf__h4"><b>Standard</b></h4>
+                     <p class="plan-inf__p">We Think Ahead</p>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Branding strategy & identity</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Marketing campaign & PR</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Website and app designing</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka1.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Video production & editing</p>
+                     </div>
+                     <button class="button button__middle button__middle_red">sign up
+                        <img src="Images/Vector.png">
                      </button>
                   </div>
                </div>
-               <div class="plan-premium">
+               <div class="plan-premium plan-premium__var">
                   <div class="price">
-                     <p>$</p>
-                     <img class="" src="Images/180.png">
-                     <p>EVERY MONTH</p>
+                     <div class="price__icon">
+                        <img src="Images/$.png" width="13px" height="33px">
+                        <img class="price__icon_view" src="Images/180.png">
+                     </div>
+                     <p class="price__text">EVERY MONTH</p>
                   </div>
-                  <div class="premium__text">
-                     <h4>Preemium
-                        We Think Ahead</h4>
-                     <ul class="premium__ul">
-                        <li>Branding strategy & identity</li>
-                        <li>Marketing campaign & PR</li>
-                        <li>Website and app designing</li>
-                        <li>Video production & editing</li>
-                     </ul>
-                     <button class="button">
+                  <div class="plan-inf">
+                     <h4 class="plan-inf__h4 plan-inf__h4pr"><b>Premium</b></h4>
+                     <p class="plan-inf__p plan-inf__ppr">We Think Ahead</p>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Branding strategy & identity</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Marketing campaign & PR</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Website and app designing</p>
+                     </div>
+                     <div class="plan-inf__items">
+                        <img src="Images/galka.png" width="14px" height="11px">
+                        <p class="plan-inf__items_p">Video production & editing</p>
+                     </div>
+                     <button class="button button__middle">sign up
+                        <img src="Images/Vector.png">
                      </button>
                   </div>
                </div>
             </div>
          </div>
       </section>
+      <!-- ------------------------------------------------------- -->
       <section class="clients">
          <div class="container">
             <div class="clients__text">
@@ -264,12 +331,13 @@
                      </div>   
                   </div>
                </div>
-               <button class="button-circle arrow-right">
-                  <img src="Images/vector2.png"  class="arrow-color">
+               <button class="button-circle">
+                  <img src="Images/vector2.png">
                </button>
             </div>
          </div>
       </section>
+      <!-- ------------------------------------------------------- -->
       <section class="experiments">
          <div class="substruct1">
             <img src="Images/Subtract1.png">
@@ -288,7 +356,7 @@
                <p class="experiments__pp">Lastest News</p>
                <h3 class="experiments__h3">Thoughts and experiments</h3>
             </div>
-            <div class="experiments-view">
+            <div class="experiments-cont">
                <div class="experiments__view">
                   <img src="Images/unsplash_C3V88BOoRoM.png">
                   <button class="button-exp">Developing</button>
@@ -332,20 +400,22 @@
                   </div>
                </div>
             </div>
-            <div class="experiments__a">
-               <div class="a__view">
-                  <a href="" class=""> Read More  </a>
-                  <img src="Images/vector 6.png">
-               </div>
+            <div class="experiments__button">
+               <button class="button"> Read More 
+                  <div class="button-img"></div>
+               </button>  
             </div>
          </div>        
       </section>
+      <!-- ------------------------------------------------------- -->
       <section class="technology">
          <div class="container">
             <div class="technology__text">
                <p class="technology__p">Ready to Improve Your Experience</p>
                <h3 class="technology__h3">With Busin Technology?</h3>
-               <button class="button">CONTACT US</button>
+               <button class="button">CONTACT US
+                  <div class=" button-img button-img__white"></div>
+               </button>
             </div>
             <div class="technology__img">
                <img src="Images/unsplash_nNMBa7Y1Ymk.png">
@@ -353,22 +423,23 @@
          </div>
       </section>
    </main>
+   <!-- ----------------------------------------------------------- -->
    <footer class="footer">
       <div class="container">
          <div class="footer__menu">
             <h5 class="logotype">Busin</h5>  
-            <div class="menu__text">
+            <!-- <!-- <div class="menu__text">  /-->
                <h5 class="footer__text">Extra Links</h5>
                <h5 class="footer__text">Recent Posts</h5>
                <h5 class="footer__text">Social Media</h5> 
-            </div>  
+            <!-- </div>   -->
          </div>
          <div class="footer-inf">
             <div class="footer-block__links">
                <div class="footer-inf__links">
-                  <p> @ info@yourdomain.com</p>
-                  <p>(+68)120034509</p>
-                  <p>2005 Stokes Isle Apt. 896, Venaville, 
+                  <p class="footer-inf__text"> @ info@yourdomain.com</p>
+                  <p class="footer-inf__text">(+68)120034509</p>
+                  <p class="footer-inf__text footer-inf__text1">2005 Stokes Isle Apt. 896, Venaville, 
                      New York 10010, United State</p>
                </div>
                <div class="footer__ul">
@@ -393,9 +464,9 @@
                      <img src="Images/unsplash_krV5aS4jDjA.png">
                   </div>
                   <div class="posts__text">
-                     <p>On the head with
+                     <p class="posts__p">On the head with
                         free internet</p>
-                     <p> <img src="">June 22, 2022</p>
+                     <p class="posts__p1"> <img src="Images/clock.png">June 22, 2022</p>
                   </div>
                </div>
                <div class="posts__turpisdolor">
@@ -403,17 +474,17 @@
                      <img src="Images/unsplash_7pQszt9KiEY.png">
                   </div>
                   <div class="turpisdolor__text">
-                     <p>Turpisdolor</p>
-                     <p> <img src="">June 22, 2022</p>
+                     <p class="posts__p">Turpisdolor</p>
+                     <p class="posts__p1"> <img src="Images/clock.png">June 22, 2022</p>
                   </div>
                </div>
             </div>
             <form class="posts-form">
-               <input placeholder="Your-email">
-                <button>
-                   <img src="Images/Vector%20(2).png">
-                </button>
-               <p>Get lastest updates and offers</p>
+               <input placeholder="Your-email" class="form-input">
+               <button class="button-circle">
+                  <img src="Images/vector2.png">
+               </button>
+               <p class="form__p">Get lastest updates and offers</p>
             </form>
          </div>
       </div>
