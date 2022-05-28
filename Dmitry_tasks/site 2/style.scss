@@ -41,7 +41,6 @@ main{
 header {
   margin: 40px auto;
   width: 1169px * 100% / 1920px;
-  height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -584,15 +583,53 @@ ul{
     line-height: 24.5px;
   }
 }
+.review-withbtn{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.review-button-left{
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border: 0;
+  display: flex;
+  width: 62px;
+  height: 62px;
+  background-color: $white;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  &-img{
+    width: 20px;
+    height: 18px;
+  }
+}
+.review-button-right{
+  margin-left: 34px;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border: 0;
+  display: flex;
+  width: 62px;
+  height: 62px;
+  background-color: $white;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  &-img{
+    width: 20px;
+    height: 18px;
+  }
+}
 .review{
-  margin-left: 86px;
+  max-width: 970px;
+  margin-left: 38px;
   display: inline-flex;
   flex-direction: row;
   height: 404px;
   background-color: $white;
   box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
   border-radius: 25px;
-  img{
+  &-img{
     width: 380px;
     height: 404px;
   }
@@ -600,7 +637,6 @@ ul{
     display: flex;
     flex-direction: column;
     margin: 43px 0 0 65px;
-    width: 590px * 100% / 970px;
   }
   &-h4{
     font-size: 18px;
@@ -616,9 +652,8 @@ ul{
     color: $lightgray;
   }
   &-p{
-    width: 469px *100% / 590px;
     height: 174px;
-    margin: 0 0 30px;
+    margin: 0 56px 30px 0;
     color: $lightgray;
     font-weight: 400;
     font-size: 18px;
