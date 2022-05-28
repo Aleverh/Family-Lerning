@@ -117,7 +117,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 26px;
+  gap: 10.35%;
 }
 
 .button-img {
@@ -296,17 +296,23 @@ body {
   margin-bottom: 40px;
 }
 
-.ideas .substruct2 {
-  position: absolute;
-  margin: 0 19.53% 0 69.53%;
-  z-index: 0;
-}
-
-.ideas .ideas-img {
+.ideas .container::after {
+  content: '';
   width: 100%;
   height: 100%;
   position: absolute;
-  margin: 60px 19.53% 0 57.76%;
+  margin: 0 0 0 85%;
+  z-index: 0;
+  background: url("Images/Subtract2.png");
+  background-repeat: no-repeat;
+}
+
+.ideas .container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 60px 0 0 62.7%;
   z-index: 2;
   background: url("Images/unsplash_nF8xhLMmg0c.png");
   background-repeat: no-repeat;
@@ -350,16 +356,25 @@ body {
   margin-bottom: 100px;
 }
 
-.experience .subtruct1 {
+.experience .container::after {
+  content: '';
+  width: 100%;
+  height: 100%;
   position: absolute;
-  margin: 300px 1346px 0px 304px;
+  margin: 250px 8% 0 0;
   z-index: 0;
+  background: url("Images/Subtract1.png");
+  background-repeat: no-repeat;
 }
 
-.experience .experience-img {
+.experience .container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
   position: absolute;
-  margin: 0 58.38% 0 19.32%;
   z-index: 1;
+  background: url("Images/unsplash_376KN_ISplE.png");
+  background-repeat: no-repeat;
 }
 
 .experience .container {
@@ -398,7 +413,6 @@ body {
 .experience-menu {
   display: flex;
   flex-direction: column;
-  gap: 50px;
 }
 
 .experience__menu {
@@ -678,18 +692,6 @@ body {
   margin-bottom: 100px;
 }
 
-.experiments .substruct1 {
-  position: absolute;
-  margin: 560px 70% 0px 15.88%;
-  z-index: 0;
-}
-
-.experiments .substruct2 {
-  position: absolute;
-  margin: 132px 16.41% 0px 69.53%;
-  z-index: 0;
-}
-
 .experiments .ellipse7 {
   position: absolute;
   margin: 50px 90.26% 0px 8.3%;
@@ -700,9 +702,31 @@ body {
   margin: 710px 92.96% 0px 4.8%;
 }
 
+.experiments .container::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 600px 0 0 -8%;
+  z-index: -1;
+  background: url("Images/Subtract1.png");
+  background-repeat: no-repeat;
+}
+
+.experiments .container::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 10% 0 0 85%;
+  z-index: -1;
+  background: url("Images/Subtract2.png");
+  background-repeat: no-repeat;
+}
+
 .experiments .container {
   flex-direction: column;
-  z-index: 2;
+  z-index: 1;
   position: relative;
 }
 
