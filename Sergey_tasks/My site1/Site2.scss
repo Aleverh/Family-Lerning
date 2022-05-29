@@ -1,8 +1,14 @@
 @import "nullstyle.scss";
+
+$light: #F9F9F9;
+$white: #FFFFFF;
+$light-grey: #888787;
+$red: #e11645;
+$blue: #001AFF;
+$black: #000;
+
 body{
-   background: #F9F9F9;
-   // min-width: 1920px;
-   // min-height: 6797px;
+   background: $light;
 }
 %type-text15{
    font-family: 'Open Sans';
@@ -16,9 +22,8 @@ body{
    font-weight: 400;
    font-size: 14px;
    line-height: 19px;
-   color: #888787;
+   color: $light-grey;
 }
-
 %type-text18-h5{
    font-family: 'Open Sans';
    font-style: normal;
@@ -33,38 +38,92 @@ body{
    font-size: 36px;
    line-height: 49px;
 }
-.button{
-   width: 38.44%;
-   height: 74px;
-   background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-   border: 1px solid #FFFFFF;
-   border-radius: 18px;
+%type-text12{
    font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 16px;
+}
+%type-text20{
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 600;
+   font-size: 20px;
+   line-height: 27px;
+}
+%type-text20-800{
+   font-family: 'Open Sans';
+   font-style: normal;
    font-weight: 800;
    font-size: 20px;
    line-height: 27px;
-   text-align: center;
-   text-transform: uppercase;
-   color: #fdfafa;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 10.35%;
 }
-.button-img{
+%type-text15-400{
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 15px;
+}
+%type-text14-19{
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-size: 14px;
+   line-height: 19px;
+}
+%type-text22-30{
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-size: 22px;
+   line-height: 30px;
+}
+%type-text18-400{
+   font-family: 'Open Sans';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 18px;
+}
+.button{
+   width: 251px;
+   height: 74px;
+   box-sizing: border-box;
+   background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+   border: 1px solid $white;
+   border-radius: 18px;
+   @extend %type-text20-800;
+   text-align: left;
+   padding-left: 40px;
+   color: $white;
+   position: relative;
+}
+.button::before{
+   content: url("Images/Vector.png");
    width: 15px;
    height: 15px;
-   background: url("Images/vector 6.png");
+   position: absolute;
+   left: 78.08%; //196px;
 }
-.button-img__white{
-   background: url("Images/Vector.png");
+.button__white{
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-repeat: no-repeat;
+   border: none;
+   padding-left: 0;
 }
-.container{
+.button__white::before{
+   content: url("Images/vector 6.png");
+   position: absolute;
+   left: 130px;
+}
+.container {
    width: 61.04%;
    margin: 0 auto;
    display: flex;
+   @media  screen and(max-width: 1450px) {
+      width: 80%;
+   }
 }
-%logotype{
+%text-gradient{
    font-family: 'Inter';
    font-weight: 800;
    font-size: 2.86rem;
@@ -74,29 +133,28 @@ body{
    -webkit-text-fill-color: transparent;
 }
 .header{
-   height: 165px;
-   padding-top: 50px;
+   height: 100px;
+   margin-bottom: 100px;
+   display: flex;
+   align-items: center;
    .container{
-      height: 48px;
       justify-content: space-between;
       align-items: center;
    }
    .logotype{
-      @extend %logotype;
+      @extend %text-gradient;
    }
    .nav{
-      width: 539px * 100% / 1170px;
       display: flex;
       justify-content: space-between;
+      gap: 60px;
    }
    &__link{
-      font-size: 20px;
-      font-family: 'Open Sans';
-      font-weight: 600;
-      line-height: 27px;
+      @extend %type-text20;
+      border-bottom: 5px solid $light;
    }
    .header__link:hover{
-      border-bottom: 5px solid #F74872;
+      border-color:  $red;
    }
    .button-header{
       width: 20px;
@@ -108,14 +166,12 @@ body{
 .business{
    margin-bottom: 200px;
    .container{
-      // height: 9.4%;
       justify-content: space-between;
-      gap: 23px;
    }
    &__block{
       display: flex;
       flex-direction: column;
-      padding-top: 70px * 100% / 639px;
+      justify-content: flex-end;
    }
    &__h2{
       font-family: 'Open Sans';
@@ -124,104 +180,96 @@ body{
       line-height: 65px;
       margin-bottom: 26px;
    }
-   &__text{
+   &__p{
       width: 64.2%;
-      font-family: 'Open Sans';
-      font-weight: 400;
-      font-size: 18px;
+      @extend %type-text18-400;
       line-height: 25px;
       margin-bottom: 58px;
    }
-   &__icon{
-      width: 15px;
-      height: 84px;
+   .rhombus{
       display: flex;
       flex-direction: column;
       gap: 6.86px;
-      margin-bottom: 46px;
+      margin-bottom: 47px;
+   }
+   .rhombus__black{
+      width: 10px;
+      height: 10px;
+      background-color: $black;
+      transform: rotate(45deg);
+   }
+   .rhombus__red{
+      background-color: $red;
    }
 }
 //-----------------------------------------------------------
 .creative{
-   background: #F9F9F9;
+   background: $light;
    margin-bottom: 107px;
    .container{
-      // height: 622px;
       margin-bottom: 100px;
       flex-direction: column;
    }
-   &-block-text{
-      width: 49.3%;
-      margin-bottom: 78px;
-   }
    &__h5{
       @extend %type-text18-h5;
-      margin-bottom: 27px;
+      margin-bottom: 22px;
    }
    &__h3{
+      width: 49.05%;
+      margin-bottom: 78px;
       @extend %type-text36-h3;
    }
-   &__block{
+   &-block{
       display: flex;
-      // justify-content: flex-start;
-      gap: 102px * 100% / 1170px;
+      gap: 102px;
    }
-   &-menu{
-      //width: 65.46%;
-      // height: 387px;
+   &-scroll{
       display: grid;
       grid-template-columns: 50% 50%;
-      grid-template-rows: 33.3% 33.3%;
-      gap: 7.4%;
+      grid-template-rows: 25.9% 25.9%;
+      gap: 40px;
    }
-   &-menu__size{
+   &-scroll__view{
       display: flex;
       align-items: center;
-      gap: 6.51%;
+      gap: 25px;
    }
    &__icon{
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      background-color: #ffffff;
+      background-color: $white;
       display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
    }
-   &-menu__text{
-      width: 50%;
+   &-scroll__text{
       flex: 1;
    }
-   &__p{
+   &-scroll__p{
       @extend %type-text15;
    }
-   &__h5_1{
+   &-scroll__h5{
       @extend %type-text18-h5;
-      padding-bottom: 21px;
+      margin-bottom: 21px;
    }
    &__p_mod{
       display: flex;
       justify-content: flex-end;
       align-items: flex-end;
    }
-   .button{
-      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      justify-content: flex-start;
-   }
 }
 //----------------------------------------------------------
 .ideas{
-   background: #F9F9F9;
+   background: $light;
    margin-bottom: 40px;
    .container::after{
       content: '';
       width: 100%;
       height: 100%;
       position: absolute;
-      margin: 0 0 0 85%;
+      left: 85%;
       z-index: 0;
       background: url("Images/Subtract2.png");
       background-repeat: no-repeat;
@@ -231,8 +279,9 @@ body{
       width: 100%;
       height: 100%;
       position: absolute;
-      margin: 60px 0 0 62.7%;
-      z-index: 2;
+      top: 60px;
+      left: 62.7%;
+      z-index: 1;
       background: url("Images/unsplash_nF8xhLMmg0c.png");
       background-repeat: no-repeat;
    }
@@ -243,40 +292,37 @@ body{
       width: 66.66%;
       display: flex;
       flex-direction: column;
-      background: #FFFFFF;
+      background: $white;
       border-radius: 30px;
       position: relative;
    }
    &__h5{
       @extend %type-text18-h5;
-      padding: 70px 0px 30px 8.46%;
+      margin: 70px 0px 30px 8.46%;
    }
    &__h3{
       @extend %type-text36-h3;
-      padding: 0px 23.46% 20px 8.46%;
+      margin: 0px 23.46% 20px 8.46%;
    }
    &__p{
       @extend %type-text15;
-      padding: 0px 31.28% 40px 8.46%;
+      margin: 0px 31.28% 40px 8.46%;
    }
    .button{
-      padding-left: 8.46%;
-      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      justify-content: flex-start;
+      margin-left: 8.46%;
    }
    //-------------------------------------------------------
 }
 .experience{
-   background: #F9F9F9;
+   background: $light;
    margin-bottom: 100px;
    .container::after{
       content: '';
       width: 100%;
       height: 100%;
       position: absolute;
-      margin: 250px 8% 0 0 ;
+      top: 250px;
+      right: 8%;
       z-index: 0;
       background: url("Images/Subtract1.png");
       background-repeat: no-repeat;
@@ -295,150 +341,174 @@ body{
       position: relative;
    }
    &-inf{
+      width: 55%;
       display: flex;
       flex-direction: column;
       margin-top: 61px;
+      padding: 70px 46px 20px 105px;
       padding-left: 8.8%;
-      background: #FFFFFF;
+      background: $white;
       border-radius: 30px;
-      // box-sizing: none;
-      flex: 0;
    }
    &__text{
       margin-bottom: 48px;
    }
    &__h5{
       @extend %type-text18-h5;
-      padding-top: 70px;
-      padding-bottom: 30px;
+      margin-bottom: 30px;
    }
    &__h3{
       @extend %type-text36-h3;
       margin-bottom: 8px;
    }
    &__p{
-      width: 626px;//????????????????????????????????
       @extend %type-text15;
-      padding-right: 46px;
+      margin-right: 30px;
    }
-   &-menu{
+   &-scroll{
       display: flex;
       flex-direction: column;
    }
-   &__menu{
-      width: 51.19%;
+   &-scroll__price{
+      // width: 65%;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       gap: 25px;
-      margin-bottom: 81px;
+      margin-bottom: 65px;
    }
-   .menu__icon{
+   .scroll__icon{
       width: 118px;
       height: 118px;
       border-radius: 50%;
-      background-color: #ffffff;
+      background-color: $white;
       display: flex;
       justify-content: center;
       align-items: center;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
    }
-   &__h51{
-      font-family: 'Open Sans';
-      font-weight: 800;
-      font-size: 20px;
-      line-height: 27px;
-      padding-bottom: 22px;
+   &-scroll__text{
+      width: 200px;
    }
-   &__p1{
+   &-scroll__h5{
+      @extend %type-text20-800;
+      margin-bottom: 22px;
+   }
+   &-scroll__p{
       @extend %type-text15;
-      color: #888787;
-   }
-   .button{
-      padding-left: 8.46%;
-      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      justify-content: flex-start;
+      color: $light-grey;
    }
 }
 //---------------------------------------------------------
+.button__middle{
+   width: 166.5px;
+   height: 63px;
+   background: $blue;
+   font-size: 18px;
+   line-height: 25px;
+   font-weight: 800;
+   font-family: 'Open Sans';
+   margin-top: 30px;
+   border: 1px solid $white;
+   border-radius: 18px;
+   color: $white;
+   position: relative;
+   text-align: left;
+   padding-left: 27px;
+}
+.button__middle::before{
+   content: url("Images/Vector.png");
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   left: 0;
+   left: 75.08%; //196px;
+}
+.button__middle_red{
+   background: $red;
+}
+// ------------------------------------------------------
 .plan{
    background: url(Images/Rectangle%2025.png);
-   // width: 100%;
-   // height: 883px;
    margin-bottom: 100px;
-   position: relative;
-   .plan-img{
-      position: absolute;
-      margin: 250px 40.78% 0px 54.68%;
-   }
-   .plan-img::before{
-      content: "Best";
-      font-family: 'Open Sans';
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 27px;
-      color: hsl(0, 20%, 98%);
-      position: absolute;
-      margin: 25px;
-   }
    .container{
-      // height: 529px;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
    }
-   &-text__h5{
+   &__h5{
       @extend %type-text18-h5;
-      padding-top: 100px;
-      padding-bottom: 27px;
+      margin-top: 100px;
+      margin-bottom: 27px;
    }
-   &-text__h3{
+   &__h3{
       @extend %type-text36-h3;
-      padding-bottom: 79px;
+      margin-bottom: 60px;
    }
    &-menu{
-      // height: 529px;
-      width: 100%;
+      height: 529px;
       display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
       gap: 15px;
-      // flex-wrap: wrap;
-   }
-   %style-block-plan{
-      width: 31.62%;
-      background: #FFFFFF;
-      box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
-      border-radius: 25px;
-      display: flex;
-      align-items: flex-start;
+      margin-bottom: 98px;
+      align-items: flex-end;
    }
    &-basic, &-premium{
-      @extend %style-block-plan;
-      padding-left: 1.92%;
-      padding-top: 45px;
-      // flex: 1 1 ;
-   }
-   &-standard{
-      width: 34.01%;
-      background: #FFFFFF;
+      background: $white;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 25px;
       display: flex;
-      padding: 64px 5px 0px 3%;
+      gap: 23px;
    }
-   .plan-premium__var{
-      padding: 45px 0px 0px 9px;
+   &-premium__mod{
+      gap: 12px;
    }
-   .price{
+   &-standard{
+      background: $white;
+      box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+      border-radius: 25px;
+      display: flex;
+      gap: 26px;
+      align-self: start;
+      position: relative;
+      z-index: 0;
+   }
+   .plan-standard::before{
+      content: 'Best';
+      width: 86px;
+      height: 86px;
+      border-radius: 50%;
+      background: $red;
+      position: absolute;
+      color: $white;
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      // line-height: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -43px 0 0 74.2%;
+      
+   }
+   &-basic__price{
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
+      margin: 40px 0 360px 37px;
+   }
+   &-basic__price_mod{
+      margin-left: 16px;
+      margin: 40px 0 360px 16px;
+   }
+   &-standard__price{
+      display: flex;
+      flex-direction: column;
+      // gap: 5px;
+      margin: 64px 0 360px 26px;
    }
    .price__icon{
-      height: 80px;
+      height: 87px;
       display: flex;
       align-items: flex-start;
       gap: 5px;
@@ -452,143 +522,120 @@ body{
       font-size: 11px;
       line-height: 15px;      
       text-align: center;
-      color: #888787;
+      color: $light-grey;
    }
-   &-inf{
-      // height: 365px;
-      // align-self: flex-end;
+   &-basic__inf{
       display: flex;
       flex-direction: column;
-      margin-top: 40px;
+      align-self: end;
+      margin: 68px 35px 52px 0;
    }
-  .button__middle{
-      width: 166.5px;
-      height: 63px;
-      background: #001AFF;
-      font-size: 18px;
-      line-height: 25px;
-      margin: 33px 57px 52px 20px;
-  }
-   .button__middle_red{
-      background: #F64872;
-  }
-  &-inf__h4{
-      // width: 182px;
-      // height: 60px;
-      font-family: 'Open Sans';
+   &-standard__inf{
+      display: flex;
+      flex-direction: column;
+      align-self: end;
+      margin: 110px 35px 52px 0;
+   }
+  &-basic__h4{
+      @extend %type-text22-30;
       font-weight: 800;
-      font-size: 22px;
-      line-height: 30px;
-      // margin-bottom: 10px;
-      padding-left: 16px;
+      margin-bottom: 5px;
   }
-  .plan-inf__h4pr{
-   padding-left: 5px;
-  }
-  &-inf__p{
-      font-family: 'Open Sans';
+  &-basic__p{
+      @extend %type-text22-30;
       font-weight: 400;
-      font-size: 22px;
-      line-height: 30px;
-      padding-bottom: 44px;
-      padding-left: 16px;
+      margin-bottom: 40px;
   }
-  &-inf__ppr{
-   padding-left: 5px;
+  &-ul{
+     width: 187px;
   }
-  &-inf__items{
-     display: flex;
-     gap: 15px;
-     margin-bottom: 30px;
-  }
-  &-inf__items_p{
+  &__li{
       font-family: 'Open Sans';
       font-weight: 400;
       font-size: 14px;
-      line-height: 12px;
-      color: #888787;
-      // padding-bottom: 24px;
+      line-height: 19px;
+      color: $light-grey;
+      margin-bottom: 24px;
+      list-style: url("Images/galka.png");
   }
+  &__li_red{
+      list-style: url("Images/galka1.png");
+  }
+}
+.button-circle{
+   width: 62px;
+   height: 62px;
+   border-radius: 50%;
+   background: $light;
+   box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+}
+.button-circle::before{
+   content: url(Images/vector1.png);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.button-circle__blue::before{
+   content: url(Images/vector2.png);
 }
 //--------------------------------------------------
 .clients{
-   background: #F9F9F9;
+   background: $light;
    margin-bottom: 100px;
    .container{
       flex-direction: column;
    }
-   &__text{
-      margin-bottom: 79px;
-   }
    &__p{
       @extend %type-text18-h5;
-      padding-bottom: 27px;
+      margin-bottom:  27px;
    }
    &__h3{
       @extend %type-text36-h3;
+      margin-bottom: 79px;
    }
    &__slider{
       width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       gap: 38px;
-   }
-   .button-circle{
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
    }
    &-name{
       width: 86.6%;
       display: flex;
       justify-content: flex-start;
-      gap: 65px;
-      background: #FFFFFF;
+      background: $light;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 25px;
    }
    &-name-text{
       display: flex;
       flex-direction: column;
-      gap: 30px;
-   }
-   &-name__view{
-      width: 88.5%;
    }
    &__h5{
-      padding-top: 30px;
       font-family: 'Open Sans';
-      font-style: normal;
       font-weight: 700;
       font-size: 20px;
       line-height: 27px;
-      padding-bottom: 15px;
+      margin: 43px 0 15px 65px;
    }
    &__p{
       @extend %type-text15;
-      padding-bottom: 30px;
+      margin: 0 0 30px 65px;
+      color: $light-grey;
    }
    &__p1{
-      padding-right: 56px;
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 160%;
-      color: #888787;
+      @extend %type-text18-400;
+      line-height: 29px;
+      color: $light-grey;
+      margin: 0 56px 30px 65px;
+   }
+   &__stars{
+      margin: 0 0 42px 65px;
    }
 }
 //-------------------------------------------------------
 .experiments{
    margin-bottom: 100px;
-   // .substruct2{
-   //    position: absolute;
-   //    margin: 132px 16.41% 0px 69.53%;
-   //    z-index: 0;
-   // }
    .ellipse7{
       position: absolute;
       margin: 50px 90.26% 0px 8.3%;
@@ -622,23 +669,21 @@ body{
       z-index: 1;
       position: relative;
    }
-   &__pp{
+   &__title{
       @extend %type-text18-h5;
-      padding-bottom: 27px;
+      margin-bottom: 27px;
    }
    &__h3{
       @extend %type-text36-h3;
-      padding-bottom: 79px;
+      margin-bottom: 79px;
    }
    &-cont{
-      width: 100%;
-      margin: 0 auto;
       display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 80px;
    }
-   &__view{
-      background: #FFFFFF;
+   &-blocks{
+      background: $white;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 25px;
       flex: 0;
@@ -647,39 +692,28 @@ body{
       width: 116px;
       height: 34px;
       margin: 40px 0 32px 25px;
-      background: #001AFF;
+      background: $blue;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 7px;
-      font-family: 'Open Sans';
-      font-style: normal;
+      @extend %type-text14-19;
       font-weight: 600;
-      font-size: 14px;
-      line-height: 19px;
-      color: #FFFFFF;
+      color: $white;
    }
-   &__p{
-      width: 297px;
+   &-blocks__p{
       @extend %type-text18-h5;
-      padding-bottom: 15px;
-      padding-left: 25px;
+      margin-bottom: 15px;
+      margin-left: 25px;
    }
-   &__p1{
-      width: 329px;
-   }
-   &__p2{
-      width: 309px;
-   }
-   &__p15{
+   &-blocks__text{
+      width: 82.43%;
+      margin: 0 0 40px 25px;
       @extend %type-text15;
-      width: 305px;
-      padding-bottom: 40px;
-      padding-left: 25px;
+      color: $light-grey;
    }
    .logo{
       display: flex;
       gap: 16px;
-      margin-left: 25px;
-      margin-bottom: 36px;
+      margin: 0 0 36px 25px;
    }
    .logo__text{
       display: flex;
@@ -687,38 +721,24 @@ body{
       gap: 10px;
    }
    .logo__p{
-      font-family: 'Open Sans';
-      font-style: normal;
+      @extend %type-text14-19;
       font-weight: 700;
-      font-size: 14px;
-      line-height: 19px;
    }
    .logo__p1{
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      color: #888787;
+      @extend %type-text12;
+      color: $light-grey;
    }
    .logo__img{
-      border: 1px solid #888787;
+      border: 1px solid $light-grey;
       margin-right: 5px;
    }
-   &__button{
-      align-self:center;
-   }
    .button{
-      width: 100%;
-      margin-top: 80px;
-      background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      align-self:center;
    }
 //-----------------------------------------------------------
 }
 .technology{
-   background: #F9F9F9;
+   background: $light;
    margin-bottom: 100px;
    .container{
       background: url(Images/Rectangle%2037.png);
@@ -732,14 +752,14 @@ body{
    }
    &__p{
       @extend %type-text18-h5;
-      padding: 85px 0px 27px 85px;
+      margin: 85px 0 27px 86px;
    }
    &__h3{
       @extend %type-text36-h3;
-      padding: 0px 0px 59px 85px;
+      margin: 0px 0px 59px 86px;
    }
    .button{
-      margin-left: 85px;
+      margin-left: 86px;
    }
 }
 //-------------------------------------------------------
@@ -750,50 +770,46 @@ body{
    &__menu{
       display: flex;
       align-items: center;
-      gap: 15.3%;
+      gap: 200px;
       margin-bottom: 45px;
    }
    .logotype{
-      @extend %logotype;
+      @extend %text-gradient;
    }
    &__text{
       @extend %type-text18-h5;
    }
    &-inf{
-      width: 100%;
       display: flex;
-      gap: 50px;
-      flex-wrap: wrap;
+      gap: 60px;
+      margin-bottom: 100px;
    }
    &-block__links{
       display: flex;
-      gap: 45px;
+      gap: 70px;
    }
    &-inf__links{
-      width: 252px;
       display: flex;
       flex-direction: column;
    }
    &-inf__text{
-      font-family: 'Open Sans';
-      font-weight: 400;
-      font-size: 15px;
+      @extend %type-text15-400;
       line-height: 15px;
-      color: #888787;
-      padding-bottom: 15px;
+      color: $light-grey;
+      margin-bottom: 15px;
    }
    &-inf__text1{
+      width: 252px;
       line-height: 25px;
       margin-top: 25px;
    }
    &__ul{
+      width: 234px;
       display: flex;
       gap: 55px;
-      font-family: 'Open Sans';
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 186.52%;
-      color: #888787;
+      @extend %type-text15-400;
+      line-height: 28px;
+      color: $light-grey;
    }
    .posts{
       display: flex;
@@ -812,39 +828,38 @@ body{
       font-weight: 700;
       font-size: 16px;
       line-height: 100.02%;
-      color: #888787;
-      padding-bottom: 10px;
+      color: $light-grey;
+      margin-bottom: 10px;
    }
    .posts__p1{
-      font-family: 'Open Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 16px;
-      color: #888787;
+      @extend %type-text12;
+      color: $light-grey;
    }
    .posts-form{
       height: 51px;
-      background: #FFFFFF;
+      background: $white;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
    }
    .form-input{
-      height: 51px;
       border-radius: 70px;
       @extend %type-text14;
       padding-left: 24px;
    }
    .form__p{
       @extend %type-text14;
-      padding-top: 25px;
+      margin-top: 25px;
+   }
+   .input-button{
+      display: flex;
    }
    .button-circle{
       width: 51px;
       height: 51px;
-      border-radius: 50%;
-      background: #FFFFFF;
-      margin-left: 30px;
+      box-shadow: none;
    }
 }
 
