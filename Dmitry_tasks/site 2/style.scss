@@ -5,6 +5,7 @@ $white: #ffffff;
 $desktop: #F9F9F9;
 $blue: #001AFF;
 $lightgray: #888787;
+$footer: #F5F5F5;
 body{
   background-color: $desktop;
 }
@@ -32,6 +33,29 @@ p{
   transform: rotate(44.41deg);
   width: 10px;
   height: 10px;
+}
+.block-top-button, .button-news, .our-service-button {
+  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  width: 200px;
+  height: 27px;
+  border: 0;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 27px;
+  position: relative;
+  &::before{
+    content: '';
+    background: url("pictures/Vector2purpl.png") no-repeat;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
 }
 
 main{
@@ -70,6 +94,7 @@ header {
   line-height: 27px;
   font-family: "Open Sans";
   color: $grey;
+  border-bottom: 3px solid $desktop;
   &:hover {
     border-bottom: 3px solid $pink;
   }
@@ -126,7 +151,7 @@ header {
   background-color: $black;
   @extend %rectangle
 }
-.sec1-button {
+.sec1-button, .start-button {
   font-size: 20px;
   line-height: 27px;
   font-weight: 800;
@@ -136,13 +161,17 @@ header {
   background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
   border: 0;
   border-radius: 18px;
-}
-.button-arrow{
-  display: inline-flex;
-  width: 15px;
-  height: 15px;
-  margin-left: 26px;
-  background: url("pictures/vector right.png") no-repeat;
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    background: url("pictures/vector right.png");
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    right: 20px;
+    top: 30px;
+  }
 }
 .our-service {
   margin: 200px auto 107px;
@@ -216,26 +245,6 @@ header {
 .our-service-button {
   grid-column: 2;
   margin-left: 80px;
-  display: inline-flex;
-  align-items: center;
-  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  width: 200px;
-  height: 27px;
-  border: 0;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 27px;
-}
-.button-arrow2{
-  display: inline-flex;
-  width: 15px;
-  height: 15px;
-  margin-left: 26px;
-  background: url("pictures/Vector2purpl.png") no-repeat;
 }
 .about-us{
   width: 1169px * 100% / 1920px;
@@ -282,19 +291,6 @@ header {
   width: 470px * 100% / 780px;
   height: 75px;
   margin-bottom: 40px;
-}
-.block-top-button {
-  background: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #FFFFFF;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  width: 200px;
-  height: 27px;
-  border: 0;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 27px;
 }
 .button-arrow2{
   display: inline-flex;
@@ -469,20 +465,28 @@ ul{
   list-style-image: url("pictures/Vector red.png");
 
 }
-.card1-button{
+.card1-button, .card2-button,{
   background-color: $blue;
   font-size: 18px;
   line-height: 24.5px;
-  width: 166px * 100% / 230px;
+  width: 166px;
   height: 63px;
   border-radius: 18px;
   border: 0;
   color: $white;
   font-weight: 800;
   margin: 30px 10px;
-  img{
-    margin-left: 10px;
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    background: url("pictures/Vector right cards.png");
+    width: 11px;
+    height: 13px;
+    right: 15px;
+    top: 25px;
   }
+
 }
 .card2{
   display: flex;
@@ -524,15 +528,7 @@ ul{
 }
 .card2-button{
   background: $pink;
-  font-size: 18px;
-  line-height: 24.5px;
-  width: 166px * 100% / 252px;
-  height: 63px;
-  border-radius: 18px;
-  border: 0;
-  color: $white;
-  font-weight: 800;
-  margin: 30px 30px;
+  margin: 30px 10px;
 }
 .card3{
   display: inline-flex;
@@ -589,7 +585,7 @@ ul{
   justify-content: center;
   align-items: center;
 }
-.review-button-left{
+.review-button-left, .review-button-right{
   box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
   border: 0;
   display: flex;
@@ -606,15 +602,6 @@ ul{
 }
 .review-button-right{
   margin-left: 34px;
-  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
-  border: 0;
-  display: flex;
-  width: 62px;
-  height: 62px;
-  background-color: $white;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
   &-img{
     width: 20px;
     height: 18px;
@@ -680,5 +667,276 @@ ul{
   width: 151.18px;
   height: 14px;
   background: url("pictures/plus.png");
-  background-repeat: repeat-x ;
+  background-repeat: repeat-x;
+}
+.news{
+  margin: 0 auto;
+  width: 1169px * 100% / 1920px;
+  height: 892px;
+  &-h4{
+    margin: 0 0 27px;
+  }
+  &h2{
+    margin: 0 0 79px;
+  }
+  &-chapters{
+    gap: 30px;
+    width: 100%;
+    height: 605px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    &::before{
+      content: "";
+      background: url("pictures/Subtract.png") no-repeat;
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      z-index: -1;
+      top: -60px;
+      right: -70px;
+    }
+    &::after{
+      content: "";
+      background: url("pictures/Subtract.png") no-repeat;
+      transform: rotate(180deg);
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      z-index: -1;
+      bottom: -60px;
+      left: -70px;
+    }
+  }
+}
+.chapter1, .chapter2, .chapter3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: $white;
+  box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+  border-radius: 25px;
+
+  &-img {
+    width: 370px;
+    height: 269px;
+    border-radius: 25px;
+  }
+}
+  .chapter-button{
+    margin: 40px 0 24px 25px;
+    background-color: $blue;
+    color: $white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    width: 116px;
+    min-height: 34px;
+    box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+    border-radius: 7px;
+    border: 0;
+  }
+  .chapter-h3{
+    margin: 0 0 15px 24px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24.5px;
+  }
+  .chapter-p{
+    margin: 0 0 40px 24px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    color: $lightgray;
+  }
+  .person1, .person2, .person3{
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    height: 57px;
+    background: url("pictures/person1.png") no-repeat;
+  }
+  .person2{
+    background: url("pictures/person2.png") no-repeat;
+  }
+  .person3{
+    background: url("pictures/person3.png") no-repeat;
+  }
+  .person-h5{
+    margin: 0 0 10px 75px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19.09px;
+    color: $black;
+  }
+  .person-clock{
+    background: url("pictures/clock3.png") no-repeat;
+    margin-left: 75px;
+    height: 12px;
+  }
+  .date{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: $lightgray;
+    margin: 0 0 0 15px;
+  }
+  .button-news{
+    display: flex;
+    margin: 80px auto;
+  }
+  .start {
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 1169px * 100% / 1920px;
+    height: 404px;
+    background: url("pictures/background start.png") no-repeat;
+    &-text{
+      margin: 85px 0 0 86px;
+    }
+    &-h5{
+      margin: 0;
+      color: $black;
+    }
+    &-h2{
+      margin: 27px 0 59px
+    }
+  }
+  footer{
+    padding-top: 100px;
+    width: 100%;
+    height: 443px;
+    background: $footer;
+  }
+  .foot-top{
+    margin: 0 auto;
+    display: flex;
+    width: 1196px * 100% / 1920px;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .link-foot{
+    color: $black;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24.5px;
+  }
+.foot-bottom{
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row;
+  width: 1169px * 100% / 1920px;
+}
+.block-one {
+  display: flex;
+  flex-direction: row;
+  &-text {
+    display: flex;
+    flex-direction: column;
+  }
+}
+  .block-one-p, .block-one-p2{
+    background: url("pictures/dog.png") no-repeat;
+    color: $lightgray;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 15px;
+    padding-left: 20px;
+  }
+.block-one-p2{
+  background: url("pictures/phone.png") no-repeat;
+  margin: 0 0 40px;
+}
+  .block-one-p3{
+    line-height: 24.5px;
+    color: $lightgray;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .ul-block-one{
+    margin-left: 20px;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 400;
+    color: $lightgray;
+  }
+  .block-two {
+    display: flex;
+    flex-direction: column;
+    margin-left: 66px;
+    .clock{
+      height: 12px;
+      margin-left: 120px;
+      background: url("pictures/clock3.png") no-repeat;
+    }
+    &-top {
+      background: url("pictures/block two top.png") no-repeat;
+      height: 70px;
+      margin-bottom: 25px;
+      &-date{
+        height: 12px;
+        margin-left: 15px;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        color: $lightgray;
+      }
+      &-p{
+        margin: 0 0 10px 120px;
+        color: $lightgray;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+    &-bottom{
+      background: url("pictures/block two bottom.png") no-repeat;
+      height: 70px;
+      &-p{
+        margin: 0 0 10px 120px;
+        color: $lightgray;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+  .block-three{
+    padding-left: 61px;
+    width: 270px;
+    &-p{
+      color: $lightgray;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      margin-top: 25px;
+    }
+    &-button{
+      border: 0;
+      background: $white;
+      margin-left: 15px;
+      border-radius: 70px;
+    }
+    &-input{
+      border-radius: 70px;
+      border: 0;
+      height: 49px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: $lightgray;
+      margin-left: 10px;
+      padding-left: 24px;
+    }
+  }
+.input{
+  display: flex;
+  height: 51px;
+  width: 270px;
+  border-radius: 70px;
+  background: $white;
+  border: 0;
 }
