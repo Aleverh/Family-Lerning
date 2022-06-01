@@ -1,0 +1,225 @@
+@import "./nullstyle";
+//vars
+$bt: #000000;
+$wt: #ffffff;
+$gt: #888787;
+$pink: #f64872;
+$blue: #001aff;
+$defaultFontFamily: "Open Sans";
+$gradient: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #ffffff;
+
+//templates
+%shadow {
+	box-shadow: -3px 6px 11px -2px #6a696933;
+}
+
+//mixins
+@mixin font ($f, $z, $w, $lh, $c: #474747) {
+	font-family: $f;
+	font-size: $z;
+	font-weight: $w;
+	line-height: $lh;
+	color: $c;
+}
+
+.wrapper {
+	overflow: hidden;
+	max-width: 100%;
+	background-color: #fafafa;
+}
+
+@function getFontSize($size) {
+	@return ($size / $defaultFontSize)+rem
+}
+
+
+h4 {
+	@include font($defaultFontFamily, getFontSize(18px), 700, 1, $bt)
+}
+
+h5 {
+	@include font($defaultFontFamily, getFontSize(36px), 600, 1)
+}
+
+.content {
+	margin: 0 auto;
+	width: 1544px - 375px;
+}
+
+.header {
+	margin-top: 50px;
+	display: flex;
+	justify-content: space-between;
+	h2 {
+		@include font(Inter, getFontSize(40px), 800, getFontSize(48px));
+		background: $gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+	.nav {
+		width: 78.9563%;
+		display: grid;
+		grid-template-rows: repeat(2, auto);
+		grid-template-columns: repeat(7, auto);
+		align-items: end;
+		justify-content: space-between;
+		&__link {
+			@include font($defaultFontFamily, getFontSize(20px), 600, 1);
+			padding: 7px 1px;
+		}
+		&__linkUnderline {
+			border: 2.5px solid $pink;
+			border-radius: 2.5px;
+			background-color: $pink;
+			align-self: start;
+		}
+		&__button {
+			padding: 7px 1px;
+			background-color: #ffffff;
+			position: relative;
+		}
+		&__button::after{
+			background: url('../img/arrow.png');
+			position: absolute;
+			left: -100px;
+		}
+	}
+}
+
+.front {
+	margin-top: 67px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	h3 {
+		@include font($defaultFontFamily, getFontSize(48px), 600, getFontSize(65px))
+	}
+	p{
+		@include font($defaultFontFamily, getFontSize(18px), 400, getFontSize(25px),$bt)
+	}
+	&__decorationList {
+		li {
+			width: 10px;
+			height: 10px;
+			margin-bottom: 6.86px;
+		}
+	}
+	&__decorationList:last-child{
+		margin: 0;
+	}
+	&__img{
+		grid-row: span 4;
+	}
+	&__button {
+		width: 251px;
+		height: 74px;
+		border-radius: 18px;
+		background: $gradient;
+		@include font($defaultFontFamily,  getFontSize(20px), 800, getFontSize(27px), $wt)
+	}
+}
+
+.amazingServices {
+	&__infoCard {}
+}
+
+.infoCard {
+	&__title {}
+
+	&__text {}
+}
+
+.ourCompany {}
+
+.difference {}
+
+.statistic {
+
+	&__amount {}
+
+	&__title {}
+
+	&__description {}
+}
+
+.p {}
+
+.pricingPlan {}
+
+.best {}
+
+.pricingCard {
+
+	&__price {}
+
+	&__name {}
+
+	&__list {}
+}
+
+.signUp {}
+
+.testimonials {}
+
+.testimonialsCard {}
+
+.button-prev {}
+
+.name {}
+
+.profession {}
+
+.comment {}
+
+.stars {}
+
+.buttton-next {}
+
+.latestNews {}
+
+.newsBlock {
+
+	&__card {}
+}
+
+.news {
+
+	&__photo {}
+
+	&__button {}
+
+	&__title {}
+
+	&__text {}
+
+	&__creator {}
+}
+
+.creator {
+
+	&__photo {}
+
+	&__name {}
+
+	&__postDate {}
+}
+
+.contactUS {}
+
+.buton-contactUs {}
+
+.footer {}
+
+.contacts {}
+
+.extraLinks {}
+
+.resentPost {
+
+	&__title {}
+
+	&__date {}
+}
+
+.emailInput {}
