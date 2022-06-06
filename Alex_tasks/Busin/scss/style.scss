@@ -1,4 +1,5 @@
 @import "./nullstyle";
+
 //vars
 $bt: #000000;
 $wt: #ffffff;
@@ -7,14 +8,14 @@ $pink: #f64872;
 $blue: #001aff;
 $defaultFontFamily: "Open Sans";
 $gradient: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #ffffff;
+$contentWidth: 1544px - 375px;
 
-//templates
-%shadow {
-	box-shadow: -3px 6px 11px -2px #6a696933;
-}
+// mixins
+// ??????????????????????????!!!!!!!!!!!!!!!!!!!!!!!!!!????????????????????!
+@mixin font ($f
 
-//mixins
-@mixin font ($f, $z, $w, $lh, $c: #474747) {
+	/* :"Open Sans" */
+	, $z, $w, $lh, $c: #474747) {
 	font-family: $f;
 	font-size: $z;
 	font-weight: $w;
@@ -22,41 +23,81 @@ $gradient: linear-gradient(270deg, #430CB9 3.66%, #9E00FF 108.54%), #ffffff;
 	color: $c;
 }
 
-.wrapper {
-	overflow: hidden;
-	max-width: 100%;
-	background-color: #fafafa;
+@mixin position ($pos, $top, $bott) {
+	position: $pos;
+	top: $top;
+	left: $bott;
 }
 
 @function getFontSize($size) {
 	@return ($size / $defaultFontSize)+rem
 }
 
+@function getObjWidth($pxWidth) {
+	@return ($pxWidth/$contentWidth*100%)
+}
+
+%shadow {
+	box-shadow: -3px 6px 11px -2px #6a696933;
+}
+
+%gradientText {
+	text-transform: uppercase;
+	background: $gradient;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-transform: uppercase;
+	@include font($defaultFontFamily, getFontSize(20px), 800, getFontSize(27.24px), );
+}
+
+%block {
+	flex-shrink: 0;
+	width: getObjWidth(780px);
+	background: #ffffff;
+	border-radius: 30px;
+}
+
+%defaultText {
+	@include font($defaultFontFamily, getFontSize(15px), 400, getFontSize(20.43px), )
+}
+
+%center {
+	@include position(absolute, 50%, 50%);
+	transform: translate(-50%, -50%);
+}
+
+.wrapper {
+	overflow: hidden;
+	max-width: 100%;
+	background-color: #fafafa;
+	font-family: $defaultFontFamily;
+}
 
 h4 {
-	@include font($defaultFontFamily, getFontSize(18px), 700, 1, $bt)
+	@include font($defaultFontFamily, getFontSize(18px), 700, getFontSize(25px), $bt)
 }
 
 h5 {
-	@include font($defaultFontFamily, getFontSize(36px), 600, 1)
+	@include font($defaultFontFamily, getFontSize(36px), 600, getFontSize(49px))
 }
 
 .content {
 	margin: 0 auto;
-	width: 1544px - 375px;
+	width: $contentWidth;
 }
 
 .header {
 	margin-top: 50px;
 	display: flex;
 	justify-content: space-between;
+
 	h2 {
-		@include font(Inter, getFontSize(40px), 800, getFontSize(48px));
-		background: $gradient;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
+		@include font(Inter, getFontSize(40px), 800, getFontSize(48px), );
+		text-transform: uppercase;
+		@extend %gradientText
 	}
+
 	.nav {
 		width: 78.9563%;
 		display: grid;
@@ -64,90 +105,311 @@ h5 {
 		grid-template-columns: repeat(7, auto);
 		align-items: end;
 		justify-content: space-between;
+
 		&__link {
 			@include font($defaultFontFamily, getFontSize(20px), 600, 1);
 			padding: 7px 1px;
 		}
+
 		&__linkUnderline {
 			border: 2.5px solid $pink;
 			border-radius: 2.5px;
 			background-color: $pink;
 			align-self: start;
 		}
+
 		&__button {
 			padding: 7px 1px;
-			background-color: #ffffff;
+			background-color: #fafafa;
 			position: relative;
 		}
-		&__button::after{
-			background: url('../img/arrow.png');
-			position: absolute;
-			left: -100px;
-		}
+
+		// &__button::after {
+		// 	content: '';
+		// 	background: url('../img/arrow.png');
+		// 	position: absolute;
+		// 	left: -100px;
+		// }
 	}
 }
 
+// -----------------------------------------
+
 .front {
 	margin-top: 67px;
-	display: grid;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
-	grid-template-columns: 1fr 1fr;
+	height: 639px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+
 	h3 {
-		@include font($defaultFontFamily, getFontSize(48px), 600, getFontSize(65px))
+		@include font($defaultFontFamily, getFontSize(48px), 600, getFontSize(65px));
+		width: 55.60%;
+		margin-right: 23px;
 	}
-	p{
-		@include font($defaultFontFamily, getFontSize(18px), 400, getFontSize(25px),$bt)
+
+	p {
+		@include font($defaultFontFamily, getFontSize(18px), 400, getFontSize(25px), $bt);
+		width: 35.67%;
+		margin-top: 26px;
 	}
+
 	&__decorationList {
+		margin-top: 58px;
+
 		li {
 			width: 10px;
 			height: 10px;
 			margin-bottom: 6.86px;
 		}
 	}
-	&__decorationList:last-child{
+
+	&__decorationList:last-child {
 		margin: 0;
 	}
-	&__img{
-		grid-row: span 4;
-	}
+
 	&__button {
+		margin-top: 46.86px;
 		width: 251px;
 		height: 74px;
 		border-radius: 18px;
 		background: $gradient;
-		@include font($defaultFontFamily,  getFontSize(20px), 800, getFontSize(27px), $wt)
+		@include font($defaultFontFamily, getFontSize(20px), 800, getFontSize(27px), $wt);
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }
 
+// -----------------------------------------
+
 .amazingServices {
-	&__infoCard {}
+	margin-top: 200px;
+
+	h4 {}
+
+	h5 {
+		margin-top: 27px;
+		width: getObjWidth(574px);
+	}
+
+	&__content {
+		margin-top: 78px;
+		display: grid;
+		grid-template-rows: repeat(2, 157px) auto;
+		grid-template-columns: auto repeat(2, getObjWidth(366px));
+
+		>img {
+			grid-row: 1/4;
+		}
+	}
+
+	&__infoCard {
+		display: grid;
+		grid-template-rows: 25px 60px;
+		grid-template-columns: repeat(2, auto);
+	}
+
+	a {
+		@extend %gradientText;
+		margin-top: 12px;
+	}
+
+	a:after {
+		content: '';
+
+	}
+
+	.infoCard {
+		&__circle {
+			grid-row: span 2;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background: #ffffff;
+			@extend %shadow;
+			position: relative;
+			margin-right: 25px;
+
+			img {
+				@extend %center;
+			}
+		}
+
+		&__title {
+			@include font($defaultFontFamily, getFontSize(18px), 700, getFontSize(24.51px), );
+
+		}
+
+		&__text {
+			@extend %defaultText;
+			margin-top: 22px;
+		}
+
+	}
 }
 
-.infoCard {
-	&__title {}
 
-	&__text {}
+// -----------------------------------------
+.ourCompany {
+	margin-top: 107px;
+	display: flex;
+
+	&__block {
+		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		// @extend %block;
+		flex-shrink: 0;
+		width: getObjWidth(780px);
+		background: #ffffff;
+		border-radius: 30px;
+		height: 455px;
+		padding-left: 66px;
+
+		h4 {
+			margin-top: 70px;
+		}
+
+		h5 {
+			width: 531px;
+			margin-top: 30px;
+		}
+
+		p {
+			width: 470px;
+			margin-top: 20px;
+			@extend %defaultText;
+		}
+
+		a {
+			// !!!!!!!!!!!!!!!!?????????????????!!!!!margin not work
+			@extend %gradientText;
+			margin-top: 40px;
+		}
+	}
+
+	span {
+		z-index: 21;
+		@include position(relative, 60px, -45px);
+		flex-shrink: 0;
+
+		&::after {
+			content: url(../img/Subtract.png);
+			@include position(absolute, -60px, 230px);
+		}
+	}
 }
 
-.ourCompany {}
+// -----------------------------------------
 
-.difference {}
+.difference {
+	margin-top: 102px;
+	display: flex;
 
-.statistic {
+	>span {
+		z-index: 20;
+		position: relative;
+		flex-shrink: 0;
 
-	&__amount {}
+		&::before {
+			content: url(../img/Subtract.png);
+			transform: rotate(180deg);
+			@include position(absolute, 231px, -67px);
+		}
+	}
 
-	&__title {}
+	&__block {
+		@include position(relative, 60px, -29px);
+		@extend %block;
+		height: 713px;
+		padding-left: 105px;
 
-	&__description {}
+		h4 {
+			margin-top: 70px;
+		}
+
+		h5 {
+			margin-top: 30px;
+			width: 445px;
+		}
+
+		>p {
+			@extend %defaultText;
+			margin-top: 8px;
+			width: 626px;
+		}
+
+		&__statistic {
+			margin-top: 40px;
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+
+			:first-child .statistic {
+				&__amount {
+					span {
+						color: $blue;
+
+						&::after {
+							font-family: 'Open Sans';
+							@include font($defaultFontFamily, getFontSize(24px), 700, getFontSize(33px), $blue);
+							content: '+';
+							@include position(relative, -26px, -4px);
+						}
+					}
+				}
+			}
+
+			;
+
+			.statistic {
+				width: 344px;
+				display: grid;
+				grid-template-rows: 21px auto;
+				grid-template-columns: repeat(2, auto);
+
+				&__amount {
+					margin-right: 25px;
+					grid-row: span 2;
+					width: 118px;
+					height: 118px;
+					border-radius: 50%;
+					@extend %shadow;
+					background: #ffffff;
+					position: relative;
+
+					span {
+						@extend %center;
+						@include font($defaultFontFamily, getFontSize(40px), 700, getFontSize(54px), $pink);
+					}
+				}
+
+				&__title {
+					margin-top: 8px;
+					@include font($defaultFontFamily, getFontSize(20px), 800, getFontSize(27px), $bt )
+				}
+
+				&__text {
+					margin-top: 22px;
+					@extend %defaultText;
+				}
+			}
+		}
+	}
 }
 
-.p {}
+// -----------------------------------------
 
-.pricingPlan {}
+.pricingPlan {
+	margin-top: 100px;
+	min-height: 100%;
+	min-width: 100%;
+	background: url('../img/Rectangle25.png') center/cover no-repeat;
+}
 
-.best {}
 
 .pricingCard {
 
@@ -159,6 +421,8 @@ h5 {
 }
 
 .signUp {}
+
+// -----------------------------------------
 
 .testimonials {}
 
@@ -175,6 +439,8 @@ h5 {
 .stars {}
 
 .buttton-next {}
+
+// -----------------------------------------
 
 .latestNews {}
 
@@ -204,6 +470,8 @@ h5 {
 
 	&__postDate {}
 }
+
+// -----------------------------------------
 
 .contactUS {}
 
