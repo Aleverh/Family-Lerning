@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home work</title>
+    <style>
+        .block-to-clone {
+            width: 100px;
+            background: red;
+        }
+        .block-to-clone-blue {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>
+            <div class="block-to-clone">
+                Element to clone
+            </div>
+            <button class="clone-button">clone element</button>
+            <button class="clone-red-block-button">clone element with red color</button>
+            <button class="rand-color-button">get random color</button>
+            <button class="reset-button">reset</button>
+        </div>
+    </div>
+    <script>
+        const cloneButton = document.querySelector('.clone-button');
+        const blockToClone = document.querySelector('.block-to-clone');
+        cloneButton.onclick = () => {
+            const clonedBlock = blockToClone.cloneNode(true);
+            const wrapper = document.querySelector('.wrapper');
+            wrapper.append(clonedBlock);
+        };
+        const cloneRedBlockButton = document.querySelector('.clone-red-block-button');
+        cloneRedBlockButton.onclick = () => {
+            const clonedBlock = blockToClone.cloneNode(true);
+            const wrapper = document.querySelector('.wrapper');
+            clonedBlock.classList.add('block-to-clone-blue');
+            wrapper.append(clonedBlock);
+        };
+        const getRandColor = document.querySelector('.rand-color-button');
+        const blockToCloneStyle = getComputedStyle(blockToClone);
+        getRandColor.onclick = () => {
+            blockToClone.style.width = parseInt(blockToCloneStyle.width) + 100 +"px";
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            blockToClone.style.background = "#" + randomColor;
+        };
+        const resetButton = document.querySelector('.reset-button');
+        resetButton.onclick = () => {
+            blockToClone.style.cssText = blockToCloneStyle;
+        };
+        blockToClone.mouseover = () => {
+            blockToClone.classList.toggle('block-to-clone-blue');
+            const addedText = blockToClone.createTextNode('Hovered');
+            addedText.append(blockToClone);
+        };
+        /*
+        * Добавить функционал для кнопки clone-button который будет клонировать элемент block-to-clone и ставить его в конец wrapper
+        * -------------------------------------
+        * Добавить функционал для кнопки clone-red-block-button который будет клонировать элемент block-to-clone и ставить его в конец wrapper
+        * и так же менять его цвет и в конец текста будет добавлять слово "(Cloned)"
+        * -------------------------------------
+        * добавить кнопку по нажатии которой будет меняться цвет на рандомный, и так увеличиваться длина элемента на 100px
+        * -------------------------------------
+        * добавить кнопку "Reset button" которая будет возвращать элемент в его дефолтное состояние
+        * -------------------------------------
+        * Добавить событие которое при наведении на элемент будет добавлять слово "(Hovered)" менять цвет на синий,
+        * а когда юзер уберет курсор то возвращать все обратно
+        *
+        * */
+    </script>
+</body>
+
+</html>
