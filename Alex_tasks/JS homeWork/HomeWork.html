@@ -54,14 +54,15 @@
             blockToClone.style.cssText = blockToCloneStyle;
         };
         const content = blockToClone.innerHTML;
-        const addedText = " hovered"
+        let addedText = document.createElement('span');
+        addedText.innerHTML = " hovered";
         blockToClone.onmouseover = () => {
             blockToClone.classList.toggle('block-to-clone-blue');
             blockToClone.append(addedText);
         };
         blockToClone.onmouseout = () => {
             blockToClone.classList.toggle('block-to-clone-blue');
-            blockToClone.remove();
+            addedText.remove();
         };
         /*
         * Добавить функционал для кнопки clone-button который будет клонировать элемент block-to-clone и ставить его в конец wrapper
