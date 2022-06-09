@@ -392,19 +392,16 @@ body {
 }
 
 .ideas__h5 {
-  margin: 70px 0px 30px 8.46%;
+  margin: 70px 0px 30px 0px;
+  padding-left: 100px;
 }
 
 .ideas__h3 {
-  margin: 0px 23.46% 20px 8.46%;
+  margin: 0px 23.46% 20px 50px;
 }
 
 .ideas__p {
-  margin: 0px 31.28% 40px 8.46%;
-}
-
-.ideas .button {
-  margin-left: 8.46%;
+  margin: 0px 31.28% 40px 70px;
 }
 
 .experience {
@@ -609,7 +606,6 @@ body {
 }
 
 .plan-basic__price_mod {
-  margin-left: 16px;
   margin: 40px 0 360px 16px;
 }
 
@@ -944,7 +940,6 @@ body {
 }
 
 .footer__ul {
-  width: 234px;
   display: flex;
   gap: 55px;
   line-height: 28px;
@@ -992,10 +987,6 @@ body {
 .footer .form-input {
   border-radius: 70px;
   padding-left: 24px;
-}
-
-.footer .form__p {
-  margin-top: 25px;
 }
 
 .footer .input-button {

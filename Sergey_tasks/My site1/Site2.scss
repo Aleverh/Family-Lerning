@@ -9,6 +9,7 @@ $black: #000;
 
 body{
    background: $light;
+   
 }
 %type-text15{
    font-family: 'Open Sans';
@@ -295,22 +296,24 @@ body{
       background: $white;
       border-radius: 30px;
       position: relative;
+      // padding-left: 8.46%;
    }
    &__h5{
       @extend %type-text18-h5;
-      margin: 70px 0px 30px 8.46%;
+      margin: 70px 0px 30px 0px;
+      padding-left: 100px;
    }
    &__h3{
       @extend %type-text36-h3;
-      margin: 0px 23.46% 20px 8.46%;
+      margin: 0px 23.46% 20px 50px;
    }
    &__p{
       @extend %type-text15;
-      margin: 0px 31.28% 40px 8.46%;
+      margin: 0px 31.28% 40px 70px;
    }
-   .button{
-      margin-left: 8.46%;
-   }
+   // .button{
+   //    margin-left: 8.46%;
+   // }
    //-------------------------------------------------------
 }
 .experience{
@@ -498,7 +501,7 @@ body{
       margin: 40px 0 360px 37px;
    }
    &-basic__price_mod{
-      margin-left: 16px;
+      // margin-left: 16px;
       margin: 40px 0 360px 16px;
    }
    &-standard__price{
@@ -799,12 +802,11 @@ body{
       margin-bottom: 15px;
    }
    &-inf__text1{
-      width: 252px;
+      width: 252px;//???????????????????????
       line-height: 25px;
       margin-top: 25px;
    }
    &__ul{
-      width: 234px;
       display: flex;
       gap: 55px;
       @extend %type-text15-400;
@@ -851,7 +853,6 @@ body{
    }
    .form__p{
       @extend %type-text14;
-      margin-top: 25px;
    }
    .input-button{
       display: flex;
