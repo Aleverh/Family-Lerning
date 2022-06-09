@@ -53,10 +53,15 @@
         resetButton.onclick = () => {
             blockToClone.style.cssText = blockToCloneStyle;
         };
-        blockToClone.mouseover = () => {
+        const content = blockToClone.innerHTML;
+        const addedText = " hovered"
+        blockToClone.onmouseover = () => {
             blockToClone.classList.toggle('block-to-clone-blue');
-            const addedText = blockToClone.createTextNode('Hovered');
-            addedText.append(blockToClone);
+            blockToClone.append(addedText);
+        };
+        blockToClone.onmouseout = () => {
+            blockToClone.classList.toggle('block-to-clone-blue');
+            blockToClone.remove();
         };
         /*
         * Добавить функционал для кнопки clone-button который будет клонировать элемент block-to-clone и ставить его в конец wrapper
