@@ -9,7 +9,11 @@ $black: #000;
 
 body{
    background: $light;
+<<<<<<< HEAD
    
+=======
+   overflow-x: hidden;
+>>>>>>> 780329527185ccc2e1c27dca2bfa3d445bfa7272
 }
 %type-text15{
    font-family: 'Open Sans';
@@ -83,6 +87,14 @@ body{
    font-style: normal;
    font-weight: 400;
    font-size: 18px;
+}
+%absolute-background-image {
+   content: '';
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   z-index: 1;
+   background-repeat: no-repeat;
 }
 .button{
    width: 251px;
@@ -208,7 +220,6 @@ body{
    background: $light;
    margin-bottom: 107px;
    .container{
-      margin-bottom: 100px;
       flex-direction: column;
    }
    &__h5{
@@ -265,29 +276,20 @@ body{
 .ideas{
    background: $light;
    margin-bottom: 40px;
-   .container::after{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 85%;
-      z-index: 0;
-      background: url("Images/Subtract2.png");
-      background-repeat: no-repeat;
-   }
-   .container::before{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 60px;
-      left: 62.7%;
-      z-index: 1;
-      background: url("Images/unsplash_nF8xhLMmg0c.png");
-      background-repeat: no-repeat;
-   }
    .container{
       position: relative;
+      &:after {
+         @extend %absolute-background-image;
+         left: 85%;
+         z-index: 0;
+         background-image: url("Images/Subtract2.png");
+      }
+      &:before {
+         @extend %absolute-background-image;
+         top: 60px;
+         left: 62.7%;
+         background-image: url("Images/unsplash_nF8xhLMmg0c.png");
+      }
    }
    &__text{
       width: 66.66%;
@@ -296,6 +298,7 @@ body{
       background: $white;
       border-radius: 30px;
       position: relative;
+<<<<<<< HEAD
       // padding-left: 8.46%;
    }
    &__h5{
@@ -310,6 +313,23 @@ body{
    &__p{
       @extend %type-text15;
       margin: 0px 31.28% 40px 70px;
+=======
+      padding-left: 8.46%;
+      padding-top: 70px;
+      padding-bottom: 20px;
+   }
+   &__h5{
+      @extend %type-text18-h5;
+      margin: 0 0px 30px 0;
+   }
+   &__h3{
+      @extend %type-text36-h3;
+      margin: 0px 23.46% 20px 0;
+   }
+   &__p{
+      @extend %type-text15;
+      margin: 0px 31.28% 40px 0;
+>>>>>>> 780329527185ccc2e1c27dca2bfa3d445bfa7272
    }
    // .button{
    //    margin-left: 8.46%;
@@ -319,29 +339,20 @@ body{
 .experience{
    background: $light;
    margin-bottom: 100px;
-   .container::after{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 250px;
-      right: 8%;
-      z-index: 0;
-      background: url("Images/Subtract1.png");
-      background-repeat: no-repeat;
-   }
-   .container::before{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 1;
-      background: url("Images/unsplash_376KN_ISplE.png");
-      background-repeat: no-repeat;
-   }
+
    .container{
       justify-content: flex-end;
       position: relative;
+      &:after {
+         @extend %absolute-background-image;
+         top: 250px;
+         z-index: 0;
+         background-image: url("Images/Subtract1.png");
+      }
+      &:before{
+         @extend %absolute-background-image;
+         background-image: url("Images/unsplash_376KN_ISplE.png");
+      }
    }
    &-inf{
       width: 55%;
@@ -449,7 +460,6 @@ body{
       margin-bottom: 60px;
    }
    &-menu{
-      height: 529px;
       display: flex;
       gap: 15px;
       margin-bottom: 98px;
@@ -461,6 +471,12 @@ body{
       border-radius: 25px;
       display: flex;
       gap: 23px;
+   }
+   &-basic, &-standard, &-premium {
+      padding: 40px;
+   }
+   &-basic__inf, &-standard__inf {
+      margin-top: 60px;
    }
    &-premium__mod{
       gap: 12px;
@@ -474,6 +490,7 @@ body{
       align-self: start;
       position: relative;
       z-index: 0;
+      padding-top: 60px;
    }
    .plan-standard::before{
       content: 'Best';
@@ -491,24 +508,30 @@ body{
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: -43px 0 0 74.2%;
-      
+      //margin: -43px 0 0 74.2%;
+      top: -43px;
+      right: 20px;
    }
    &-basic__price{
       display: flex;
       flex-direction: column;
       gap: 5px;
-      margin: 40px 0 360px 37px;
+      //margin: 40px 0 360px 37px;
    }
    &-basic__price_mod{
+<<<<<<< HEAD
       // margin-left: 16px;
       margin: 40px 0 360px 16px;
+=======
+      //margin-left: 16px;
+      //margin: 40px 0 360px 16px;
+>>>>>>> 780329527185ccc2e1c27dca2bfa3d445bfa7272
    }
    &-standard__price{
       display: flex;
       flex-direction: column;
       // gap: 5px;
-      margin: 64px 0 360px 26px;
+      //margin: 64px 0 360px 26px;
    }
    .price__icon{
       height: 87px;
@@ -523,7 +546,7 @@ body{
       font-family: 'Open Sans';
       font-weight: 400;
       font-size: 11px;
-      line-height: 15px;      
+      line-height: 15px;
       text-align: center;
       color: $light-grey;
    }
@@ -531,13 +554,13 @@ body{
       display: flex;
       flex-direction: column;
       align-self: end;
-      margin: 68px 35px 52px 0;
+      //margin: 68px 35px 52px 0;
    }
    &-standard__inf{
       display: flex;
       flex-direction: column;
       align-self: end;
-      margin: 110px 35px 52px 0;
+      //margin: 110px 35px 52px 0;
    }
   &-basic__h4{
       @extend %type-text22-30;
@@ -597,7 +620,6 @@ body{
       margin-bottom: 79px;
    }
    &__slider{
-      width: 100%;
       display: flex;
       align-items: center;
       gap: 38px;
@@ -613,27 +635,33 @@ body{
    &-name-text{
       display: flex;
       flex-direction: column;
+      padding: 0 65px;
    }
    &__h5{
       font-family: 'Open Sans';
       font-weight: 700;
       font-size: 20px;
       line-height: 27px;
-      margin: 43px 0 15px 65px;
+      margin-top: 43px;
+      margin-bottom: 15px;
+      //margin: 43px 0 15px 65px;
    }
    &__p{
       @extend %type-text15;
-      margin: 0 0 30px 65px;
+      margin-bottom: 30px;
+      //margin: 0 0 30px 65px;
       color: $light-grey;
    }
    &__p1{
       @extend %type-text18-400;
       line-height: 29px;
       color: $light-grey;
-      margin: 0 56px 30px 65px;
+      margin-bottom: 30px;
+      //margin: 0 56px 30px 65px;
    }
    &__stars{
-      margin: 0 0 42px 65px;
+      margin-bottom: 42px;
+      //margin: 0 0 42px 65px;
    }
 }
 //-------------------------------------------------------
@@ -647,30 +675,22 @@ body{
       position: absolute;
       margin: 710px 92.96% 0px 4.8%;
    }
-   .container::after{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      margin: 600px 0 0 -8% ;
-      z-index: -1;
-      background: url("Images/Subtract1.png");
-      background-repeat: no-repeat;
-   }
-   .container::before{
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      margin: 10% 0 0 85% ;
-      z-index: -1;
-      background: url("Images/Subtract2.png");
-      background-repeat: no-repeat;
-   }
    .container{
       flex-direction: column;
       z-index: 1;
       position: relative;
+      &:before{
+         @extend %absolute-background-image;
+         margin: 10% 0 0 85%;
+         z-index: -1;
+         background-image: url("Images/Subtract2.png");
+      }
+      &:after{
+         @extend %absolute-background-image;
+         margin: 600px 0 0 -8%;
+         z-index: -1;
+         background-image: url("Images/Subtract1.png");
+      }
    }
    &__title{
       @extend %type-text18-h5;
@@ -690,11 +710,15 @@ body{
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 25px;
       flex: 0;
+      & > div {
+         padding: 40px 25px;
+      }
    }
    .button-exp{
       width: 116px;
       height: 34px;
-      margin: 40px 0 32px 25px;
+      margin-bottom: 32px;
+      //margin: 40px 0 32px 25px;
       background: $blue;
       box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
       border-radius: 7px;
@@ -705,18 +729,19 @@ body{
    &-blocks__p{
       @extend %type-text18-h5;
       margin-bottom: 15px;
-      margin-left: 25px;
+      //margin-left: 25px;
    }
    &-blocks__text{
       width: 82.43%;
-      margin: 0 0 40px 25px;
+      //margin: 0 0 40px 25px;
+      margin-bottom: 40px;
       @extend %type-text15;
       color: $light-grey;
    }
    .logo{
       display: flex;
       gap: 16px;
-      margin: 0 0 36px 25px;
+      //margin: 0 0 36px 25px;
    }
    .logo__text{
       display: flex;
@@ -746,23 +771,28 @@ body{
    .container{
       background: url(Images/Rectangle%2037.png);
       justify-content: space-between;
+      border-radius: 10px;
    }
    &__text{
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+      padding: 80px;
+      padding-bottom: 0px;
    }
    &__p{
       @extend %type-text18-h5;
-      margin: 85px 0 27px 86px;
+      margin-top: 65px;
+      //margin: 85px 0 27px 86px;
    }
    &__h3{
       @extend %type-text36-h3;
-      margin: 0px 0px 59px 86px;
+      margin-bottom: 60px;
+      //margin: 0px 0px 59px 86px;
    }
    .button{
-      margin-left: 86px;
+      //margin-left: 86px;
    }
 }
 //-------------------------------------------------------
@@ -774,7 +804,11 @@ body{
       display: flex;
       align-items: center;
       gap: 200px;
+      //justify-content: space-between;
       margin-bottom: 45px;
+      & > h5{
+         flex: 1;
+      }
    }
    .logotype{
       @extend %text-gradient;
@@ -838,29 +872,30 @@ body{
       color: $light-grey;
    }
    .posts-form{
-      height: 51px;
-      background: $white;
-      box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
-      border-radius: 70px;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
    }
    .form-input{
       border-radius: 70px;
       @extend %type-text14;
-      padding-left: 24px;
    }
    .form__p{
       @extend %type-text14;
    }
    .input-button{
+      padding-left: 24px;
+      height: 51px;
+      background: $white;
+      box-shadow: -3px 6px 11px -2px rgba(106, 105, 105, 0.2);
+      border-radius: 70px;
+      display: flex;
+      //flex-direction: column;
+      gap: 25px;
       display: flex;
    }
    .button-circle{
       width: 51px;
       height: 51px;
       box-shadow: none;
+      background: $white;
    }
 }
 
