@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>lesson 7</title>
+</head>
+<body>
+
+<!--<h3>some text <em>some other text</em></h3>-->
+<!--<form action="" onclick="alert('form')">-->
+<!--    <div onclick="alert('div')">-->
+<!--        <p>-->
+<!--            some text-->
+<!--            <input onclick="alert('input')">-->
+<!--        </p>-->
+<!--    </div>-->
+<!--</form>-->
+<table border="1px" cellpadding="10px">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>1.1</td>
+        <td>2.2</td>
+        <td>3.3</td>
+        <td>4.4</td>
+    </tr>
+</table>
+
+<script>
+
+    // const h3 = document.querySelector('h3');
+    // const p = document.querySelector('input');
+
+    // h3.addEventListener('click', () => {
+    //     console.log('click on h3 element');
+    // });
+    // p.addEventListener('click', (event) => {
+    //     console.log(event.target);
+    //     console.log(event.currentTarget);
+    //     alert('p');
+    //     // event.stopPropagation();
+    // }, { capture: true })
+    // ------------------
+    // const tableCells = document.querySelectorAll('td');
+    // for(let cell of tableCells) {
+    //     cell.addEventListener('click', () => {
+    //         console.log(cell.textContent);
+    //     })
+    // }
+    // ------------------
+    const table = document.querySelector('table');
+
+    table.addEventListener('click', (event) => {
+        const cell = event.target;
+
+        if (cell.tagName === "TD") {
+            console.log(cell.textContent);
+        }
+    });
+</script>
+</body>
+</html>
