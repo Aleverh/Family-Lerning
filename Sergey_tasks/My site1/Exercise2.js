@@ -1,35 +1,39 @@
 "use strict";
 
-const button = document.querySelector("button");
-const block = document.getElementsByClassName("block-to-clone") [0];
-const wrapper = document.getElementsByClassName("wrapper") [0];
+const button = document.querySelector(".clone-button");
+const block = document.querySelector(".block-to-clone");
+const wrapper = document.querySelector(".wrapper");
 button.addEventListener("click", () => {
-   const blockClon = block.cloneNode(true);
+   const blockClon = block.cloneNode(true); 
    wrapper.append(blockClon);
 } 
 );
 //--------------------------------------------------------------------
 const buttonClone = document.querySelectorAll(".clone-red-block-button")[0];
-const text = document.createElement("span");
-// text.className = "text-in-buttonClone";
-text.textContent = "Cloned";
-text.style.color = "white";
+// const text = document.createElement("span");
+// // text.className = "text-in-buttonClone";
+// text.textContent = "Cloned";
+// text.style.color = "white";
 buttonClone.addEventListener("click", () => {
    const blockClon1 = block.cloneNode(true);
-   blockClon1.className = "block-to-clone-blue";
-   blockClon1.append(text);
+   blockClon1.classList.add("block-to-clone-blue");
+
+   const text = document.createElement("span");
+   text.className = "text-in-buttonClone";
+   text.textContent = "Cloned";
+   text.style.color = "white";
+
    wrapper.append(blockClon1);
+   blockClon1.append(text);
 } 
 );
 //---------------------------------------------------------------------
 const buttonRandom = document.createElement("button") ;
-buttonRandom.className = "button-random";
+// buttonRandom.className = "button-random";
 // button.button-random.style.color = "yellow";
-
 buttonRandom.textContent = "Random Button"; 
 buttonRandom.style.marginRight = 5 + "px";
 buttonRandom.style.marginBottom = 5 + "px";
-
 wrapper.append(buttonRandom);
 buttonRandom.addEventListener("click", () => {
    block.style.width = 200 + "px" ;
@@ -47,17 +51,17 @@ buttonReset.addEventListener("click", () => {
   }
 );
 //-----------------------------------------------------------------------
-// function handlerMouse(event) {
-//    const textHover = document.createElement("span");
-//    textHover.textContent = "Hovered";
-//    textHover.style.backgroundColor = "blue";
-//    textHover.style.color = "white";
-//    textHover.className = "text-hover";
-//    block.append(textHover);
-// }
-// button.addEventListener("mouseover", handlerMouse);
-// button.addEventListener("mouseleave", () => {
-//    const textHoverClass = document.querySelector(".text-hover");
-//    textHoverClass.remove("text-hover");
-// });
+function handlerMouse(event) {
+   const textHover = document.createElement("span");
+   textHover.textContent = "Hovered";
+   textHover.style.backgroundColor = "blue";
+   textHover.style.color = "white";
+   textHover.className = "text-hover";
+   block.append(textHover);
+}
+   block.addEventListener("mouseover", handlerMouse);
+   block.addEventListener("mouseleave", () => {
+   const textHoverClass = document.querySelector(".text-hover");
+   textHoverClass.remove("text-hover");
+});
 
