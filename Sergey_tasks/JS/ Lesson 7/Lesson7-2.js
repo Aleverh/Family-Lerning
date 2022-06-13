@@ -2,7 +2,8 @@
 const buttonNewGame = document.querySelector(".btn--new");
 buttonNewGame.addEventListener("click", () =>{
    const score = document.querySelectorAll(".score");
-   score[0].textContent = score[1].textContent = 0;
+   score[0].textContent = 0;
+   score[1].textContent = 0;
    clearStyle();
    clearStyle1();
 })
