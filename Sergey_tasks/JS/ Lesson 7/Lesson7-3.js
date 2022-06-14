@@ -4,11 +4,11 @@ const overlay = document.querySelector(".overlay");
 const button = document.querySelectorAll(".show-modal");
 const parent = document.querySelector(".button-parent");
 //--Открытие модального окна при нажатии на кнопки--------
-parent.addEventListener("click",  verify);
-function verify(item){
-   let elem = item.target;
+parent.addEventListener("click", function (event){
+   if(event.target.closest(".show-modal")) 
    closeModal();
-}
+});
+
 //--Закрытие модального окна------------------------------
 const buttonClose = document.querySelector(".close-modal");
 buttonClose.addEventListener("click", closeModal);

@@ -26,7 +26,8 @@ function clear(){
    generalResult2 = 0;
    winner.classList.remove("player--winner");
    winner1.classList.remove("player--winner");
-   
+   // player1.classList.toggle("player--active");
+   // player2.classList.remove("player--active");
    activePlayer = 0;
 }
 //--Вывод на экран значений кубика--------------------------
@@ -36,7 +37,7 @@ function getDice(){
 }
 //--Общая сумма при удачных попытках--------------------------
 function result(){
-   if (randomNumber > 1){
+   if (randomNumber != 1){
       if (activePlayer === 0) {
          sumPlayer1 += randomNumber;
          current[0].textContent = sumPlayer1;
@@ -53,27 +54,23 @@ function result(){
       randomNumber = Math.floor(6 * Math.random()) + 1;
       getDice();
       result();
-      }
-   );
+   });
 //--Действия при нажатии клавиши Hold и смена игрока--------
 buttonHold.addEventListener("click", () =>{
    generalResult1 += sumPlayer1;
    generalResult2 += sumPlayer2;
-   if (activePlayer === 0) {
-      sumPlayer1 = 0;
-      score[0].textContent = generalResult1;
-      current[0].textContent = sumPlayer1;
-   }
-   else {
-      sumPlayer2 = 0;
-      score[1].textContent = generalResult2;
-      current[1].textContent = sumPlayer2;
-   }
+
+   if (activePlayer === 0) score[0].textContent = generalResult1;
+   else { score[1].textContent = generalResult2;}
+
    const player1 = document.querySelector(`.player--${activePlayer}`);
-   player1.classList.remove("player--active");
+   player1.classList.toggle("player--active");
+
    reversePlayers();
+
    const player2 = document.querySelector(`.player--${activePlayer}`);
-   player2.classList.add("player--active");
+   player2.classList.toggle("player--active");
+
 //--Проверка набранных баллов---------------------------------
 if (generalResult1 >= 10){
    winner.classList.add("player--winner");
