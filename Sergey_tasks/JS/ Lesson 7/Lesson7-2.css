@@ -1,6 +1,4 @@
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
@@ -69,8 +67,8 @@ main {
 .player--active {
   background-color: rgba(255, 255, 255, 0.4);
 }
-.player--active .name {
-  font-weight: 700;
+ .player--active .name { 
+   font-weight: 700;
 }
 .player--active .score {
   font-weight: 400;
@@ -78,7 +76,7 @@ main {
 
 .player--active .current {
   opacity: 1;
-}
+} 
 
 .current {
   background-color: #c7365f;
