@@ -15,13 +15,11 @@ let generalResult2;
 let activePlayer = 0;
 let randomNumber;
 //--Сброс всех предыдущих значений------------------------
-buttonNewGame.addEventListener("click", clear);
+ buttonNewGame.addEventListener("click", clear);
 function clear(){
    imgNew.style.display = "none";  
    score[0].textContent = 0;
    score[1].textContent = 0;
-   current[0].textContent = 0;
-   current[1].textContent = 0;
    generalResult1 = 0;
    generalResult2 = 0;
    winner.classList.remove("player--winner");
@@ -47,30 +45,21 @@ function result(){
          current[1].textContent = sumPlayer2;
       }
    }
-   else reversePlayers();
+   else  changeBackground();
 }
 //--Бросаем кубик--------------------------------------------
-   buttonRollDice.addEventListener("click", ()=>{
-      randomNumber = Math.floor(6 * Math.random()) + 1;
-      getDice();
-      result();
-   });
+buttonRollDice.addEventListener("click", ()=>{
+   randomNumber = Math.floor(6 * Math.random()) + 1;
+   getDice();
+   result();
+});
 //--Действия при нажатии клавиши Hold и смена игрока--------
-buttonHold.addEventListener("click", () =>{
+ buttonHold.addEventListener("click", ()=>{
    generalResult1 += sumPlayer1;
    generalResult2 += sumPlayer2;
-
    if (activePlayer === 0) score[0].textContent = generalResult1;
    else { score[1].textContent = generalResult2;}
-
-   const player1 = document.querySelector(`.player--${activePlayer}`);
-   player1.classList.toggle("player--active");
-
-   reversePlayers();
-
-   const player2 = document.querySelector(`.player--${activePlayer}`);
-   player2.classList.toggle("player--active");
-
+   changeBackground();
 //--Проверка набранных баллов---------------------------------
 if (generalResult1 >= 10){
    winner.classList.add("player--winner");
@@ -87,4 +76,11 @@ function reversePlayers(){
    sumPlayer1 = sumPlayer2 = 0;
    current[0].textContent = sumPlayer1;
    current[1].textContent = sumPlayer2;
+}
+function changeBackground(){
+   const player1 = document.querySelector(`.player--${activePlayer}`);
+   player1.classList.toggle("player--active");
+   reversePlayers();
+   const player2 = document.querySelector(`.player--${activePlayer}`);
+   player2.classList.toggle("player--active");
 }
