@@ -1,4 +1,4 @@
-
+"use strict";
 const buttonNewGame = document.querySelector(".btn--new");
 const buttonRollDice = document.querySelector(".btn--roll");
 const buttonHold = document.querySelector(".btn--hold");
