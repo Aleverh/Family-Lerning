@@ -1,3 +1,4 @@
+"use strict";
 let initScore = 20;
 let randomNumber;
 function getRandomInt() {
