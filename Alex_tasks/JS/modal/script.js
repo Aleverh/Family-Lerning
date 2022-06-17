@@ -29,11 +29,5 @@ document.addEventListener('keyup', function (e) {
 closeBtn.forEach(element => {
     element.addEventListener('click', () => closeModal());
 });
-
-/* document.addEventListener('click', () => {
-
-    if(){
-        closeModal()
-    }
-}); */
+modal[1].addEventListener('click', () => closeModal());
 
