@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  background: #F9F9F9;
+}
+
+header {
+  background: #ff9f6a;
+  height: 90px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+  padding: 0 10%;
+}
+
+.sec1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logo {
+  font-family: Lobster;
+  font-size: 40px;
+  margin: 0 0 0 100px;
+}
+
+.logo1 {
+  margin: 0 0 0 0;
+}
+
+.logo2 {
+  margin: -20px 0 0 55px;
+}
+
+.time {
+  background: url("pictures/clock.png") no-repeat;
+  padding-left: 46px;
+  font-family: Caveat;
+  font-size: 30px;
+  margin-left: 70px;
+}
+
+.basket {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background: #ff9f6a;
+  border-radius: 37px;
+  border: 2px solid white;
+  height: 46px;
+  width: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto 100px;
+}
+.basket:hover {
+  -webkit-box-shadow: 0px 0px 5px black;
+          box-shadow: 0px 0px 5px black;
+}
+
+main {
+  padding: 0 10%;
+  width: 1308px;
+}
+
+h1 {
+  font-family: Caveat;
+  font-size: 50px;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1%;
+}
+
+.stars {
+  width: 115px;
+  min-height: 21px;
+  background: url("pictures/Star yellow.png");
+}
+
+.pizza {
+  width: 24%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 20px;
+  padding: 0 20px 0 20px;
+  background: #ffffff;
+}
+
+.pizza-img {
+  width: 196px;
+  height: 196px;
+  margin: 10px auto;
+  border-radius: 20px;
+}
+
+.pizza-h3 {
+  margin: 20px 0 10px 0;
+  font-size: 30px;
+  font-family: Caveat;
+}
+
+.text {
+  font-family: Lobster;
+  margin-bottom: 50px;
+}
+
+.buying {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+.buy {
+  font-family: Caveat;
+  border-radius: 50px;
+  width: 130px;
+  height: 45px;
+  background: #ff9f6a;
+  border: 0;
+  font-size: 23px;
+  color: #ffffff;
+}
+
+.price {
+  color: #ff9f6a;
+  font-family: Caveat;
+  font-size: 25px;
+}
