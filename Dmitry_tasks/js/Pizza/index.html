@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Pizza</title>
-    <script src="pizza.js"></script>
     <link rel="stylesheet" href="pizza.scss">
     <link rel="stylesheet" href="pizza.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +18,11 @@
     </div>
     <div class="time">9:00-19:30</div>
     </section>
-    <button class="basket">0 товаров 0 грн<img src="pictures/busket.png"></button>
+    <button class="basket">
+        <div> <span class="number">0</span> шт</div>
+        <div> <span class="cost">0</span> грн</div>
+        <img src="pictures/busket.png">
+    </button>
 </header>
 <main>
     <h1>Пицца</h1>
@@ -29,8 +32,8 @@
             <h3 class="pizza-h3">Франческа</h3>
             <div class="stars"></div>
             <p class="text">Сливочный соус дор-блю, сыр моцарелла, салями, бекон</p>
-            <div class="buying">
-                <button class="buy">Заказать</button>
+            <div class="buying pizza1">
+                <button class="buy buy1">Заказать</button>
                 <div class="price">199 грн</div>
             </div>
         </div>
@@ -39,8 +42,8 @@
             <h3 class="pizza-h3">Карбонара</h3>
             <div class="stars"></div>
             <p class="text">Сливочный соус сыр моцарелла, бекон, шампиньоны, ветчина, сыр пармезан, яйцо куриное</p>
-            <div class="buying">
-                <button class="buy">Заказать</button>
+            <div class="buying pizza2">
+                <button class="buy buy2">Заказать</button>
                 <div class="price">219 грн</div>
             </div>
         </div>
@@ -50,7 +53,7 @@
             <div class="stars"></div>
             <p class="text">Соус из томатов, салями, ветчина, охотничьи колбаски, бекон, копчёное куриное филе, сыр моцарелла, шампиньоны, маринованный лук, болгарский перец, помидоры, маслины, чесночное масло</p>
             <div class="buying">
-                <button class="buy">Заказать</button>
+                <button class="buy buy3">Заказать</button>
                 <div class="price">229 грн</div>
             </div>
         </div>
@@ -59,12 +62,20 @@
             <h3 class="pizza-h3">Чилийская</h3>
             <div class="stars"></div>
             <p class="text">Соус из томатов, сыр моцарелла, куриное филе, салями, соус острый, чесночное масло</p>
-            <div class="buying">
-                <button class="buy">Заказать</button>
+            <div class="buying pizza4">
+                <button class="buy buy4">Заказать</button>
                 <div class="price">199 грн</div>
             </div>
         </div>
     </div>
+    <div class="modal hidden">
+        <div class="modal-box">
+        <button class="close-modal">&times;</button>
+        <p class="order">Заказ:</p>
+        <div class="stars"></div>
+        </div>
+    </div>
 </main>
+<script src="pizza.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 $pink: #ff9f6a;
 $desktop: #F9F9F9;
 $white: #ffffff;
+$red: #ff0c19;
 body{
   margin: 0;
   background: $desktop;
@@ -52,8 +53,9 @@ header{
   }
 }
 main{
-  padding: 0 10%;
+  //padding: 0 10%;
   width: 1308px;
+  margin: 0 auto;
 }
 h1{
   font-family: Caveat;
@@ -64,6 +66,7 @@ h1{
   flex-direction: row;
   justify-content: space-between;
   gap: 1%;
+  margin: 0 auto;
 }
 .stars{
   width: 115px;
@@ -72,11 +75,27 @@ h1{
 }
 .pizza{
   width: 24%;
+  height: 546px;
   display: flex;
   flex-direction: column;
+  align-self: end;
   border-radius: 20px;
   padding: 0 20px 0 20px;
   background: $white;
+  box-sizing: border-box;
+  border: 1px solid $white;
+  &:hover{
+    border: 1px solid $red;
+  }
+}
+.pizza1{
+  margin-top: 79px;
+}
+.pizza2{
+  margin-top: 59px;
+}
+.pizza4{
+  margin-top: 59px;
 }
 .pizza-img{
   width: 196px;
@@ -98,7 +117,6 @@ h1{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 .buy{
   font-family: Caveat;
@@ -109,9 +127,48 @@ h1{
   border: 0;
   font-size: 23px;
   color: $white;
+  &:hover{
+    box-shadow: 0px 0px 5px black;
+  }
 }
 .price{
   color: $pink;
   font-family: Caveat;
   font-size: 25px;
+}
+.hidden {
+  display: none;
+}
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 500px;
+
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.order{
+  font-family: Caveat;
+  font-size: 50px;
+  margin-top: 0;
+}
+.modal-box{
+  //display: flex;
+  //flex-direction: ;
 }

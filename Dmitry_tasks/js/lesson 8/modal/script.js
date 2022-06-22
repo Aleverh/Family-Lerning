@@ -24,7 +24,7 @@ close.addEventListener('click', () =>{
      }
  });
  overlay.addEventListener('click', function (e){
-     if (e.target.className != "modal") {
+     if (e.target.className !== "modal") {
          modal.style.display = 'none'
          overlay.style.display = 'none'
      }
