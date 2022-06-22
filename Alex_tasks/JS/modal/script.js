@@ -2,7 +2,6 @@
 
 const showBtn = document.querySelectorAll('.show-modal');
 const closeBtn = document.querySelectorAll('.close-modal');
-
 const modal = [document.querySelector('.modal'), document.querySelector('.overlay')];
 
 showBtn.forEach(element => {
@@ -37,3 +36,4 @@ document.addEventListener('click', function (e) {
         closeModal()
     }
 });
+
