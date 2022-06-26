@@ -35,7 +35,6 @@ const rollDice = document.querySelector('.btn--roll')
 rollDice.addEventListener('click', () =>{
     if (playing) {
         const random = Math.trunc(Math.random() * 6) +1;
-        const dice = document.querySelector('.dice')
         dice.src = `dice-${random}.png`;
         dice.style.display = 'block';
         if (random !== 1) {
