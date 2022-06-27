@@ -2,8 +2,6 @@
 
 const showBtn = document.querySelectorAll('.header__basket');
 const closeBtn = document.querySelectorAll('.modal__close');
-const addBtn = document.querySelectorAll('.card__button');
-
 const modal = [document.querySelector('.modal'), document.querySelector('.overlay')];
 
 showBtn.forEach(element => {
@@ -15,26 +13,26 @@ showBtn.forEach(element => {
     });
 });
 
-//closing modal function
+//-------------------closing modal function
 function closeModal() {
     modal.forEach(item => {
         item.classList.add('hidden')
     })
 };
 
-//close modal by pressing Esc
+//------------------close modal by pressing Esc
 document.addEventListener('keyup', function (e) {
     if (e.code === 'Escape') {
         closeModal()
     }
 });
 
-//closing modal by pressing btn
+//----------------closing modal by pressing btn
 closeBtn.forEach(element => {
     element.addEventListener('click', closeModal);
 });
 
-//closing modal by clicking outside modal
+//---------------------closing modal by clicking outside modal
 /* document.addEventListener('click', function (e) {
      const isModalOpen = modal[0].classList.contains('hidden');
     if (isModalOpen && !e.target.closest('modal') && !e.target.closest('.show-modal')) {
@@ -43,57 +41,112 @@ closeBtn.forEach(element => {
     console.log(isModalOpen);
 }); */
 
+//-------------function for gettin array with data
+/* function getData(item) {
+    let pizzaItemCollection = document.querySelectorAll(item);
+    pizzaItemCollection = Array.from(pizzaItemCollection);
+    const pizzaItem = pizzaItemCollection.map((name => {
+        return name.textContent;
+    }))
+    return {pizzaItem}
+}
 
-/* addBtn.addEventListener('click', () => {
-    modal[0].insertAdjacentHTML("beforeEnd", '<div class="addedItem"><img src="./img/pizza1.png" alt="" class="addedItem__img"><span class="addedItem__name">Pizza#1</span><img src="./img/minusbutton.png" alt="" class="addedItem__minusButton"><img src="./img/plusbutton.png" alt="" class="addedItem__plusButton">span class="addedItem__amount">0</span><span class="addedItem__cost">0,00$</span></div>')
-}); */
+const test = getData('.card__title');
+console.log(test); */
 
-/* function getData(item, name) {
-    const pizzaItemCollection = document.querySelectorAll('item');
-    const pizzaItemData = Array.from(pizzaItemCollection);
-    return {const pizzaName = }
-} */
-let pizzaNamesData = document.querySelectorAll('.card__title');
-pizzaNamesData = Array.from(pizzaNamesData);
+
+const pizzaNamesData = Array.from(document.querySelectorAll('.card__title'));
 const pizzaNames = pizzaNamesData.map((name) => {
     return name.textContent;
 })
 
-let pizzaPriceData = document.querySelectorAll('.price');
-pizzaPriceData = Array.from(pizzaPriceData);
+const pizzaPriceData = Array.from(document.querySelectorAll('.price'));
 const pizzaPrices = pizzaPriceData.map((price) => {
     return price.textContent;
 });
 
-let pizzaImgsData = document.querySelectorAll('.card__img');
-pizzaImgsData = Array.from(pizzaImgsData);
+const pizzaImgsData = Array.from(document.querySelectorAll('.card__img'));
 const pizzaImgs = pizzaImgsData.map((img) => {
     return img.innerHTML;
-})
-console.log(pizzaNames,pizzaPrices,pizzaImgs);
+});
 
 const pizza1 = {
-    name:pizzaNames[0],
-    price:pizzaPrices[0],
-    img:pizzaImgs[0],
+    name: pizzaNames[0],
+    price: pizzaPrices[0],
+    img: pizzaImgs[0],
 };
-console.log(pizza1);
 const pizza2 = {
-    name:pizzaNames[1],
-    price:pizzaPrices[1],
-    img:pizzaImgs[1],
+    name: pizzaNames[1],
+    price: pizzaPrices[1],
+    img: pizzaImgs[1],
 };
 const pizza3 = {
-    name:pizzaNames[2],
-    price:pizzaPrices[2],
-    img:pizzaImgs[2],
+    name: pizzaNames[2],
+    price: pizzaPrices[2],
+    img: pizzaImgs[2],
 };
 const pizza4 = {
-    name:pizzaNames[3],
-    price:pizzaPrices[3],
-    img:pizzaImgs[3],
+    name: pizzaNames[3],
+    price: pizzaPrices[3],
+    img: pizzaImgs[3],
 };
 
+//------------------ arr of all objects
+const pizzaData = [pizza1, pizza2, pizza3, pizza4];
 
-const pizzaData = [pizza1,pizza2,pizza3,pizza4];
-console.log(pizzaData);
+//------------------ adding element into basket
+function addChosenPizza(pizzaData) {
+    modal[0].insertAdjacentHTML("beforeEnd",
+        `
+    <div class="addedItem">
+    <span class="addedItem__remove">&times;</span>
+    <div class="addedItem__img">${pizzaData.img}</div>
+    <span class="addedItem__name">${pizzaData.name}</span>
+    <img src="./img/minusbutton.png" alt="" class="addedItem__minusButton">
+    <img src="./img/plusbutton.png" alt="" class="addedItem__plusButton">
+    <span class="addedItem__amount">1</span>
+    <span class="addedItem__cost">${pizzaData.price}</span>
+    </div>
+`);
+    // -------------remove added pizza
+    let deleteItem = document.getElementsByClassName('addedItem__remove');
+    deleteItem = Array.from(deleteItem);
+    deleteItem.forEach(item => {
+        item.addEventListener("click", function () {
+            item.parentElement.remove();
+        });
+    });
+    //---------edit amount of pizza-----------
+    const pizzaPlus = Array.from(document.getElementsByClassName('addedItem__plusButton'));
+    const pizzaMinus = Array.from(document.getElementsByClassName('addedItem__minusButton'));
+    const curentPizzaAmount = document.querySelector('.addedItem__amount');
+    let pizzaAmount = Number(curentPizzaAmount.textContent);
+    const currentPizzaCost = document.querySelector('.addedItem__cost');
+    let pizzaCost = Number(currentPizzaCost.textContent);
+    pizzaPlus.forEach(element => {
+        element.addEventListener('click', () => {
+            curentPizzaAmount.textContent = ++pizzaAmount;
+            currentPizzaCost.textContent = Number(curentPizzaAmount.textContent) * pizzaCost;
+        });
+    });
+    pizzaMinus.forEach(element => {
+        element.addEventListener('click', () => {
+            curentPizzaAmount.textContent = --pizzaAmount;
+            currentPizzaCost.textContent = Number(curentPizzaAmount.textContent) * pizzaCost;
+        });
+    });
+};
+const addBtn = Array.from(document.getElementsByClassName('card__button'));
+addBtn.forEach(element => {
+    element.addEventListener("click", () => addChosenPizza(pizzaData[3]))
+});
+
+/*toDo list  
+1) Сделать зависимость передачи данных из pizzaData в корзину в зависимости от того 
+какую пицу заказали.
+2) Сделать закрытие корзины по клику вне ее окна
+3) Сделать счетчик заказа на корзине в header
+4) Сделать отображение цены в десятичных
+*/
+
+
