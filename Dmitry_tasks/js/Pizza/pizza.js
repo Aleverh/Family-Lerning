@@ -11,6 +11,11 @@ const buy4 = document.querySelector('.buy4')
 const buttonBuy = document.querySelectorAll('.buy')
 const cost = document.querySelector('.cost')
 const number = document.querySelector('.number')
+const tableImg = document.querySelector('.pizza-table-img');
+const pizzaName = document.querySelector('.pizza-name');
+const pizzaInfo = document.querySelector('.pizza-info');
+const pizzaPrice = document.querySelector('.pizza-price')
+
 function bebe(){
     if(localStorage.getItem('number') > 0){
         number.textContent = localStorage.getItem('number');
@@ -95,13 +100,12 @@ buttonBuy.forEach(element =>
 buy1.addEventListener('click', () =>{
     costAfter = + francheska + Number(localStorage.getItem('pizzas'));
     document.querySelector('.cost').textContent = costAfter;
-    localStorage.setItem('pizzas', costAfter)
+    localStorage.setItem('pizzas', costAfter);
 
-
-     document.querySelector('.pizza-table-img').src = "pictures/франческо.png";
-    document.querySelector('.pizza-name').textContent = 'Франческа';
-    document.querySelector('.pizza-info').textContent = 'Сливочный соус дор-блю, сыр моцарелла, салями, бекон'
-    document.querySelector('.pizza-price').textContent = '199 грн';
+    tableImg.src = pizzas[0].src;
+    pizzaName.textContent = pizzas[0].name;
+    pizzaInfo.textContent = pizzas[0].info;
+    pizzaPrice.textContent = pizzas[0].price;
     // document.querySelector('.delete-busket').addEventListener('click', (event) =>{
     //     document.querySelector('.ta').remove()
     //     event.stopPropagation()
@@ -117,10 +121,10 @@ buy2.addEventListener('click', () =>{
     const clone2 = clone.cloneNode(true);
     clone.after(clone2)
 
-    document.querySelector('.pizza-table-img').src = "pictures/карбонара.png";
-    document.querySelector('.pizza-name').textContent = 'Карбонара';
-    document.querySelector('.pizza-info').textContent = 'Сливочный соус сыр моцарелла, бекон, шампиньоны, ветчина, сыр пармезан, яйцо куриное'
-    document.querySelector('.pizza-price').textContent = '219 грн';
+    tableImg.src = pizzas[1].src;
+    pizzaName.textContent = pizzas[1].name;
+    pizzaInfo.textContent = pizzas[1].info;
+    pizzaPrice.textContent = pizzas[1].price;
 
     plus.forEach(element =>
         element.addEventListener('click', () => {
@@ -138,10 +142,10 @@ buy3.addEventListener('click', () =>{
     const clone3 = clone.cloneNode(true);
     clone.after(clone3)
 
-    document.querySelector('.pizza-table-img').src = "pictures/ricco.png";
-    document.querySelector('.pizza-name').textContent = 'Ricco';
-    document.querySelector('.pizza-info').textContent = 'Соус из томатов, салями, ветчина, охотничьи колбаски, бекон, копчёное куриное филе, сыр моцарелла, шампиньоны, маринованный лук, болгарский перец, помидоры, маслины, чесночное масло'
-    document.querySelector('.pizza-price').textContent = '229 грн';
+    tableImg.src = pizzas[2].src;
+    pizzaName.textContent = pizzas[2].name;
+    pizzaInfo.textContent = pizzas[2].info;
+    pizzaPrice.textContent = pizzas[2].price;
 
 });
 buy4.addEventListener('click', () =>{
@@ -153,10 +157,10 @@ buy4.addEventListener('click', () =>{
     const clone4 = clone.cloneNode(true);
     clone.after(clone4)
 
-    document.querySelector('.pizza-table-img').src = "pictures/чилийская.png";
-    document.querySelector('.pizza-name').textContent = 'Чилийская';
-    document.querySelector('.pizza-info').textContent = 'Соус из томатов, сыр моцарелла, куриное филе, салями, соус острый, чесночное масло'
-    document.querySelector('.pizza-price').textContent = '199 грн';
+    tableImg.src = pizzas[3].src;
+    pizzaName.textContent = pizzas[3].name;
+    pizzaInfo.textContent = pizzas[3].info;
+    pizzaPrice.textContent = pizzas[3].price;
 });
 console.log(localStorage.getItem('pizzas'));
 console.log(localStorage.getItem('number'));
