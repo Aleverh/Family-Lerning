@@ -69,7 +69,6 @@
                   <div class="modal__title">Вы выбрали пиццу:
                      <span class="modal__pizza-type"></span>
                   </div>
-                  
                   <form action="" method="post" class="form-type">
                      <label  for="pizzaNamber" class="modal__text">Укажите количество:</label>
                      <input type="number"  placeholder="Введите количество"  class="input-number" id="pizzaNamber" value = "">
@@ -87,24 +86,25 @@
                <h3 class="modal-order__h3">Ваш заказ</h3>
                <div class="modal-order__block">
                   <table>
-                     <tr class="tr">
-                        <th>Пицца</th>
-                        <th>Количество, шт.</th>
-                        <th>Цена, грн.</th>
-                        <th>Итого, грн.</th>
-                     </tr> 
-                     <tr class="tr-clon">
-                        <th class="th_1"></th>
-                        <th class="th_2"></th>
-                        <th class="th_3"></th>
-                        <th class="th_4"></th>
-                        <th class="clear-pizza"></th>
-                     </tr>
+                     <thead>
+                        <tr class="tr">
+                           <th>Пицца</th>
+                           <th>Количество, шт.</th>
+                           <th>Цена, грн.</th>
+                           <th>Итого, грн.</th>
+                           <th class="qwe">Удалить</th>
+                        </tr> 
+                     </thead>
+                     <tbody class="tbody">
+                        <tr class="tr-clon">
+                           <th class="th_1"></th>
+                           <th class="th_2"></th>
+                           <th class="th_3"></th>
+                           <th class="th_4"></th>
+                           <th class="th_5"><img src="Images/Корзина2.png" class="clear-pizza"></th>
+                        </tr>
+                     </tbody>
                   </table>
-
-                  <!-- <div class="modal-order__title">Пицца</div>
-                  <div class="modal-order__quantity"> Количество, шт.</div>
-                  <div class="modal-order__sumprice">Цена</div> -->
                </div>
                <div class="modal-order__resalt">Сумма заказа:   
                   <span class="modal-order__span-resalt"></span> грн.
@@ -117,7 +117,7 @@
          </div>
       </div>
      
-     <script src="Pizza.js"></script>
+     <script src="Pizza1.js"></script>
    </main>
 </body>
 </html>

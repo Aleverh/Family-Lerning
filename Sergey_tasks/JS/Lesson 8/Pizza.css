@@ -261,7 +261,7 @@ body {
 }
 
 .pizza__stars {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .pizza__description_p {
@@ -436,10 +436,16 @@ body {
 }
 
 .modal-order th {
-  padding-right: 50px;
+  padding-right: 30px;
 }
 
 .modal-order .th_1, .modal-order .th_2, .modal-order .th_3, .modal-order .th_4 {
   color: #8b1ad1;
+}
+
+.modal-order .clear-pizza {
+  display: none;
+  width: 30px;
+  height: 30px;
 }
 /*# sourceMappingURL=Pizza.css.map */
