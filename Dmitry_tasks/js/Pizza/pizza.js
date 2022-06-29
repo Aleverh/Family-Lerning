@@ -4,10 +4,6 @@ const modal = document.querySelector('.modal');
 const close = document.querySelector('.close-modal')
 const body = document.querySelector('body')
 const modalBox = document.querySelector('.modal-box')
-const buy1 = document.querySelector('.buy1')
-const buy2 = document.querySelector('.buy2')
-const buy3 = document.querySelector('.buy3')
-const buy4 = document.querySelector('.buy4')
 const buttonBuy = document.querySelectorAll('.buy')
 const cost = document.querySelector('.cost')
 const number = document.querySelector('.number')
@@ -15,56 +11,52 @@ const tableImg = document.querySelector('.pizza-table-img');
 const pizzaName = document.querySelector('.pizza-name');
 const pizzaInfo = document.querySelector('.pizza-info');
 const pizzaPrice = document.querySelector('.pizza-price')
-
-function bebe(){
-    if(localStorage.getItem('number') > 0){
-        number.textContent = localStorage.getItem('number');
-    }else number.textContent = 0;
-
-    if (localStorage.getItem('pizzas') > 0){
-        cost.textContent = localStorage.getItem('pizzas')
-    }else cost.textContent = 0;
-}
-bebe()
-let plusAfter
-let minusAfter = 0;
-let howMany = 0;
-let francheska = 199;
-let karbonara = 219;
-let ricco = 229;
-let chiliyskaya = 199;
-let productNow, productAfter, costNow, costAfter;
-productNow = 0;
-costNow = 0;
+const howMany = document.querySelector('.how-many')
+// function counting(){
+//     if(localStorage.getItem('pizza1') > 0){
+//         number.textContent = localStorage.getItem('number');
+//     }else number.textContent = 0;
+//
+//     if (localStorage.getItem('pizzas') > 0){
+//         cost.textContent = localStorage.getItem('pizzas')
+//     }else cost.textContent = 0;
+// }
+// counting()
 const pizzas = [
     {
         name: "Франческа",
         info: "Сливочный соус дор-блю, сыр моцарелла, салями, бекон",
         price: 199,
         src: "pictures/франческо.png",
+        amount: 1,
     },
     {
         name: "Карбонара",
         info: "Сливочный соус сыр моцарелла, бекон, шампиньоны, ветчина, сыр пармезан, яйцо куриное",
         price: 219,
         src: "pictures/карбонара.png",
+        amount: 1,
     },
     {
         name: "Ricco",
         info: "Соус из томатов, салями, ветчина, охотничьи колбаски, бекон, копчёное куриное филе, сыр моцарелла, шампиньоны, маринованный лук, болгарский перец, помидоры, маслины, чесночное масло",
         price: 229,
         src: "pictures/ricco.png",
+        amount: 1,
     },
     {
         name: "Чилийская",
         info: "Соус из томатов, сыр моцарелла, куриное филе, салями, соус острый, чесночное масло",
         price: 219,
         src: "pictures/чилийская.png",
+        amount: 1,
     },
 ]
+let pizzaNameOrder, pizzaPriceOrder, pizzaInformation, pizzaImg, pizzaAmount;
+let zero = 0;
 // Кнопка корзины--------------------------------------
 basket.addEventListener('click', (event) =>{
-    if (number.textContent > 0){
+    if (number.textContent > -1){
         modal.style.display = 'block';
         event.stopPropagation()
     }
@@ -90,94 +82,56 @@ document.addEventListener('click', function (event){
 });
 //Подсчет товаров-----------------------------------
 buttonBuy.forEach(element =>
-    element.addEventListener('click', () =>{
-        productAfter = + 1 + Number(localStorage.getItem('number'));
-        number.textContent = productAfter;
-        localStorage.setItem('number', productAfter)
-    })
+    element.addEventListener('click', (event) => {
+        pizzaNameOrder = event.target.getAttribute("data-pizza");
+        const orderPizza = pizzas.find(el => el.name === pizzaNameOrder)
+        pizzaPriceOrder = orderPizza.price;
+        pizzaInformation = orderPizza.info;
+        pizzaImg = orderPizza.src;
+        pizzaAmount = zero += orderPizza.amount;
+
+        let isPizzaExist = false;
+
+        const pizzaInLocal = (JSON.parse(localStorage.getItem("localPizza")) || [])
+            .filter(item => item.name !== orderPizza.name)
+            .map(item => {
+                    if (item.name !== orderPizza.name) {
+                            return item;
+                        isPizzaExist = true;
+                        return {...item}
+                    }
+                    if (!isPizzaExist) {
+                        const newPizza = {
+                            name: pizzaNameOrder,
+                            price: pizzaPriceOrder,
+                            info: pizzaInformation,
+                            src: pizzaImg,
+                            amount: pizzaAmount,
+                        }
+                        pizzaInLocal.push(newPizza);
+                    }
+                    localStorage.setItem("localPizza", JSON.stringify(pizzaInLocal))
+
+                    const clone = (document.querySelector('.ta'));
+                    const clone2 = clone.cloneNode(true);
+                    clone.after(clone2)
+                    JSON.parse(localStorage.getItem("localPizza")).forEach(elem => {
+                        tableImg.src = elem.src;
+                        pizzaName.textContent = elem.name;
+                        pizzaInfo.textContent = elem.info;
+                        pizzaPrice.textContent = elem.price;
+                        number.textContent = elem.amount;
+                        howMany.textContent = elem.amount;
+                    })
+                }
+            )
+        }
+    )
 );
-//Подсчет цены------------------------------------
-buy1.addEventListener('click', () =>{
-    costAfter = + francheska + Number(localStorage.getItem('pizzas'));
-    document.querySelector('.cost').textContent = costAfter;
-    localStorage.setItem('pizzas', costAfter);
-
-    tableImg.src = pizzas[0].src;
-    pizzaName.textContent = pizzas[0].name;
-    pizzaInfo.textContent = pizzas[0].info;
-    pizzaPrice.textContent = pizzas[0].price;
-    // document.querySelector('.delete-busket').addEventListener('click', (event) =>{
-    //     document.querySelector('.ta').remove()
-    //     event.stopPropagation()
-    // });
-
-});
-buy2.addEventListener('click', () =>{
-    costAfter = + karbonara + Number(localStorage.getItem('pizzas'));
-    document.querySelector('.cost').textContent = costAfter;
-    localStorage.setItem('pizzas', costAfter);
-
-    const clone = (document.querySelector('.ta'));
-    const clone2 = clone.cloneNode(true);
-    clone.after(clone2)
-
-    tableImg.src = pizzas[1].src;
-    pizzaName.textContent = pizzas[1].name;
-    pizzaInfo.textContent = pizzas[1].info;
-    pizzaPrice.textContent = pizzas[1].price;
-
-    plus.forEach(element =>
-        element.addEventListener('click', () => {
-            plusAfter = minusAfter += 1;
-            document.querySelector('.how-many').textContent = plusAfter;
-        })
-    );
-});
-buy3.addEventListener('click', () =>{
-    costAfter = + ricco + Number(localStorage.getItem('pizzas'));
-    document.querySelector('.cost').textContent = costAfter;
-    localStorage.setItem('pizzas', costAfter)
-
-    const clone = (document.querySelector('.ta'));
-    const clone3 = clone.cloneNode(true);
-    clone.after(clone3)
-
-    tableImg.src = pizzas[2].src;
-    pizzaName.textContent = pizzas[2].name;
-    pizzaInfo.textContent = pizzas[2].info;
-    pizzaPrice.textContent = pizzas[2].price;
-
-});
-buy4.addEventListener('click', () =>{
-    costAfter = + chiliyskaya + Number(localStorage.getItem('pizzas'));
-    document.querySelector('.cost').textContent = costAfter;
-    localStorage.setItem('pizzas', costAfter)
-
-    const clone = (document.querySelector('.ta'));
-    const clone4 = clone.cloneNode(true);
-    clone.after(clone4)
-
-    tableImg.src = pizzas[3].src;
-    pizzaName.textContent = pizzas[3].name;
-    pizzaInfo.textContent = pizzas[3].info;
-    pizzaPrice.textContent = pizzas[3].price;
-});
 console.log(localStorage.getItem('pizzas'));
 console.log(localStorage.getItem('number'));
-
-const minus = document.querySelector('.minus')
+const minus = document.querySelectorAll('.minus');
 const plus = document.querySelectorAll('.plus');
-
-
-
-
-plus.forEach(element =>
-    element.addEventListener('click', () => {
-    plusAfter = minusAfter += 1;
-    document.querySelector('.how-many').textContent = plusAfter;
-    })
-);
-
 // plus.addEventListener('click', () => {
 //     plusAfter = minusAfter += 1;
 //     document.querySelector('.how-many').textContent = plusAfter;
@@ -187,13 +141,76 @@ plus.forEach(element =>
 //         document.querySelector('.how-many').textContent = minusAfter;
 // });
 
+// function deleteOrder(id){
+//     const result =  pizzas.filter(el => el.id !== id)
+//     console.log(result)
+// }
 
-// document.querySelector('.delete-busket').addEventListener('click', () =>{
-//     // document.querySelector('.pizza-table-img').src = "";
-//     // document.querySelector('.pizza-name').textContent = "";
-//     // document.querySelector('.pizza-info').textContent = "";
-//     // document.querySelector('.pizza-price').textContent = "";
-//     document.querySelector('.ta').style.display = "none"
-//     // modal.style.display = "none"
+
+// quantity.addEventListener("click", () => {
+//     const pizzaCount = parseInt(inputValue.value);
+//     let isPizzaExist = false;
+//
+//     const oldOrder = (JSON.parse(localStorage.getItem("order")) || [])
+//         // .filter(item => item.name !== selectedPizza.name)
+//         .map(item => {
+//             if (item.name !== selectedPizza.name)
+//                 return item;
+//             isPizzaExist = true;
+//             const count = item.count + pizzaCount;
+//             return { ...item, count, sum: count * item.price }
+//         });
+//     if (!isPizzaExist) {
+//         const newPizza = {
+//             name: selectedPizza.name,
+//             count: pizzaCount,
+//             price: selectedPizza.price,
+//             sum: selectedPizza.price * pizzaCount,
+//         }
+//         oldOrder.push(newPizza);
+//     }
+//     localStorage.setItem("order", JSON.stringify(oldOrder));
+//
+//     closeModalPizza();
+//     updateOrder();
 // });
+// //------------------------------------------------------------------------
+// function updateOrder() {
+//     const order = JSON.parse(localStorage.getItem("order")) || [];
+//
+//     const finalPrice = order.reduce((a, b) => a + b.sum, 0);
+//     const pizzaCount = order.reduce((a, b) => a + b.count, 0);
+//     const oldElements = [...(document.querySelectorAll('.tr-clone') || [])];
+//
+//     oldElements.forEach(item => item.remove());
+//
+//     // update bag info
+//     headerSum.textContent = finalPrice + " грн.";
+//     headerQuantity.textContent = pizzaCount + " шт.";
+//     // update modal info
+//
+//     console.log(order);
+//     order.forEach(elem => {
+//         const trClone = tr.cloneNode(true);
+//         trClone.classList.add('tr-clone');
+//
+//         const iconClearPizza = trClone.querySelector(".clear-pizza");
+//         iconClearPizza.style.display = "block";
+//         iconClearPizza.setAttribute("basket", `${elem.name}`);
+//
+//         const tableName = trClone.querySelector(".th_1");
+//         const tableCount = trClone.querySelector(".th_2");
+//         const tablePrice = trClone.querySelector(".th_3");
+//         const tableSum = trClone.querySelector(".th_4");
+//
+//         tableName.textContent = elem.name;
+//         tableCount.textContent = elem.count;
+//         tablePrice.textContent = elem.price;
+//         tableSum.textContent = elem.sum;
+//         table.append(trClone);
+//     });
+//     // delPizza();
+//     spanResult.textContent = finalPrice;
+// };
+// updateOrder();
 
