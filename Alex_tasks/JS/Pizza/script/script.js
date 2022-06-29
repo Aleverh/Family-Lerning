@@ -145,7 +145,7 @@ addBtn.forEach(element => {
     const elementParrent = element.closest('.menu__card');
     element.addEventListener("click", () => {
         const dataIndex = elementParrent.getAttribute('data-id');
-        const test = pizzaData.find(item => item.id == dataIndex);
+        const test = pizzaData.find(item => item.id === Number(dataIndex));
         if (1 == 2) {
 
         }
@@ -164,3 +164,8 @@ addBtn.forEach(element => {
 7) узнать почему before не заданных размеров
 */
 
+function name(params) {
+    
+}
+[{id:1,
+count:10,}]
