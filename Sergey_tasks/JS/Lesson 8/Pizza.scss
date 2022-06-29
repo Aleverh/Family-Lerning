@@ -196,7 +196,9 @@ body{
       margin-bottom: 10px;
    }
    &__stars{
-      margin-bottom: 10px;
+      // width: 118px;
+      // height: 22px;
+      margin-bottom: 5px;
    }
    &__description_p{
       @extend %type-text;
@@ -370,12 +372,18 @@ body{
       @extend %type-text;
    }
    th{
-      padding-right: 50px;
+      padding-right: 30px;
    }
    .th_1, .th_2, .th_3, .th_4 {
       color: #8b1ad1;
    }
-   // .clear-pizza{
-   //    background: #8b1ad1;
-   // }
+   .clear-pizza{
+      display: none;
+      width: 30px;
+      height: 30px;
+   }
+   .th_5{
+      // text-align: center;
+   }
+
 }

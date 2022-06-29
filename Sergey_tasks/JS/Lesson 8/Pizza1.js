@@ -1,4 +1,8 @@
+
 "use strict";
+// window.onstorage = event => {
+//    console.log(event);
+// };
 const modal = document.querySelector(".modal");
 const modalBody = document.querySelector(".modal__body");
 const buttonOrder = document.querySelectorAll(".button__order");
@@ -9,7 +13,7 @@ const pizzaPrice = document.querySelectorAll(".pizza__price");
 const inputValue = document.querySelector(".input-number");
 const quantity = document.querySelector(".modal__pizza-quantity");
 //------------------------------------------------------------------
-const spanResalt = document.querySelector(".modal-order__span-resalt");
+const spanResult = document.querySelector(".modal-order__span-resalt");
 const modalOrder = document.querySelector(".modal-order");
 const modalOrderBlock = document.querySelector(".modal-order__block");
 const modalOrderQuantity = document.querySelector(".modal-order__quantity");
@@ -21,28 +25,19 @@ const headerButton = document.querySelector(".header__button");
 const headerQuantity = document.querySelector(".header__quantity");
 const headerSum = document.querySelector(".header__summa");
 //-------------------------------------------------------------------
-const tableName = document.querySelector(".th_1");
-const tableCount = document.querySelector(".th_2");
-const tablePrice = document.querySelector(".th_3");
-const tableSum = document.querySelector(".th_4");
-//-------------------------------------------------------------------
-const table = document.querySelector("table");
+const table = document.querySelector("tbody");
 const tr = document.querySelector(".tr-clon");
 //--------------------------------------------------------------------
-let pizzaVariant;
-let number;
-let pizzaQuantity = 0; 
-let totalQuantity = 0;
-let pizzaPriceOrder = 0;
-let totalSumma = 0;
+let selectedPizza = null;
 //------------------------------------------------------------------
 const pizzas = [
    {
       name: "  C cыром",
-      raiting: 5,
+      raiting: 4,
       description: "Начинка – салями, сыр с добавлением острых специй и перца чили.",
       price: 250,
       imgUrl: "Images/Pizza1.jpeg",
+      imgStar: "Images/Star%201.png",
    },
    {
       name: "  Крестьянская",
@@ -50,6 +45,7 @@ const pizzas = [
       description: "Главный ингредиент – баклажаны с добавлением сыра, грибов и томатов.",
       price: 200,
       imgUrl: "Images/Pizza2.jpeg",
+      imgStar: "Images/Star%201.png",
    },
       {
       name: "  C пармезаном",
@@ -57,13 +53,15 @@ const pizzas = [
       description: "Начинка – салями, сыр с добавлением острых специй и перца чили. Основа – томатный или сливочный соус",
       price: 240,
       imgUrl: "Images/Pizza3.jpeg",
+      imgStar: "Images/Star%201.png",
    },
       {
       name: "  Каприччиоза",
-      raiting: 5,
+      raiting: 3,
       description: "Начинка – ветчина, сыр, шампиньоны, артишок, оливки.",
       price: 260,
       imgUrl: "Images/Pizza4.jpeg",
+      imgStar: "Images/Star%201.png",
    },
       {
       name: "  C рикотте",
@@ -71,6 +69,7 @@ const pizzas = [
       description: "Основа – любая, к рикотте и листьям шпината добавляются специи и оливки.",
       price: 230,
       imgUrl: "Images/Pizza5.jpeg",
+      imgStar: "Images/Star%201.png",
    },
      {
       name: "  Горы и море",
@@ -78,13 +77,15 @@ const pizzas = [
       description: "Основные ингредиенты – белые грибы и любые морепродукты с добавлением сыра.",
       price: 220,
       imgUrl: "Images/Pizza6.jpeg",
+      imgStar: "Images/Star%201.png",
    },
       {
       name: "  Падана",
-      raiting: 5,
+      raiting: 3,
       description: "Начинка – готовая полента, цуккини, мясо, сыр.",
       price: 280,
       imgUrl: "Images/Pizza7.jpeg",
+      imgStar: "Images/Star%201.png",
    },
       {
       name: "  Немецкая",
@@ -92,69 +93,129 @@ const pizzas = [
       description: "Начинка – острая колбаса, сыр, оливки.",
       price: 210,
       imgUrl: "Images/Pizza8.jpeg",
+      imgStar: "Images/Star%201.png",
    },
 ];
 //--Выбор пиццы-----------------------------------------------
-pizzaMenu.addEventListener("click", function (event) { 
-   modal.style.display = "block";
+pizzaMenu.addEventListener("click", function (event) {
    if(event.target.closest(".button__order")) {
-      pizzaVariant = event.target.getAttribute("data-pizzaName");
-      const selectedPizza = pizzas.find(elem => elem.name === pizzaVariant);
-      pizzaPriceOrder = selectedPizza.price;
+      modal.style.display = "block";
+      const pizzaName = event.target.getAttribute("data-pizzaName");
+      selectedPizza = pizzas.find(elem => elem.name === pizzaName);
       pizzaType.textContent = selectedPizza.name;
    }
 });
 //--Кнопка добавить----------------------------------------------------
 quantity.addEventListener("click", () => {
-   // localStorage.setItem("pizzaName", pizzaVariant);
-   // localStorage.setItem("price", pizzaPriceOrder);
-   //-------------------------------------------------------------------
-   pizzaQuantity = parseInt(inputValue.value);
-   // localStorage.setItem("quantity", pizzaQuantity);
-   totalQuantity += pizzaQuantity;
-   //-------------------------------------------------------------------
-   totalSumma += pizzaQuantity * parseInt(localStorage.getItem("price"));
-   headerSum.textContent = totalSumma + " грн.";
-   headerQuantity.textContent = totalQuantity + " шт.";
-   localStorage.setItem("totalSumma", totalSumma);
+   const pizzaCount = parseInt(inputValue.value);
+   let isPizzaExist = false;
 
-   spanResalt.textContent = totalSumma;
-   closeModalPizza(); 
-   //--------------------------------------------------------------------
-   const oldOrder = JSON.parse(localStorage.getItem("order")) || [];
-   const newElement = {
-      name: pizzaVariant,
-      count: pizzaQuantity,
-      price: pizzaPriceOrder,
-      sum: pizzaPriceOrder * pizzaQuantity,
-   }
+   const oldOrder = (JSON.parse(localStorage.getItem("order")) || [])
+       // .filter(item => item.name !== selectedPizza.name)
+      .map(item => {
+         if (item.name !== selectedPizza.name)
+            return item;
+            isPizzaExist = true;
+            const count = item.count + pizzaCount;
+            return { ...item, count, sum: count * item.price }
+      });
+      if (!isPizzaExist) {
+         const newPizza = {
+            name: selectedPizza.name,
+            count: pizzaCount,
+            price: selectedPizza.price,
+            sum: selectedPizza.price * pizzaCount,
+         }
+         oldOrder.push(newPizza);
+      }
+   localStorage.setItem("order", JSON.stringify(oldOrder));
 
-   oldOrder.push(newElement);
-   localStorage.setItem("order", JSON.stringify(oldOrder)); 
+   closeModalPizza();
+   updateOrder();
+});
+//------------------------------------------------------------------------
+function updateOrder() {
+   const order = JSON.parse(localStorage.getItem("order")) || [];
+ 
+   const finalPrice = order.reduce((a, b) => a + b.sum, 0);
+   const pizzaCount = order.reduce((a, b) => a + b.count, 0);
+   const oldElements = [...(document.querySelectorAll('.tr-clone') || [])];
 
-   const trClon = tr.cloneNode(true);
-   table.append(trClon);
+   oldElements.forEach(item => item.remove());
 
-   // const newOrder = JSON.parse(localStorage.getItem("order")).filter(elem => {
-   //    for(let i of newOrder){
-   //       if(elem.name ===    ){
+   // update bag info
+   headerSum.textContent = finalPrice + " грн.";
+   headerQuantity.textContent = pizzaCount + " шт.";
+   // update modal info
 
-   //    }}
-   // });
+   console.log(order);
+   order.forEach(elem => {
+      const trClone = tr.cloneNode(true);
+      trClone.classList.add('tr-clone');
 
+      const iconClearPizza = trClone.querySelector(".clear-pizza");
+      iconClearPizza.style.display = "block";
+      iconClearPizza.setAttribute("basket", `${elem.name}`);
+      
+      const tableName = trClone.querySelector(".th_1");
+      const tableCount = trClone.querySelector(".th_2");
+      const tablePrice = trClone.querySelector(".th_3");
+      const tableSum = trClone.querySelector(".th_4");
 
-   JSON.parse(localStorage.getItem("order")).forEach(elem => {
       tableName.textContent = elem.name;
       tableCount.textContent = elem.count;
       tablePrice.textContent = elem.price;
       tableSum.textContent = elem.sum;
-   })
+      table.append(trClone);
+   });
+   // delPizza();
+   spanResult.textContent = finalPrice;
+};
+updateOrder();
+//-------------------------------------------------------------
+
+// const tableName = document.querySelectorAll(".th_1");
+const clearPizza = document.querySelectorAll(".th_5");
+// const delPizzaOrder = document.querySelectorAll(".tr-clone");
+
+table.addEventListener("click", (event) =>{
+   if( event.target.className = "th_5"){
+      const elemMas = event.target.getAttribute("basket");
+      const arrIsLocal = JSON.parse(localStorage.getItem("order"));
+      const qqq = arrIsLocal.filter(elem => elem.name !== elemMas)
+      localStorage.setItem("order", JSON.stringify(qqq));
+      updateOrder();
+   }
 });
+   // elem.addEventListener("click", (event) =>  {  
+   
+   //    const elemMas = event.target.getAttribute("basket");
+   //    const arrIsLocal = JSON.parse(localStorage.getItem("order"));
+   //    const qqq = arrIsLocal.filter(elem => elem.name !== elemMas)
+   //    localStorage.setItem("order", JSON.stringify(qqq));
+
+   //    updateOrder();
+      
+      // if (arrIsLocal.filter(elem => elem.name !== elemMas)) {
+      //    console.log(arrIsLocal);
+      //    localStorage.setItem("order", JSON.stringify(arrIsLocal));
+      // }
+//    });
+// });
+
+
+// function delPizza(){
+//    const delPizzaOrder = document.querySelector(".tr-clone");
+//    console.log(qqq);
+//    delPizzaOrder.remove();
+// }  
 
 //--Открыть окно заказа (корзины)-------------------------------
 headerButton.addEventListener("click", () => {
-   modalOrder.style.display = "block";
+   modalOrder.style.display = "block"
+   // updateOrder();
 });
+
 //-------------------------------------------------------------
 buttonResaltOpen.addEventListener("click", () => {
 
@@ -174,6 +235,7 @@ buttonClose.forEach(buttonClose => {
       if(event.target.closest(".modal__close")){
          closeModalPizza();
          closeModalOrder();
+         // updateOrder();
       }
    })
 });
@@ -185,31 +247,32 @@ function closeModalPizza(){
 function closeModalOrder(){
    modalOrder.style.display = "none";
 }
+
 //--Кнопкa оформить  заказ---------------------------
 
 //--Кнопкa  отменить заказ---------------------------
 buttonResaltClose.addEventListener("click", () => {
-   spanResalt.textContent = "";
+   spanResult.textContent = "";
    headerQuantity.textContent = "";
    headerSum.textContent = "";
-
    localStorage.clear();
    closeModalOrder();
 });
 //---------------------------------------------------------------------------
 function init(){
+   const stars = ["<img src=Images/Star%201.png>", "<img src=Images/Star%201.png>","<img src=Images/Star%201.png>","<img src=Images/Star%201.png>", "<img src=Images/Star%201.png>"];
    pizzas.forEach(elem => {
+      let images = Array(elem.raiting).fill('Images/Star%201.png');
+      if (images.length < 5)
+         images = [...images, ...Array(5 - images.length).fill('Images/Star%205.png')];
+      // console.log(images);
       pizzaMenu.innerHTML += 
       `  <div class="pizza-menu__var pizza-menu__var_1">
             <div class="pizza__description">
              <img class="pizza__img" src="${elem.imgUrl}" width="200px" height="200px">
                <h3 class="pizza__h3">${elem.name}</h3>
                <div class="pizza__stars">
-                  <img src="Images/Star%201.png">
-                  <img src="Images/Star%201.png">
-                  <img src="Images/Star%201.png">
-                  <img src="Images/Star%201.png">
-                  <img src="Images/Star%201.png">
+                  ${images.map(item => `<img src = "${item}">`) }
                </div>
                <p class="pizza__description_p">${elem.description}</p>
             </div>
@@ -222,4 +285,4 @@ function init(){
 };
 init();
 
-
+// ${stars.slice(length - elem.raiting).join("")}
