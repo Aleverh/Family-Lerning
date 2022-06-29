@@ -71,21 +71,25 @@ const pizzaImgs = pizzaImgsData.map((img) => {
 });
 
 const pizza1 = {
+    id: 1,
     name: pizzaNames[0],
     price: pizzaPrices[0],
     img: pizzaImgs[0],
 };
 const pizza2 = {
+    id: 2,
     name: pizzaNames[1],
     price: pizzaPrices[1],
     img: pizzaImgs[1],
 };
 const pizza3 = {
+    id: 3,
     name: pizzaNames[2],
     price: pizzaPrices[2],
     img: pizzaImgs[2],
 };
 const pizza4 = {
+    id: 4,
     name: pizzaNames[3],
     price: pizzaPrices[3],
     img: pizzaImgs[3],
@@ -138,15 +142,25 @@ function addChosenPizza(pizzaData) {
 };
 const addBtn = Array.from(document.getElementsByClassName('card__button'));
 addBtn.forEach(element => {
-    element.addEventListener("click", () => addChosenPizza(pizzaData[3]))
+    const elementParrent = element.closest('.menu__card');
+    element.addEventListener("click", () => {
+        const dataIndex = elementParrent.getAttribute('data-id');
+        const test = pizzaData.find(item => item.id == dataIndex);
+        if (1 == 2) {
+
+        }
+        addChosenPizza(test);
+    })
 });
 
 /*toDo list  
 1) Сделать зависимость передачи данных из pizzaData в корзину в зависимости от того 
-какую пицу заказали.
-2) Сделать закрытие корзины по клику вне ее окна
-3) Сделать счетчик заказа на корзине в header
-4) Сделать отображение цены в десятичных
+какую пицу заказали. -done!
+2) Сделать проверку на наличие объекта в корзине что бы не добавлять одинаковые элементы
+3) Сделать закрытие корзины по клику вне ее окна
+4) Сделать счетчик заказа на корзине в header
+5) Сделать отображение цены в десятичных
+6) Убрать возможность делать отрицательное количество елемента в корзине
+7) узнать почему before не заданных размеров
 */
-
 
