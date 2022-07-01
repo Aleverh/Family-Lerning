@@ -323,9 +323,16 @@ h6 {
 }
 .modal__close {
   font-size: 2.6666666667rem;
-  cursor: pointer;
-  text-align: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 10px 10px 0 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.modal__close span {
+  cursor: pointer;
 }
 .modal__empty {
   font-family: "Open Sans";
