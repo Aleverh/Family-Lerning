@@ -1,27 +1,14 @@
 'use strict';
 const basket = document.querySelector('.basket');
 const modal = document.querySelector('.modal');
-const close = document.querySelector('.close-modal')
-const body = document.querySelector('body')
-const modalBox = document.querySelector('.modal-box')
-const buttonBuy = document.querySelectorAll('.buy')
-const cost = document.querySelector('.cost')
-const number = document.querySelector('.number')
-const tableImg = document.querySelector('.pizza-table-img');
-const pizzaName = document.querySelector('.pizza-name');
-const pizzaInfo = document.querySelector('.pizza-info');
-const pizzaPrice = document.querySelector('.pizza-price')
-const howMany = document.querySelector('.how-many')
-// function counting(){
-//     if(localStorage.getItem('pizza1') > 0){
-//         number.textContent = localStorage.getItem('number');
-//     }else number.textContent = 0;
-//
-//     if (localStorage.getItem('pizzas') > 0){
-//         cost.textContent = localStorage.getItem('pizzas')
-//     }else cost.textContent = 0;
-// }
-// counting()
+const close = document.querySelector('.close-modal');
+const body = document.querySelector('body');
+const modalBox = document.querySelector('.modal-box');
+const buttonBuy = document.querySelectorAll('.buy');
+const cost = document.querySelector('.cost');
+const number = document.querySelector('.number');
+const howMany = document.querySelector('.how-many');
+const table = (document.querySelector('.ta'));
 const pizzas = [
     {
         name: "Франческа",
@@ -51,8 +38,8 @@ const pizzas = [
         src: "pictures/чилийская.png",
         amount: 1,
     },
-]
-let pizzaNameOrder, pizzaPriceOrder, pizzaInformation, pizzaImg, pizzaAmount;
+];
+let  pizzaAmount, orderPizza;
 let zero = 0;
 // Кнопка корзины--------------------------------------
 basket.addEventListener('click', (event) =>{
@@ -83,134 +70,80 @@ document.addEventListener('click', function (event){
 //Подсчет товаров-----------------------------------
 buttonBuy.forEach(element =>
     element.addEventListener('click', (event) => {
-        pizzaNameOrder = event.target.getAttribute("data-pizza");
-        const orderPizza = pizzas.find(el => el.name === pizzaNameOrder)
-        pizzaPriceOrder = orderPizza.price;
-        pizzaInformation = orderPizza.info;
-        pizzaImg = orderPizza.src;
+        const pizzaNameOrder = event.target.getAttribute("data-pizza");
+         orderPizza = pizzas.find(el => el.name === pizzaNameOrder);
         pizzaAmount = zero += orderPizza.amount;
 
         let isPizzaExist = false;
 
         const pizzaInLocal = (JSON.parse(localStorage.getItem("localPizza")) || [])
-            .filter(item => item.name !== orderPizza.name)
             .map(item => {
-                    if (item.name !== orderPizza.name) {
-                            return item;
-                        isPizzaExist = true;
-                        return {...item}
-                    }
-                    if (!isPizzaExist) {
-                        const newPizza = {
-                            name: pizzaNameOrder,
-                            price: pizzaPriceOrder,
-                            info: pizzaInformation,
-                            src: pizzaImg,
-                            amount: pizzaAmount,
-                        }
-                        pizzaInLocal.push(newPizza);
-                    }
-                    localStorage.setItem("localPizza", JSON.stringify(pizzaInLocal))
-
-                    const clone = (document.querySelector('.ta'));
-                    const clone2 = clone.cloneNode(true);
-                    clone.after(clone2)
-                    JSON.parse(localStorage.getItem("localPizza")).forEach(elem => {
-                        tableImg.src = elem.src;
-                        pizzaName.textContent = elem.name;
-                        pizzaInfo.textContent = elem.info;
-                        pizzaPrice.textContent = elem.price;
-                        number.textContent = elem.amount;
-                        howMany.textContent = elem.amount;
-                    })
-                }
-            )
+                if (item.name !== orderPizza.name)
+                    return item;
+                    isPizzaExist = true;
+                    return {...item, sum: howMany * item.price}
+            });
+        if (!isPizzaExist) {
+            const newPizza = {
+                name: orderPizza.name,
+                price: orderPizza.price,
+                info: orderPizza.info,
+                src: orderPizza.src,
+                amount: pizzaAmount,
+                sum: orderPizza.price * howMany,
+            }
+            pizzaInLocal.push(newPizza);
         }
-    )
+        localStorage.setItem("localPizza", JSON.stringify(pizzaInLocal))
+        getPizza()
+    })
 );
-console.log(localStorage.getItem('pizzas'));
-console.log(localStorage.getItem('number'));
-const minus = document.querySelectorAll('.minus');
-const plus = document.querySelectorAll('.plus');
-// plus.addEventListener('click', () => {
-//     plusAfter = minusAfter += 1;
-//     document.querySelector('.how-many').textContent = plusAfter;
-// });
-// minus.addEventListener('click', () =>{
-//         minusAfter = plusAfter -= 1;
-//         document.querySelector('.how-many').textContent = minusAfter;
-// });
+function getPizza(){
+    const newOrder = JSON.parse(localStorage.getItem("localPizza")) || [];
+    console.log(newOrder);
+    const elemForDelete = [...(document.querySelectorAll('.ta') || [])];
 
-// function deleteOrder(id){
-//     const result =  pizzas.filter(el => el.id !== id)
-//     console.log(result)
-// }
+    elemForDelete.forEach(item => item.remove());
+    newOrder.forEach(elem => {
+        const clone = table.cloneNode(true);
+        const tableImg = clone.querySelector('.pizza-table-img');
+        const pizzaName = clone.querySelector('.pizza-name');
+        const pizzaInfo = clone.querySelector('.pizza-info');
+        const pizzaPrice = clone.querySelector('.pizza-price');
+        tableImg.src = elem.src;
+        pizzaName.textContent = elem.name;
+        pizzaInfo.textContent = elem.info;
+        pizzaPrice.textContent = elem.sum;
+        // number.textContent = elem.amount;
+        // howMany.textContent = elem.amount;
+        // cost.textContent = elem.sum;
+        modal.append(clone);
+});
+}
+getPizza()
 
-
-// quantity.addEventListener("click", () => {
-//     const pizzaCount = parseInt(inputValue.value);
-//     let isPizzaExist = false;
-//
-//     const oldOrder = (JSON.parse(localStorage.getItem("order")) || [])
-//         // .filter(item => item.name !== selectedPizza.name)
-//         .map(item => {
-//             if (item.name !== selectedPizza.name)
-//                 return item;
-//             isPizzaExist = true;
-//             const count = item.count + pizzaCount;
-//             return { ...item, count, sum: count * item.price }
-//         });
-//     if (!isPizzaExist) {
-//         const newPizza = {
-//             name: selectedPizza.name,
-//             count: pizzaCount,
-//             price: selectedPizza.price,
-//             sum: selectedPizza.price * pizzaCount,
-//         }
-//         oldOrder.push(newPizza);
-//     }
-//     localStorage.setItem("order", JSON.stringify(oldOrder));
-//
-//     closeModalPizza();
+// const one = 1;
+// const minus = document.querySelectorAll('.minus');
+// const plus = document.querySelectorAll('.plus');
+// plus.forEach(element =>
+//     element.addEventListener('click', () => {
+//         howMany.textContent = pizzaAmount += one;
+//     })
+// );
+// minus.forEach(element =>
+// element.addEventListener('click', () =>{
+//       howMany.textContent = pizzaAmount -= one;
+// })
+// )
+function deleteOrder(event){
+    const arrIsLocal = JSON.parse(localStorage.getItem("localPizza"));
+    const result =  arrIsLocal.filter(el => el.name !== id)
+    console.log(result)
+}
+// if( event.target.className = "th_5"){
+//     const elemMas = event.target.getAttribute("basket");
+//     const arrIsLocal = JSON.parse(localStorage.getItem("order"));
+//     const qqq = arrIsLocal.filter(elem => elem.name !== elemMas)
+//     localStorage.setItem("order", JSON.stringify(qqq));
 //     updateOrder();
-// });
-// //------------------------------------------------------------------------
-// function updateOrder() {
-//     const order = JSON.parse(localStorage.getItem("order")) || [];
-//
-//     const finalPrice = order.reduce((a, b) => a + b.sum, 0);
-//     const pizzaCount = order.reduce((a, b) => a + b.count, 0);
-//     const oldElements = [...(document.querySelectorAll('.tr-clone') || [])];
-//
-//     oldElements.forEach(item => item.remove());
-//
-//     // update bag info
-//     headerSum.textContent = finalPrice + " грн.";
-//     headerQuantity.textContent = pizzaCount + " шт.";
-//     // update modal info
-//
-//     console.log(order);
-//     order.forEach(elem => {
-//         const trClone = tr.cloneNode(true);
-//         trClone.classList.add('tr-clone');
-//
-//         const iconClearPizza = trClone.querySelector(".clear-pizza");
-//         iconClearPizza.style.display = "block";
-//         iconClearPizza.setAttribute("basket", `${elem.name}`);
-//
-//         const tableName = trClone.querySelector(".th_1");
-//         const tableCount = trClone.querySelector(".th_2");
-//         const tablePrice = trClone.querySelector(".th_3");
-//         const tableSum = trClone.querySelector(".th_4");
-//
-//         tableName.textContent = elem.name;
-//         tableCount.textContent = elem.count;
-//         tablePrice.textContent = elem.price;
-//         tableSum.textContent = elem.sum;
-//         table.append(trClone);
-//     });
-//     // delPizza();
-//     spanResult.textContent = finalPrice;
-// };
-// updateOrder();
-
+// }

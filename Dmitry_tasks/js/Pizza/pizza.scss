@@ -210,3 +210,23 @@ h1{
     }
   }
 }
+.ta {
+  display: flex;
+  justify-content: space-between;
+  &:first-child {
+    display: none;
+  }
+}
+.pizza-text{
+  display: flex;
+  flex-direction: column;
+}
+.pizza-delete{
+  padding-top: 20px;
+  width: 100px;
+}
+.delete-order{
+  display: flex;
+  justify-content: right;
+  margin-bottom: 150px;
+}
