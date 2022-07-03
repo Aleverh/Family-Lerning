@@ -1,15 +1,13 @@
 'use strict';
-
-const showBtn = document.querySelector('.header__basket');
 const modal = [document.querySelector('.modal'), document.querySelector('.overlay')];
-
+const showBtn = document.querySelector('.header__basket');
 showBtn.addEventListener('click', function (e) {
     e.preventDefault();
     modal.forEach(item => {
         item.classList.remove('hidden')
     });
 });
-//?----------------------------------------------------
+//?----------------is not working----------------------
 /* document.addEventListener('click', function (e) {
     if (e.target.closest('.basket')) {
         openModal();
@@ -47,7 +45,7 @@ document.addEventListener('click', function (e) {
     }
 });
 //----------------pizza data------------------------------------------------------
-const pizza1 = {
+const pizzaData = [{
     id: 1,
     name: 'Верона',
     price: 110.00,
@@ -55,8 +53,7 @@ const pizza1 = {
     моцарелла, вершковий соус`,
     size: 40,
     img: `<img src="./img/pizza1.png" alt="">`,
-};
-const pizza2 = {
+}, {
     id: 2,
     name: 'Діавола',
     price: 135.00,
@@ -64,8 +61,7 @@ const pizza2 = {
     маринована, сир моцарелла, неаполітанський соус`,
     size: 40,
     img: `<img src="./img/pizza2.png" alt="">`,
-};
-const pizza3 = {
+}, {
     id: 3,
     name: 'Карбонара',
     price: 120.00,
@@ -73,18 +69,14 @@ const pizza3 = {
     вершковий соус`,
     size: 40,
     img: `<img src="./img/pizza3.png" alt="">`,
-};
-const pizza4 = {
+}, {
     id: 4,
     name: 'Пепероні',
     price: 125.00,
     description: `Салямі перероні, сир моцарела, сир пармезан, спеції, томатний соус`,
     size: 40,
     img: `<img src="./img/pizza4.png" alt="">`,
-};
-
-const pizzaData = [pizza1, pizza2, pizza3, pizza4];
-
+}];
 //------------------set data into html--------------------------------------
 const itemCards = Array.from(document.querySelectorAll('.menu__card'));
 itemCards.forEach(element => {
@@ -102,32 +94,38 @@ itemCards.forEach(element => {
     img.innerHTML = ourPizza.img;
 });
 //------------------ adding element function and button------------------------------
-function addFoundPizza(myPizza) {
+function addFoundPizza(pizzaId, storageKey) {
+    const myPizza = pizzaData.find(item => item.id === pizzaId.id);
+    const storedPizzaCount = JSON.parse(localStorage.getItem(`pizza${storageKey}`)).count;
+    const priceResult = Number(storedPizzaCount) * myPizza.price;
     modal[0].insertAdjacentHTML("beforeEnd",
         `
-<div class="addedItem">
-<span class="addedItem__remove">&times;</span>
-<div class="addedItem__img">${myPizza.img}</div>
-<span class="addedItem__name">${myPizza.name}</span>
-<img src="./img/minusbutton.png" alt="" class="addedItem__minusButton">
-<img src="./img/plusbutton.png" alt="" class="addedItem__plusButton">
-<span class="addedItem__amount">1</span>
-<span class="addedItem__cost">${myPizza.price}</span>
-</div>
-`)
-}
-function findPizza(pizzaId) {
-    const myPizza = pizzaData.find(item => item.id === pizzaId.id);
-    return addFoundPizza(myPizza)
+        <div class="addedItem" name="pizza${storageKey}" data-key="${storageKey}">
+            <span class="addedItem__remove">&times;</span>
+            <div class="addedItem__img">${myPizza.img}</div>
+            <span class="addedItem__name">${myPizza.name}</span>
+            <img src="./img/minusbutton.png" alt="" class="addedItem__minusButton">
+            <img src="./img/plusbutton.png" alt="" class="addedItem__plusButton">
+            <span class="addedItem__amount">${storedPizzaCount}</span>
+            <span class="addedItem__cost">${priceResult}</span>
+        </div>
+        `);
 };
 const addBtn = Array.from(document.getElementsByClassName('card__button'));
 addBtn.forEach(element => {
     const elementParrent = element.closest('.menu__card');
-    element.addEventListener("click", () => {
+    element.addEventListener("click", (element) => {
         const dataIndex = Number(elementParrent.getAttribute('data-id'));
-        localStorage.setItem(`pizza${dataIndex}`, JSON.stringify({ id: dataIndex, count: 1 }))
+        if (!localStorage.getItem(`pizza${dataIndex}`)) {
+            localStorage.setItem(`pizza${dataIndex}`, JSON.stringify({ id: dataIndex, count: 1 }))
+        };
         const storageData = JSON.parse(localStorage.getItem(`pizza${dataIndex}`));
-        findPizza(storageData);
+        const myOrder = Array.from(modal[0].querySelectorAll('.addedItem')).map(item => Number(item.getAttribute('data-key'))) || [];
+        if (myOrder.includes(dataIndex)) {
+            increaseAmount(document.getElementsByName(`pizza${dataIndex}`)[0]);
+        } else {
+            return addFoundPizza(storageData, `${dataIndex}`);
+        }
     })
 });
 // -------------delete added pizza---------------------------------------
@@ -137,6 +135,7 @@ function deleteItem(item) {
 modal[0].addEventListener('click', function (e) {
     if (e.target.closest('.addedItem__remove')) {
         deleteItem(e.target.closest('.addedItem__remove'));
+        localStorage.removeItem(e.target.parentElement.getAttribute('name'));
     }
 });
 //-------------edit amount of pizza---------------------------------------
@@ -148,6 +147,9 @@ function increaseAmount(item) {
     const pizzaCost = Number(currentPizzaCost.textContent) / pizzaAmount;
     currentPizzaAmount.textContent = ++pizzaAmount;
     currentPizzaCost.textContent = Number(currentPizzaAmount.textContent) * pizzaCost;
+    const storedPizzaData = JSON.parse(localStorage.getItem(`${itemParrent.getAttribute('name')}`));
+    storedPizzaData.count = pizzaAmount;
+    localStorage.setItem(`${itemParrent.getAttribute('name')}`, JSON.stringify(storedPizzaData));
 };
 function decreaseamount(item) {
     const itemParrent = item.closest('.addedItem');
@@ -170,3 +172,14 @@ modal[0].addEventListener('click', function (e) {
         decreaseamount(e.target.closest('.addedItem__minusButton'));
     }
 });
+//-------------onload fill order from storage------------------------------
+let storageKeys = ['pizza1', 'pizza2', 'pizza3', 'pizza4'];
+storageKeys.forEach(key => {
+    if (localStorage.getItem(key)) {
+        const storageItem = JSON.parse(localStorage.getItem(key));
+        const storageKey = storageItem.id;
+        addFoundPizza(storageItem, storageKey);
+    }
+});
+
+//TODO: 1) set counter on header basket. 2)add btn into modal for clear all items. 3)add btn for order chosen items
