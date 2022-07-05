@@ -43,7 +43,7 @@ basket.addEventListener('click', (event) =>{
         modal.style.display = 'block';
         event.stopPropagation()
     }
-    });
+});
 //Закрытие модалки по крестику-------------------------------
 close.addEventListener('click', () =>{
     modal.style.display = "none";
@@ -57,7 +57,6 @@ document.addEventListener('keydown', function (e){
 });
 ////Закрытие модалки по клику-------------------------------
 document.addEventListener('click', function (event){
-    // if (event.target.className !== "modal"){
     if ((event.target).closest(".modal")){
         return;
     }
@@ -69,17 +68,15 @@ buttonBuy.forEach(element =>
         const pizzaNameOrder = event.target.getAttribute("data-pizza");
         const orderPizza = pizzas.find(el => el.name === pizzaNameOrder);
 
-        let pizzaAmount = 0;
-        pizzaAmount += orderPizza.amount;
         let isPizzaExist = false;
         const pizzaInLocal = (JSON.parse(localStorage.getItem("localPizza")) || [])
             .map(item => {
                 if (item.name !== orderPizza.name){
                     return item;
                 }
-                    const count = ++orderPizza.amount;
-                    isPizzaExist = true;
-                    return {...item, count, amount: count, sum: count * orderPizza.price};
+                const count = ++orderPizza.amount;
+                isPizzaExist = true;
+                return {...item, count, amount: count, sum: count * orderPizza.price};
             });
                  if (!isPizzaExist) {
                     const newPizza = {
@@ -96,72 +93,87 @@ buttonBuy.forEach(element =>
         getPizza();
     })
 );
+const how = document.querySelector('.how-many');
 function getPizza(){
     const newOrder = JSON.parse(localStorage.getItem("localPizza")) || [];
     const finalPrice = newOrder.reduce((a, b) => a + b.sum, 0);
     const pizzaAmount = newOrder.reduce((a, b) => a + b.amount, 0);
+
     const elemForDelete = [...(document.querySelectorAll('.ta') || [])];
     elemForDelete.forEach(item => item.remove());
     newOrder.forEach(elem => {
         const clone = table.cloneNode(true);
         const deleteBusket1 = clone.querySelector('.delete-busket');
         deleteBusket1.setAttribute('busket', `${elem.name}`);
-        console.log(deleteBusket1)
+
         const tableImg = clone.querySelector('.pizza-table-img');
         const pizzaName = clone.querySelector('.pizza-name');
         const pizzaInfo = clone.querySelector('.pizza-info');
         const pizzaPrice = clone.querySelector('.pizza-price');
-        const how = clone.querySelector('.how-many');
-        const minus = clone.querySelector('.minus');
-        const plus = clone.querySelector('.plus');
+
         tableImg.src = elem.src;
         pizzaName.textContent = elem.name;
         pizzaInfo.textContent = elem.info;
         pizzaPrice.textContent = elem.price * elem.amount;
+
         how.textContent = elem.amount;
-        number.textContent = pizzaAmount;
-        cost.textContent = finalPrice;
+        number.textContent = String(pizzaAmount);
+        cost.textContent = String(finalPrice);
         modal.append(clone);
+        calculate();
+    });
+}
+getPizza()
+const deleteBusket = document.querySelectorAll('.delete-busket')
+deleteBusket.forEach(element =>
+    element.addEventListener("click", () => {
+        const pizzaAttr = element.getAttribute('busket');
+        const result = JSON.parse(localStorage.getItem("localPizza")).filter(elem => elem.name !== pizzaAttr);
+        localStorage.setItem("localPizza", JSON.stringify(result));
+        console.log(result);
+        getPizza();
+    })
+);
+function calculate(){
+    const orderCalc = JSON.parse(localStorage.getItem("localPizza"));
+    orderCalc.forEach(elem => {
+        const clone = table;
+
         let plusA = elem.amount;
         let minusA = elem.amount;
+        const minus = clone.querySelector('.minus');
+        const plus = clone.querySelector('.plus');
+        const pizzaPrice = clone.querySelector('.pizza-price');
         plus.addEventListener('click', () => {
                 plusA += 1;
-                pizzaPrice.textContent = elem.price * plusA;
+                pizzaPrice.textContent = String(elem.price * plusA);
+                console.log(pizzaPrice)
                 how.textContent = plusA;
             }
         )
         minus.addEventListener('click', () =>{
             if (how.textContent > 0){
                 minusA = --plusA;
-                pizzaPrice.textContent = elem.price * minusA;
+                pizzaPrice.textContent = String(elem.price * minusA);
                 how.textContent = minusA;
             }
         })
-});
+    })
 }
-getPizza()
-
-// const deleteBusket = document.querySelectorAll('.ta')
-// deleteBusket.forEach(element =>
-//     element.addEventListener("click", (event) => {
-//         if (event.target.className === "delete-busket-img") {
-//         const pizzaAttr = element.getAttribute('busket');
-//         console.log(pizzaAttr);
-//         const result = JSON.parse(localStorage.getItem("localPizza")).filter(elem => elem.name !== pizzaAttr)
-//         localStorage.setItem("localPizza", JSON.stringify(result));
-//         console.log(result)
-//         getPizza()
-//     }
-// })
-// );
-    const deleteBusket = document.querySelectorAll('.delete-busket')
-    deleteBusket.forEach(element =>
-        element.addEventListener("click", (event) => {
-            const pizzaAttr = element.getAttribute('busket');
-            console.log(pizzaAttr);
-            const result = JSON.parse(localStorage.getItem("localPizza")).filter(elem => elem.name !== pizzaAttr);
-            localStorage.setItem("localPizza", JSON.stringify(result));
-            console.log(result);
-            getPizza();
-        })
-    );
+function pizzasForHtml(){
+    pizzas.forEach( elem =>{
+     const menu = document.querySelector('.menu')
+        menu.innerHTML +=
+            `<div class="pizza">
+            <img class="pizza-img" src="${elem.src}">
+            <h3 class="pizza-h3">${elem.name}</h3>
+            <div class="stars"></div>
+            <p class="text">${elem.info}</p>
+            <div class="buying pizza2">
+                <button data-pizza="Карбонара" class="buy">Заказать</button>
+                <div class="price2 price">${elem.price} грн</div>
+            </div>
+        </div>`
+    })
+}
+pizzasForHtml();

@@ -117,6 +117,9 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
@@ -129,18 +132,6 @@ h1 {
 }
 .pizza:hover {
   border: 1px solid #ff0c19;
-}
-
-.pizza1 {
-  margin-top: 79px;
-}
-
-.pizza2 {
-  margin-top: 59px;
-}
-
-.pizza4 {
-  margin-top: 59px;
 }
 
 .pizza-img {
