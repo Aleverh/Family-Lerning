@@ -156,6 +156,7 @@ function updateOrder() {
       const iconClearPizza = trClone.querySelector(".clear-pizza");
       iconClearPizza.style.display = "block";
       iconClearPizza.setAttribute("basket", `${elem.name}`);
+      console.log(iconClearPizza);
       
       const tableName = trClone.querySelector(".th_1");
       const tableCount = trClone.querySelector(".th_2");
@@ -173,15 +174,15 @@ function updateOrder() {
 };
 updateOrder();
 //-------------------------------------------------------------
-
-// const tableName = document.querySelectorAll(".th_1");
 const clearPizza = document.querySelectorAll(".th_5");
 // const delPizzaOrder = document.querySelectorAll(".tr-clone");
 
 table.addEventListener("click", (event) =>{
    if( event.target.className = "th_5"){
       const elemMas = event.target.getAttribute("basket");
+
       const arrIsLocal = JSON.parse(localStorage.getItem("order"));
+
       const qqq = arrIsLocal.filter(elem => elem.name !== elemMas)
       localStorage.setItem("order", JSON.stringify(qqq));
       updateOrder();
@@ -202,13 +203,6 @@ table.addEventListener("click", (event) =>{
       // }
 //    });
 // });
-
-
-// function delPizza(){
-//    const delPizzaOrder = document.querySelector(".tr-clone");
-//    console.log(qqq);
-//    delPizzaOrder.remove();
-// }  
 
 //--Открыть окно заказа (корзины)-------------------------------
 headerButton.addEventListener("click", () => {
@@ -235,7 +229,6 @@ buttonClose.forEach(buttonClose => {
       if(event.target.closest(".modal__close")){
          closeModalPizza();
          closeModalOrder();
-         // updateOrder();
       }
    })
 });
@@ -247,9 +240,6 @@ function closeModalPizza(){
 function closeModalOrder(){
    modalOrder.style.display = "none";
 }
-
-//--Кнопкa оформить  заказ---------------------------
-
 //--Кнопкa  отменить заказ---------------------------
 buttonResaltClose.addEventListener("click", () => {
    spanResult.textContent = "";
@@ -258,7 +248,7 @@ buttonResaltClose.addEventListener("click", () => {
    localStorage.clear();
    closeModalOrder();
 });
-//---------------------------------------------------------------------------
+//-------------------------------------------------------------------------
 function init(){
    const stars = ["<img src=Images/Star%201.png>", "<img src=Images/Star%201.png>","<img src=Images/Star%201.png>","<img src=Images/Star%201.png>", "<img src=Images/Star%201.png>"];
    pizzas.forEach(elem => {
