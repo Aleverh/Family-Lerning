@@ -18,7 +18,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   color: #444;
-  background-color: #f3f3f3;
+  background-color: #dfee90;
   height: 100vh;
   padding: 2rem;
 }
@@ -129,7 +129,7 @@ nav {
   overflow: scroll;
 }
 
-.movements__row-deposit, .movements__row-withdrawal, .movements__row {
+.movements__row {
   padding: 2.25rem 4rem;
   display: flex;
   align-items: center;
@@ -147,7 +147,7 @@ nav {
 }
 
 .movements__date {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   font-weight: 500;
   color: #666;
@@ -292,6 +292,6 @@ h2 {
   font-size: 1.25rem;
 }
 
-.timer {
+.minutes, .seconds {
   font-weight: 600;
 }

@@ -18,7 +18,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   color: #444;
-  background-color: #f3f3f3;
+  background-color: #eaec87;
   height: 100vh;
   padding: 2rem;
 }
@@ -54,7 +54,7 @@ nav {
   margin-right: 1rem;
   color: inherit;
   border: 1px solid #fff;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
 }
 
 .login__input:focus {
@@ -129,14 +129,7 @@ nav {
   overflow: scroll;
 }
 
-.movements__row-deposit {
-  padding: 2.25rem 4rem;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.movements__row-withdrawal {
+.movements__row {
   padding: 2.25rem 4rem;
   display: flex;
   align-items: center;
