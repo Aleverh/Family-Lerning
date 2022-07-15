@@ -20,7 +20,8 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 let today = new Date();
-const fiveMin = Number(new Date()) + 10000;
+const todayDate = `${today.getDate()}.0${today.getMonth() + 1}.${today.getFullYear()}, ${today.getHours()}:${today.getMinutes()}`;
+let start;
 const account1 = {
   owner: 'Jonas Schmedtmann',
   movements: [1300, 300],
@@ -58,14 +59,15 @@ const accounts = [account1, account2, account3, account4];
 btnLogin.addEventListener('click', () => {
   const localAccounts = JSON.parse(localStorage.getItem('accounts'));
   const activeUser = localAccounts.find(elem => elem.login === inputLoginUsername.value && elem.pin === Number(inputLoginPin.value))
-  if (activeUser.login !== undefined){
+  if (activeUser.login){
     inputLoginUsername.value = "";
     inputLoginPin.value = "";
     containerApp.style.opacity = "1";
     labelDate.textContent = `${today.getDate()}/0${today.getMonth() + 1}/${today.getFullYear()}`;
     localStorage.setItem("activeUser", activeUser.login);
-    localStorage.setItem('fiveMin', JSON.stringify(fiveMin))
-    startTimer()
+    const startedTime = Number(new Date()) + 10000;
+    localStorage.setItem('startedTime', JSON.stringify(startedTime));
+    start = setInterval(startTimer, 1000);
     movements()
   } else {
     inputLoginUsername.value = "";
@@ -82,27 +84,24 @@ function init() {
     inputLoginPin.value = "";
     containerApp.style.opacity = "1";
     labelDate.textContent = `${today.getDate()}/0${today.getMonth() + 1}/${today.getFullYear()}`;
-    startTimer();
+    start = setInterval(startTimer, 1000);
     movements()
   }
 }
 init()
 function startTimer() {
-  const start = setInterval(startTimer, 1000);
   const now = Number(new Date())
   const minutes1 = document.querySelector('.minutes');
   const seconds1 = document.querySelector('.seconds');
-  const timer = JSON.parse(localStorage.getItem('fiveMin')) - now;
-  // console.log(timer);
-  if (timer <= 0) {
-    clearInterval(start);
-    containerApp.style.opacity = "0";
-  }
+  const timer = JSON.parse(localStorage.getItem('startedTime')) - now;
   const minutes = timer > 0 ? Math.floor(timer / 1000 / 60) % 60 : 0;
   const seconds = timer > 0 ? Math.floor(timer /1000) % 60 : 0;
-
   minutes1.textContent = minutes < 10 ? '0' + minutes : minutes;
   seconds1.textContent = seconds < 10 ? '0' + seconds : seconds;
+  if (timer <= 0) {
+    containerApp.style.opacity = "0";
+    clearInterval(start);
+  }
 }
 // Денежные операции
 function movements(){
@@ -114,14 +113,14 @@ function movements(){
       containerMovements.innerHTML +=
           `<div class="movements__row">
           <div class="movements__type movements__type--deposit">deposit</div>
-          <div class="movements__date">${today.getDate()}.0${today.getMonth() + 1}.${today.getFullYear()}, ${today.getHours()}:${today.getMinutes()}</div>
+          <div class="movements__date">${todayDate}</div>
           <div class="movements__value">${elem}</div
         </div>`
     } else {
       containerMovements.innerHTML +=
           `<div class="movements__row-withdrawl">
           <div class="movements__type movements__type--withdrawal">withdrawal</div>
-          <div class="movements__date">${today.getDate()}.0${today.getMonth() + 1}.${today.getFullYear()}, ${today.getHours()}:${today.getMinutes()}</div>
+          <div class="movements__date">${todayDate}</div>
           <div class="movements__value--minus">${elem}</div>
         </div>`
     }
@@ -134,29 +133,28 @@ btnTransfer.addEventListener('click', transfer);
 function transfer() {
   const persons = JSON.parse(localStorage.getItem('accounts'));
   const balance = persons.find(elem => elem.login === localStorage.getItem('activeUser')).movements.reduce((a, b) => a + b);
-  persons.map(elem => {
+  const newPersons = persons.map(elem => {
     if (elem.login === inputTransferTo.value && inputTransferTo.value !== localStorage.getItem('activeUser')) {
       if (Number(inputTransferAmount.value) <= balance && Number(inputTransferAmount.value) > 0) {
         elem.movements.push(Number(inputTransferAmount.value));
         inputTransferAmount.value = "";
         inputTransferTo.value = "";
-        return {...elem}
       }
       if (Number(inputTransferAmount.value) > balance) alert("Недостаточно средств!");
     }
     if (elem.login === localStorage.getItem('activeUser') && Number(inputTransferAmount.value) > 0){
         elem.movements.push(Number(-inputTransferAmount.value));
-        return {...elem}
     }
+    return{...elem,}
   })
   containerMovements.innerHTML = "";
-  localStorage.setItem('accounts', JSON.stringify(persons));
+  localStorage.setItem('accounts', JSON.stringify(newPersons));
   movements()
 }
 // Взять в кредит
 btnLoan.addEventListener('click', () => {
   const persons = JSON.parse(localStorage.getItem('accounts'));
-  persons.map(elem =>{
+  const newPersons = persons.map(elem =>{
     const balance = persons.find(elem => elem.login === localStorage.getItem('activeUser')).movements.reduce((a, b) => a + b);
     if (elem.login === localStorage.getItem('activeUser') && Number(inputLoanAmount.value) <= balance) {
         elem.movements.push(Number(inputLoanAmount.value));
@@ -169,7 +167,7 @@ btnLoan.addEventListener('click', () => {
     }
     return {...elem,}
   })
-  localStorage.setItem('accounts', JSON.stringify(persons));
+  localStorage.setItem('accounts', JSON.stringify(newPersons));
   movements();
 })
 btnSort.addEventListener('click', () =>{
