@@ -175,6 +175,8 @@ function transfer(user, amount) {
     saveStorageChanges();
     const movementId = logInUser.movements.length;
     withdrowalDisplay(movementId, -amount);
+    inputTransferTo.value = '';
+    inputTransferAmount.value = '';
   };
 };
 
@@ -198,6 +200,7 @@ function loan(amount) {
     saveStorageChanges();
     depositDisplay(logInUser.movements.length + logInUser.loans.length, amount);
     summary();
+    inputLoanAmount.value = '';
   } else {
     alert('We are sorry, we can not grant this loan.');
   };
@@ -213,7 +216,7 @@ btnClose.addEventListener('click', (e) => {
   };
 });
 
-//-----------------------OPERATION: CLOSE ACCOUNT--------------------------
+//?-----------------------OPERATION: CLOSE ACCOUNT--------------------------
 function closeAcc(logInUser) {
   const currentAccounts = storageAccounts.filter((user) => !(user.owner === logInUser.owner));
   localStorage.setItem('accounts', JSON.stringify(currentAccounts));
@@ -231,7 +234,20 @@ btnSort.addEventListener('click', (e) => {
 
 //-----------------------OPERATION: SORT----------------------------------
 function sort() {
-  alert('Sorted!');
+  containerMovements.innerHTML = '';
+  let allActivities = logInUser.movements;
+  if (logInUser.loans){
+    allActivities = logInUser.movements.concat(logInUser.loans);
+  };
+  const sortedActivities = allActivities.sort((a,b)=>a-b);
+  sortedActivities.forEach(value => {
+    const movementId = sortedActivities.indexOf(value) + 1;
+    if (value < 0) {
+      withdrowalDisplay(movementId, value);
+    } else {
+      depositDisplay(movementId, value);
+    };
+  });
 };
 
 //-----------------------OPERATION: LOGOUT--------------------------------
@@ -242,16 +258,16 @@ function logOut() {
 };
 //-----------------------OPERATION: COUNTDOWN-----------------------------
 function countDown () {
-  let min = 1;
+  let min = 5;
   let sec = 0;
   min--;
   sec = 59;
-  const couter = setInterval(() => {
+  const counter = setInterval(() => {
     labelTimer.textContent = min + ':' + sec;
     if (min===0 & sec===0){
       labelTimer.textContent = '0:00';
       logOut();
-      clearInterval(couter);
+      clearInterval(counter);
     } else if (sec===0){
       min--;
       sec = 59;
@@ -260,10 +276,12 @@ function countDown () {
     };
   }, 1000);
 };
+//-----------------------OPERATION: GET TIME------------------------------
+function getTime () {
+  let now = new Date();
+  now = now.getFullYear() +'/'+now.getMonth()+'/'+now.getDay()+' '+now.getHours()+':'+now.getMinutes();
+}
 
 
 
-
-
-
-//TODO 1)transfers - done. 2)Loans - done. 3)Timer&logout. 4)Dates. 5)Sort.
+//TODO 1)transfers - done. 2)Loans - done. 3)Timer&logout - done. 4)Dates - done. 5)Sort.
