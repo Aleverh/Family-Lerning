@@ -41,7 +41,6 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'test html',
-
             meta: {
                 description: 'first webpack html'
             }
