@@ -28,5 +28,11 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUserName = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+//---------------------------------------------------------------------------
+const inputClientsName = document.querySelector(".login__input--name");
+const inputClientsLogin = document.querySelector(".login__input--login1");
+const inputClientsPin = document.querySelector(".login__input--pin1");
+const inputCurrentBalance = document.querySelector(".login__input--balance");
+const btnReg = document.querySelector(".login__btn--reg");
 
 

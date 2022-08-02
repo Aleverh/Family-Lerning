@@ -106,11 +106,7 @@ pizzaMenu.addEventListener("click", function (event) {
 });
 //--Кнопка добавить----------------------------------------------------
 quantity.addEventListener("click", () => {
-   // localStorage.setItem("pizzaName", pizzaVariant);
-   // localStorage.setItem("price", pizzaPriceOrder);
-   //-------------------------------------------------------------------
    pizzaQuantity = parseInt(inputValue.value);
-   // localStorage.setItem("quantity", pizzaQuantity);
    totalQuantity += pizzaQuantity;
    //-------------------------------------------------------------------
    totalSumma += pizzaQuantity * parseInt(localStorage.getItem("price"));
@@ -134,14 +130,6 @@ quantity.addEventListener("click", () => {
 
    const trClon = tr.cloneNode(true);
    table.append(trClon);
-
-   // const newOrder = JSON.parse(localStorage.getItem("order")).filter(elem => {
-   //    for(let i of newOrder){
-   //       if(elem.name ===    ){
-
-   //    }}
-   // });
-
 
    JSON.parse(localStorage.getItem("order")).forEach(elem => {
       tableName.textContent = elem.name;

@@ -9,7 +9,7 @@ var today = new Date();
 function initClients() {
   var balance = JSON.parse(localStorage.getItem("balance")) || [];
   var clientUser = balance.find(function (elem) {
-    return elem.login === localStorage.getItem("activeClient");
+    return elem.clientsLogin === localStorage.getItem("activeClient");
   });
   containerMovements.innerHTML = "";
   var transferMoney = 0;

@@ -111,7 +111,6 @@ quantity.addEventListener("click", () => {
    let isPizzaExist = false;
 
    const oldOrder = (JSON.parse(localStorage.getItem("order")) || [])
-       // .filter(item => item.name !== selectedPizza.name)
       .map(item => {
          if (item.name !== selectedPizza.name)
             return item;

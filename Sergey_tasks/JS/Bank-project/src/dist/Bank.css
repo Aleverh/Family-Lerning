@@ -39,7 +39,7 @@ nav {
   height: 5.25rem;
 }
 
-.login {
+.login, .registration {
   display: flex;
 }
 
@@ -66,7 +66,7 @@ nav {
   color: #bbb;
 }
 
-.login__btn {
+.login__btn, .login__btn--reg {
   border: none;
   background: none;
   font-size: 2.2rem;
@@ -294,4 +294,12 @@ h2 {
 
 .minutes, .seconds {
   font-weight: 600;
+}
+
+.registration {
+  display: flex;
+  margin-top: 30px;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 2em;
 }

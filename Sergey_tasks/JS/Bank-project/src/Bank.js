@@ -1,43 +1,10 @@
+"use strict";
+
 import "./Bank.html";
 import "./Bank.scss";
 import initClients from "./Bank-1";
 
-"use strict";
-
-// BANKIST APP
-const account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [],
-  pin: 1,
-  login: "js",
-  currentBalance: 1000,
-};
-
-const account2 = {
-  owner: 'Jessica Davis',
-  movements: [],
-  pin: 2,
-  login: "jd",
-  currentBalance: 2000,
-};
-
-const account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [],
-  pin: 3,
-  login: "stw",
-  currentBalance: 3000,
-};
-
-const account4 = {
-  owner: 'Sarah Smith',
-  movements: [],
-  pin: 4,
-  login: "ss",
-  currentBalance: 4000,
-};
-//-------------------------------------------------------------------------
-let accounts = [account1, account2, account3, account4];
+//------------------------------------------------------------------------
 let closeActiveUser;
 const timeSession = 300000;  //-время сессии
 const today = new Date();
@@ -45,9 +12,6 @@ const today = new Date();
 //--Запись в данных массива accounts в localStorage если они не записаны
 function init(){
    labelDate.textContent = `${today.getDate()}.0${today.getMonth() + 1}.${today.getFullYear()}`;
-   if(! JSON.parse(localStorage.getItem("balance"))){
-      localStorage.setItem("balance", JSON.stringify(accounts));
-   }
    closeActiveUser = setInterval(timer, 1000);
 }
 init();
@@ -58,15 +22,16 @@ btnLogin.addEventListener("click", () =>{
    const clientLogin = inputLoginUsername.value;
    const clientPin = parseInt(inputLoginPin.value);
    const balance = JSON.parse(localStorage.getItem("balance"))
-   const clientVerify = balance.find(elem => elem.login === clientLogin && elem.pin === clientPin);
+   const clientVerify = balance.find(elem => elem.clientsLogin === clientLogin && elem.clientsPin === clientPin);
    if(clientVerify){
       //--Записываем  в localStorage Login активного клиента и запускаем таймер--------
       containerApp.style.opacity = "0";
-
-      const activeClient = clientVerify.login;
+      const activeClient = clientVerify.clientsLogin;
       localStorage.setItem("activeClient", activeClient);
-      const activePin = clientVerify.pin;
+      const activePin = clientVerify.clientsPin;
       localStorage.setItem("activePin" , JSON.stringify(activePin));
+
+      document.querySelectorAll(".log__input--del").forEach(elem => elem.value = "");
 
       let newTime = Number(new Date()) + timeSession;
       localStorage.setItem("timer", JSON.stringify(newTime));
@@ -83,13 +48,13 @@ btnTransfer.addEventListener("click", () => {
 
    if (inputTransferTo && transferAmount && (transferAmount < parseInt(labelBalance.innerHTML))){
       const transfer = balance.map(elem => {
-         if (elem.login === inputTransfer && elem.login !== localStorage.getItem("activeClient")){
+         if (elem.clientsLogin === inputTransfer && elem.clientsLogin !== localStorage.getItem("activeClient")){
             return {...elem,
                currentBalance: elem.currentBalance + transferAmount,
                movements: [...elem.movements,  transferAmount],
             }
          }
-         else if (elem.login === localStorage.getItem("activeClient")){
+         else if (elem.clientsLogin === localStorage.getItem("activeClient")){
                return {...elem,
                   currentBalance: elem.currentBalance - transferAmount,
                   movements: [...elem.movements, (- transferAmount)],
@@ -97,8 +62,7 @@ btnTransfer.addEventListener("click", () => {
          }
          return elem;
       });
-      inputTransferTo.value = "";
-      inputTransferAmount.value = "";
+      document.querySelectorAll(".transfer__input--del").forEach(elem => elem.value = "");
       labelBalance.innerHTML = "elem.currentBalance" + "€";
       localStorage.setItem("balance", JSON.stringify(transfer));
    }
@@ -110,7 +74,7 @@ btnLoan.addEventListener("click", () => {
    const balance = JSON.parse(localStorage.getItem("balance"));
    const loanAmount = parseInt(inputLoanAmount.value);
    const credit = balance.map(elem =>{
-      if (elem.login === localStorage.getItem("activeClient") && loanAmount <= elem.currentBalance){
+      if (elem.clientsLogin === localStorage.getItem("activeClient") && loanAmount <= elem.currentBalance){
          return {...elem,
             currentBalance: elem.currentBalance + loanAmount,
             movements:  [...elem.movements, loanAmount],
@@ -130,7 +94,7 @@ btnClose.addEventListener("click", () => {
    const closePin = parseInt(inputClosePin.value);
    if((inputCloseUserName.value === localStorage.getItem("activeClient")) && closePin === JSON.parse(localStorage.getItem("activePin"))){
       const closeUser = balance.filter(elem => {
-         if(elem.login != localStorage.getItem("activeClient") && elem.pin != parseInt(inputClosePin.value))
+         if(elem.clientsLogin != localStorage.getItem("activeClient") && elem.clientsPin != parseInt(inputClosePin.value))
             return elem;
       });
       localStorage.setItem("balance", JSON.stringify(closeUser));
@@ -142,7 +106,7 @@ btnClose.addEventListener("click", () => {
 //--Сортировка транзакций--------------------------------------------------------------
 btnSort.addEventListener("click", ()  => {
    const balance = JSON.parse(localStorage.getItem("balance"));
-   const sortUser = balance.find(elem => elem.login === localStorage.getItem("activeClient"))
+   const sortUser = balance.find(elem => elem.clientsLogin === localStorage.getItem("activeClient"))
       sortUser.movements.sort(function(x, y){
          return y - x; 
       }); 
@@ -154,10 +118,7 @@ btnSort.addEventListener("click", ()  => {
 function delActiveUser(){
    localStorage.removeItem("activeClient");
    containerApp.style.opacity = "0";
-   inputLoginUsername.value = ""; 
-   inputLoginPin.value = "";
-   inputCloseUserName.value = "";
-   inputClosePin.value = "";
+   document.querySelectorAll(".close__input--del").forEach(elem => elem.value = "");
 }
 
 //--Timer------------------------------------------------------------------------------

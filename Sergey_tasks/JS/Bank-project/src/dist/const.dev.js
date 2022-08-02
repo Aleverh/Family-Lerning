@@ -28,4 +28,10 @@ var inputTransferTo = document.querySelector('.form__input--to');
 var inputTransferAmount = document.querySelector('.form__input--amount');
 var inputLoanAmount = document.querySelector('.form__input--loan-amount');
 var inputCloseUserName = document.querySelector('.form__input--user');
-var inputClosePin = document.querySelector('.form__input--pin');
+var inputClosePin = document.querySelector('.form__input--pin'); //---------------------------------------------------------------------------
+
+var inputClientsName = document.querySelector(".login__input--name");
+var inputClientsLogin = document.querySelector(".login__input--login1");
+var inputClientsPin = document.querySelector(".login__input--pin1");
+var inputCurrentBalance = document.querySelector(".login__input--balance");
+var btnReg = document.querySelector(".login__btn--reg");

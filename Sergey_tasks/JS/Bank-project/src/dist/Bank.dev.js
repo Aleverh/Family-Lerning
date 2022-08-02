@@ -22,39 +22,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-"use strict"; // BANKIST APP
+"use strict"; //------------------------------------------------------------------------
 
 
-var account1 = {
-  owner: 'Jonas Schmedtmann',
-  movements: [],
-  pin: 1,
-  login: "js",
-  currentBalance: 1000
-};
-var account2 = {
-  owner: 'Jessica Davis',
-  movements: [],
-  pin: 2,
-  login: "jd",
-  currentBalance: 2000
-};
-var account3 = {
-  owner: 'Steven Thomas Williams',
-  movements: [],
-  pin: 3,
-  login: "stw",
-  currentBalance: 3000
-};
-var account4 = {
-  owner: 'Sarah Smith',
-  movements: [],
-  pin: 4,
-  login: "ss",
-  currentBalance: 4000
-}; //-------------------------------------------------------------------------
-
-var accounts = [account1, account2, account3, account4];
 var closeActiveUser;
 var timeSession = 300000; //-время сессии
 
@@ -62,11 +32,6 @@ var today = new Date(); //--Запись в данных массива accounts
 
 function init() {
   labelDate.textContent = "".concat(today.getDate(), ".0").concat(today.getMonth() + 1, ".").concat(today.getFullYear());
-
-  if (!JSON.parse(localStorage.getItem("balance"))) {
-    localStorage.setItem("balance", JSON.stringify(accounts));
-  }
-
   closeActiveUser = setInterval(timer, 1000);
 }
 
@@ -78,16 +43,19 @@ btnLogin.addEventListener("click", function () {
   var clientPin = parseInt(inputLoginPin.value);
   var balance = JSON.parse(localStorage.getItem("balance"));
   var clientVerify = balance.find(function (elem) {
-    return elem.login === clientLogin && elem.pin === clientPin;
+    return elem.clientsLogin === clientLogin && elem.clientsPin === clientPin;
   });
 
   if (clientVerify) {
     //--Записываем  в localStorage Login активного клиента и запускаем таймер--------
     containerApp.style.opacity = "0";
-    var activeClient = clientVerify.login;
+    var activeClient = clientVerify.clientsLogin;
     localStorage.setItem("activeClient", activeClient);
-    var activePin = clientVerify.pin;
+    var activePin = clientVerify.clientsPin;
     localStorage.setItem("activePin", JSON.stringify(activePin));
+    document.querySelectorAll(".log__input--del").forEach(function (elem) {
+      return elem.value = "";
+    });
     var newTime = Number(new Date()) + timeSession;
     localStorage.setItem("timer", JSON.stringify(newTime));
     closeActiveUser = setInterval(timer, 1000);
@@ -103,12 +71,12 @@ btnTransfer.addEventListener("click", function () {
 
   if (inputTransferTo && transferAmount && transferAmount < parseInt(labelBalance.innerHTML)) {
     var transfer = balance.map(function (elem) {
-      if (elem.login === inputTransfer && elem.login !== localStorage.getItem("activeClient")) {
+      if (elem.clientsLogin === inputTransfer && elem.clientsLogin !== localStorage.getItem("activeClient")) {
         return _objectSpread({}, elem, {
           currentBalance: elem.currentBalance + transferAmount,
           movements: [].concat(_toConsumableArray(elem.movements), [transferAmount])
         });
-      } else if (elem.login === localStorage.getItem("activeClient")) {
+      } else if (elem.clientsLogin === localStorage.getItem("activeClient")) {
         return _objectSpread({}, elem, {
           currentBalance: elem.currentBalance - transferAmount,
           movements: [].concat(_toConsumableArray(elem.movements), [-transferAmount])
@@ -117,8 +85,9 @@ btnTransfer.addEventListener("click", function () {
 
       return elem;
     });
-    inputTransferTo.value = "";
-    inputTransferAmount.value = "";
+    document.querySelectorAll(".transfer__input--del").forEach(function (elem) {
+      return elem.value = "";
+    });
     labelBalance.innerHTML = "elem.currentBalance" + "€";
     localStorage.setItem("balance", JSON.stringify(transfer));
   }
@@ -130,7 +99,7 @@ btnLoan.addEventListener("click", function () {
   var balance = JSON.parse(localStorage.getItem("balance"));
   var loanAmount = parseInt(inputLoanAmount.value);
   var credit = balance.map(function (elem) {
-    if (elem.login === localStorage.getItem("activeClient") && loanAmount <= elem.currentBalance) {
+    if (elem.clientsLogin === localStorage.getItem("activeClient") && loanAmount <= elem.currentBalance) {
       return _objectSpread({}, elem, {
         currentBalance: elem.currentBalance + loanAmount,
         movements: [].concat(_toConsumableArray(elem.movements), [loanAmount])
@@ -151,7 +120,7 @@ btnClose.addEventListener("click", function () {
 
   if (inputCloseUserName.value === localStorage.getItem("activeClient") && closePin === JSON.parse(localStorage.getItem("activePin"))) {
     var closeUser = balance.filter(function (elem) {
-      if (elem.login != localStorage.getItem("activeClient") && elem.pin != parseInt(inputClosePin.value)) return elem;
+      if (elem.clientsLogin != localStorage.getItem("activeClient") && elem.clientsPin != parseInt(inputClosePin.value)) return elem;
     });
     localStorage.setItem("balance", JSON.stringify(closeUser));
     clearInterval(closeActiveUser);
@@ -162,7 +131,7 @@ btnClose.addEventListener("click", function () {
 btnSort.addEventListener("click", function () {
   var balance = JSON.parse(localStorage.getItem("balance"));
   var sortUser = balance.find(function (elem) {
-    return elem.login === localStorage.getItem("activeClient");
+    return elem.clientsLogin === localStorage.getItem("activeClient");
   });
   sortUser.movements.sort(function (x, y) {
     return y - x;
@@ -174,10 +143,9 @@ btnSort.addEventListener("click", function () {
 function delActiveUser() {
   localStorage.removeItem("activeClient");
   containerApp.style.opacity = "0";
-  inputLoginUsername.value = "";
-  inputLoginPin.value = "";
-  inputCloseUserName.value = "";
-  inputClosePin.value = "";
+  document.querySelectorAll(".close__input--del").forEach(function (elem) {
+    return elem.value = "";
+  });
 } //--Timer------------------------------------------------------------------------------
 
 

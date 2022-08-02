@@ -2,7 +2,7 @@ const today = new Date();
 
 function initClients(){
    const balance = JSON.parse(localStorage.getItem("balance")) || [];
-   const clientUser = balance.find(elem => elem.login === localStorage.getItem("activeClient"));
+   const clientUser = balance.find(elem => elem.clientsLogin === localStorage.getItem("activeClient"));
 
    containerMovements.innerHTML = "";
    let transferMoney = 0;

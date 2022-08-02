@@ -16,12 +16,22 @@
          <p class="welcome">Log in to get started</p>
          <img src="Images/logo.png" alt="Logo" class="logo"/>
          <form class="login">
-            <input type="text" placeholder="user" class="login__input login__input--user"/>
+            <input type="text" placeholder="user" class="login__input login__input--user log__input--del"/>
             <!-- In practice, use type="password" -->
-            <input type="text" placeholder="PIN" maxlength="4" class="login__input login__input--pin"/>
+            <input type="text" placeholder="PIN" maxlength="4" class="login__input login__input--pin log__input--del"/>
             <button  type="button" class="login__btn">&rarr;</button>
          </form>
       </nav>
+      <div class="registration">
+         <p class="welcome">Registration</p>
+         <form class="login">
+            <input type="text" placeholder="Name" class="login__input login__input--name login__input--del"/>
+            <input type="text" placeholder="Login" maxlength="4" class="login__input login__input--login1 login__input--del"/>
+            <input type="number" placeholder="Pin" maxlength="4" class="login__input login__input--pin1 login__input--del"/>
+            <input type="number" placeholder="Balance" class="login__input login__input--balance login__input--del"/>
+            <button  type="button" class=" login__btn login__btn--reg">&rarr;</button>
+         </form>
+      </div>
 
       <main class="app">
          <!-- BALANCE -->
@@ -36,18 +46,7 @@
          </div>
 
          <!-- MOVEMENTS -->
-         <div class="movements">
-            <!-- <div class="movements__row-deposit">
-               <div class="movements__type movements__type-deposit"> deposit</div>
-               <div class="movements__date">3 days ago</div>
-               <div class="movements__value movements__value-deposit">0€</div>
-            </div>
-            <div class="movements__row-withdrawal">
-               <div class="movements__type movements__type-withdrawal"> withdrawal</div>
-               <div class="movements__date">24/01/2037</div>
-               <div class="movements__value movements__value-withdrawal">0€</div>
-            </div> -->
-         </div>
+         <div class="movements"></div>
 
          <!-- SUMMARY -->
          <div class="summary">
@@ -64,8 +63,8 @@
          <div class="operation operation--transfer">
             <h2>Transfer money</h2>
             <form class="form form--transfer">
-               <input type="text" class="form__input form__input--to" />
-               <input type="number" class="form__input form__input--amount"/>
+               <input type="text" class="form__input form__input--to transfer__input--del" />
+               <input type="number" class="form__input form__input--amount transfer__input--del"/>
                <button type="button" class="form__btn form__btn--transfer">&rarr;</button>
                <label class="form__label">Transfer to</label>
                <label class="form__label">Amount</label>
@@ -86,9 +85,8 @@
          <div class="operation operation--close">
             <h2>Close account</h2>
             <form class="form form--close">
-               <input type="text" class="form__input form__input--user" />
-               <input type="password"  maxlength="6" class="form__input form__input--pin"/>
-
+               <input type="text" class="form__input form__input--user close__input--del" />
+               <input type="password"  maxlength="6" class="form__input form__input--pin close__input--del"/>
                <button type="button" class="form__btn form__btn--close">&rarr;</button>
                <label class="form__label">Confirm user</label>
                <label class="form__label">Confirm PIN</label>
@@ -105,6 +103,7 @@
       &copy; by Jonas Schmedtmann. Don't claim as your own :)
       </footer> -->
       <script src="const.js"></script>
+      <script  src="Clients.js"></script>
       <script src="Bank.js"></script>
    </body>
 </html>
