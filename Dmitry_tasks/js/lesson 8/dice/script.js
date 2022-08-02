@@ -1,4 +1,5 @@
 'use strict';
+const scoreWin = 20;
 const dice = document.querySelector('.dice');
 const player1 = document.querySelector('.player--0')
 const player2 = document.querySelector('.player--1')
@@ -39,7 +40,16 @@ rollDice.addEventListener('click', () =>{
         if (random !== 1) {
             current += random;
             document.getElementById(`current--${activePlayer}`).textContent = current;
-            } else {
+            if (scores[activePlayer] + current >= scoreWin) {
+                scores[activePlayer] += current;
+                document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
+                document.getElementById( `current--${activePlayer}`).textContent = 0;
+                playing = false;
+                setTimeout(() => dice.style.display = 'none', 1500)
+                document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+                document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+            }
+        }else {
                changePlayer()
             }
         }
@@ -50,15 +60,15 @@ hold.addEventListener('click', () =>{
         scores[activePlayer] += current;
         document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
     }
-     if (scores[activePlayer] >= 100){
-        playing = false;
-        dice.style.display = 'none';
-        document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
-         document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
-     }
-    else {
+    //  if (scores[activePlayer] >= scoreWin){
+    //     playing = false;
+    //     dice.style.display = 'none';
+    //     document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+    //      document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+    //  }
+    // else {
          changePlayer()
-     }
+     // }
 });
 const restart = document.querySelector('.btn--new');
 restart.addEventListener('click', start);
