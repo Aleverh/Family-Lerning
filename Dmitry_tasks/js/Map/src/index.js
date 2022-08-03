@@ -82,29 +82,58 @@ class Workouts {
                         }
     }
 }
+// class Running extends Workouts{
+//
+// }
+// class Cycling extends Workouts{
+//
+// }
 // Дефолт для формы
 class App {
     #workouts = [];
-
+    #map;
     constructor() {
         inputType.addEventListener("click", this.inputTypeHandler);
         this.getWorkoutsFromLocalStorage();
         this.initForm();
         this.getGeolocation()
+        document.addEventListener('keydown',  (event) => {
+            if (event.key === 'Enter' && inputDistance.value > 0 && inputDuration.value > 0 && (inputCadence.value > 0 || inputElevation.value > 0)) {
+                console.log(this.#map._lastCenter);
+                const newTrain = {
+                    inputType: inputType.value,
+                    distance: inputDistance.value,
+                    duration: inputDuration.value,
+                    cadence: inputCadence.value,
+                    location: this.#map._lastCenter,
+                    date: months[new Date().getMonth()] + new Date().getDay(),
+                    elevation: inputElevation.value,
+                }
+                inputDuration.value = "";
+                inputDistance.value = "";
+                inputCadence.value = "";
+                inputElevation.value = "";
+                form.style.opacity = "0";
+                form.style.position = "absolute"
+                this.#workouts.push(newTrain);
+                localStorage.setItem("workouts", JSON.stringify(this.#workouts));
+                this.#workouts.forEach(elem => {
+                    const www = new Workouts(elem.distance, elem.duration, elem.cadence, elem.elevation, elem.inputType, elem.date);
+                    www.render();
+                })
+                this.renderMarker()
+            }
+        })
     }
     // Запись в localStorage пустого массива и рендеринг тренеровок
     initForm(){
-        if (!JSON.parse(localStorage.getItem("workouts"))) {
-            localStorage.setItem("workouts", JSON.stringify(this.#workouts))
-        }
         form.style.position = "absolute";
-        const allWorkouts = JSON.parse(localStorage.getItem("workouts"));
-        allWorkouts.forEach(elem =>{
+        this.#workouts.forEach(elem =>{
             new Workouts(elem.distance, elem.duration, elem.cadence, elem.elevation, elem.inputType, elem.date).render();
         })
     }
     getWorkoutsFromLocalStorage(){
-        JSON.parse(localStorage.getItem("workouts"));
+       this.#workouts = JSON.parse(localStorage.getItem("workouts")) || [];
     }
     // Проверка на тип тренировки
     inputTypeHandler = () => {
@@ -119,16 +148,15 @@ class App {
     }
 
 // Добавление маркера
-    renderMarker(map){
-        const allWorkouts = JSON.parse(localStorage.getItem("workouts"));
-        allWorkouts.forEach(elem => {
+    renderMarker(){
+        this.#workouts.forEach(elem => {
             if (elem.inputType === "running") {
-                L.marker(elem.location).addTo(map)
+                L.marker(elem.location).addTo(this.#map)
                     .openPopup()
                     .bindPopup(` 🏃‍♂ ${elem.inputType.charAt(0).toUpperCase() + elem.inputType.slice(1)} on ${elem.date}`);
             }
             if (elem.inputType === "cycling") {
-                L.marker(elem.location).addTo(map)
+                L.marker(elem.location).addTo(this.#map)
                     .bindPopup(` 🚴‍♀ ${elem.inputType.charAt(0).toUpperCase() + elem.inputType.slice(1)} on ${elem.date}`)
                     .openPopup();
             }
@@ -139,49 +167,20 @@ class App {
         navigator.geolocation.getCurrentPosition(({ coords }) => {
             const {latitude, longitude} = coords;
             const currentCoords = [latitude, longitude];
-            localStorage.setItem('currentCoords', JSON.stringify(currentCoords))
-            const map = L.map('map').setView(currentCoords, 13);
-            this.renderClickOnMap(map)
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-            this.renderMarker(map);
+            this.#map = L.map('map').setView(currentCoords, 13);
+            this.renderClickOnMap()
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.#map);
+            this.renderMarker();
         })
     }
 // Добавление в массив информацию о тренеровке, нахождение координат клика
     renderClickOnMap(map){
-            map.on('click', (e) => {
-            const allWorkouts = JSON.parse(localStorage.getItem("workouts"));
-            console.log(e.latlng);
+            this.#map.on('click', (e) => {
+            console.log(e);
             form.style.opacity = '1';
             form.style.position = "relative"
-            document.addEventListener('keydown',  (event) => {
-                if (event.key === 'Enter' && inputDistance.value > 0 && inputDuration.value > 0 && (inputCadence.value > 0 || inputElevation.value > 0)) {
-                    console.log(e.latlng);
-                    const newTrain = {
-                        inputType: inputType.value,
-                        distance: inputDistance.value,
-                        duration: inputDuration.value,
-                        cadence: inputCadence.value,
-                        location: e.latlng,
-                        date: months[new Date().getMonth()] + new Date().getDay(),
-                        elevation: inputElevation.value,
-                    }
-                    inputDuration.value = "";
-                    inputDistance.value = "";
-                    inputCadence.value = "";
-                    inputElevation.value = "";
-                    form.style.opacity = "0";
-                    form.style.position = "absolute"
-                    allWorkouts.push(newTrain);
-                    localStorage.setItem("workouts", JSON.stringify(allWorkouts));
-                    allWorkouts.forEach(elem => {
-                        const www = new Workouts(elem.distance, elem.duration, elem.cadence, elem.elevation, elem.inputType, elem.date);
-                        www.render();
-                    })
-                    this.renderMarker(map)
-                }
-            })
         })
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.#map);
     }
 }
 const iii = new App();
