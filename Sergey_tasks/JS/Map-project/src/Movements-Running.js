@@ -1,23 +1,17 @@
 import { containerWorkouts } from './const';
+import Movements from './Movements';
 
-class Movements {
+class Running extends Movements {
    constructor(newCoords, type, distance, duration, cadence, elevation, date){
-      this.type = type;
-      this.distance = distance;
-      this.duration = duration;
-      this.cadence = cadence;
-      this.elevation = elevation;
-      this.newCoords = newCoords;
-      this.date = date;
+      super(newCoords, type, distance, duration, cadence, elevation, date);
    }
-
-   buildCycling(){
+   buildRunning(){
          containerWorkouts.innerHTML +=
          `
-            <li class="workout workout--cycling" data-id="${JSON.stringify(this.newCoords)}">
+            <li class="workout workout--running" data-id="${JSON.stringify(this.newCoords)}">
                      <h2 class="workout__title">${this.type} on ${this.date}</h2>
                      <div class="workout__details">
-                        <span class="workout__icon"> 🚴‍♀️</span>
+                        <span class="workout__icon"> 🏃‍♂️</span>
                         <span class="workout__value">${this.distance}</span>
                         <span class="workout__unit">km</span>
                      </div>
@@ -32,13 +26,13 @@ class Movements {
                         <span class="workout__unit">km/h</span>
                      </div>
                      <div class="workout__details">
-                        <span class="workout__icon">⛰</span>
+                        <span class="workout__icon">🦶🏼</span>
                         <span class="workout__value">${this.elevation}</span>
-                        <span class="workout__unit">m</span>
+                        <span class="workout__unit">stm</span>
                      </div>
             </li>
          `
    }
 }
 
-export default Movements;
+export default Running;
