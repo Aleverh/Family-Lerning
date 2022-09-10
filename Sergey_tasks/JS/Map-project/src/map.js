@@ -15,7 +15,7 @@ import {
     inputElevation,
     labelCadence,
     labelElevGain,
-    
+
  } from './const';
 import Movements, { getMov } from './Movements';
 import Running from './Movements-Running';
