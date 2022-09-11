@@ -4,7 +4,6 @@ import "./main.css";
 
 
 function ShowIngredients({data}){
-   // console.log(data);
 
    const ingredients = data.ingredients.map(elem => ({
       id: uuidv4(),

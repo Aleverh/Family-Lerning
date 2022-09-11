@@ -1,44 +1,23 @@
 import React, {useState} from "react";
+import useLocalStorage from "../../../Hooks/useLocalstorage";
 import "./main.css";
 import ShowIngredients from "./ShowIngredients/ShowIngredients";
 
-function useLocalStorage(key, initialValue) {
-   const [storedValue, setStoredValue] = useState(() => {
-      if (typeof window === "undefined") {
-         return initialValue;
-      }
-      try {
-         const item = window.localStorage.getItem(key);
-         return item ? JSON.parse(item) : initialValue;
+function ShowRecipe({data}){
+   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
-      } catch (error) {
-         console.log(error);
-         return initialValue;
-      }
-   });
-
-   const setValue = (value) => {
-      try {
-         const valueToStore = value instanceof Function ? value(storedValue) : value;
-         setStoredValue(valueToStore);
-         if (typeof window !== "undefined") {
-            window.localStorage.setItem(key, JSON.stringify(valueToStore));
+   function bookmarkTheRecipe(){
+      if(bookmarks.length > 0){
+         const indexRecipe = bookmarks.findIndex(elem => elem.id === data.id);
+         if(indexRecipe >= 0){
+            bookmarks.splice(indexRecipe, 1);
+            setBookmarks(bookmarks);
          }
-         window.dispatchEvent(new Event("storage"));
-
-      } catch (error) {
-         console.log(error);
-      }
-   };
-   return [storedValue, setValue];
-}
-
-function ShowRecipe({data, getData}){
-
-   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks");
-   function updateLocalStorage(){
-      setBookmarks(data);
-      getData(data);
+         else {
+            bookmarks.push(data);
+            setBookmarks(bookmarks);
+         }
+      } else  setBookmarks((prevValue) => [...prevValue, data]);
    }
 
    return(
@@ -69,7 +48,7 @@ function ShowRecipe({data, getData}){
             <div className="recipe__user-generated">
                <svg><use href="${icons}#icon-user"></use></svg>
             </div>
-            <button className="btn--round btn--bookmark" onClick={updateLocalStorage}>
+            <button className="btn--round btn--bookmark" onClick={bookmarkTheRecipe}>
             </button>
          </div>
          <div className="recipe__ingredients">

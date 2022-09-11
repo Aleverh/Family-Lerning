@@ -2,7 +2,7 @@ import React from "react";
 import "./main.css";
 // import {rowsRecipe,  countPages, currentPage, start, end, paginationRenderRecipe } from "./const";
 
-const rowsRecipe = 8;
+const rowsRecipe = 6;
 let currentPage = 1;
 let start = 0;
 let end = rowsRecipe;
