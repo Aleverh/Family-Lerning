@@ -1,6 +1,6 @@
 import React from "react";
 import "./main.css";
-// import {rowsRecipe,  countPages, currentPage, start, end, paginationRenderRecipe } from "./const";
+// import {rowsRecipe,  currentPage, start, en} from "./const";
 
 const rowsRecipe = 6;
 let currentPage = 1;
@@ -8,6 +8,7 @@ let start = 0;
 let end = rowsRecipe;
 
 function Pagination({recipes, fromPagination, paginationRenderRecipe }){
+   let showBattonPagination;
 
    let countPages = Math.ceil((recipes.length)/rowsRecipe);
    const nextRecipes = () => {
@@ -30,38 +31,24 @@ function Pagination({recipes, fromPagination, paginationRenderRecipe }){
       }
    }
 
-   let showBattonPagination;
+   const buttonNext = <button className="btn--inline pagination__btn--next" onClick={nextRecipes}>
+                        <span className="pagination__spam--next">Page  {currentPage + 1}</span>
+                        <svg className="search__icon"><use href="img/icons.svg#icon-arrow-right"></use></svg>
+                      </button> 
+   const buttonPrev = <button className="btn--inline pagination__btn--prev" onClick={prevRecipes}>
+                        <svg className="search__icon"><use href="img/icons.svg#icon-arrow-left"></use></svg>
+                        <span className="pagination__spam--prev">Page  {currentPage - 1}</span>
+                      </button>  
    
    if(paginationRenderRecipe.length !=0 && currentPage <= countPages){
-      showBattonPagination = 
-         <button className="btn--inline pagination__btn--next" onClick={nextRecipes}>
-            <span className="pagination__spam--next">Page  {currentPage + 1}</span>
-            <svg className="search__icon"><use href="img/icons.svg#icon-arrow-right"></use></svg>
-         </button> 
+      showBattonPagination = buttonNext;
    }
-
    if(currentPage > 1){
-      showBattonPagination =  
-         <button className="btn--inline pagination__btn--prev" onClick={prevRecipes}>
-            <svg className="search__icon"><use href="img/icons.svg#icon-arrow-left"></use></svg>
-            <span className="pagination__spam--prev">Page  {currentPage - 1}</span>
-         </button>     
+      showBattonPagination =  buttonPrev;   
    }
-
    if( currentPage < countPages &&  currentPage >= 2){
-      showBattonPagination = 
-         <div>
-            <button className="btn--inline pagination__btn--next" onClick={nextRecipes}>
-               <span className="pagination__spam--next">Page  {currentPage + 1}</span>
-               <svg className="search__icon"><use href="img/icons.svg#icon-arrow-right"></use></svg>
-            </button> 
-            <button className="btn--inline pagination__btn--prev" onClick={prevRecipes}>
-               <svg className="search__icon"><use href="img/icons.svg#icon-arrow-left"></use></svg>
-               <span className="pagination__spam--prev">Page  {currentPage - 1}</span>
-            </button>
-         </div>
+      showBattonPagination = [buttonNext, buttonPrev];
    }
-
    return(
       <div className="paginatio">
          {showBattonPagination}
@@ -69,6 +56,7 @@ function Pagination({recipes, fromPagination, paginationRenderRecipe }){
    )
 }
 export default Pagination;
+
 
 
 
