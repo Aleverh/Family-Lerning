@@ -1,12 +1,12 @@
 import React from 'react';
 import "./main.css";
-// import { Link } from 'react-router-dom';
+import { LOGIN_ROUTE } from '../../consts/consts';
+import { Link } from 'react-router-dom';
 
 function LoginLink(){
    return(
       <p> "You do have an account?"
-         {/* <Link to="/login">Login</Link> */}
-         <a href="/login">Login</a>
+         <Link to={LOGIN_ROUTE}>Login</Link>
       </p>
    )
 }

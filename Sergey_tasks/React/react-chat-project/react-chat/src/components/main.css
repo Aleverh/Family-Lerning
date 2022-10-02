@@ -1,0 +1,245 @@
+*{
+   font-family: "Open Sans" sans-serif;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* .body{
+ background-color: #8da4f1;
+} */
+
+.formContainer{  
+   display: flex;
+   align-items: center;
+   /* background-color: #8da4f1; */
+   justify-content: center;
+   /* height: 100vh; */
+   /* /* height: 100%; */
+   
+} 
+
+.formWrapper{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   gap: 10px;
+   padding: 20px 60px;
+   background-color: white;
+   border-radius: 10px;
+}
+
+.chatWrapper{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   gap: 10px;
+   padding: 20px 60px;
+   border-radius: 10px;
+   /* background-color: #8da4f1; */
+}
+
+.logo{
+   color: #5d5b8d;
+   font-size: 24px;
+   font-weight: 700;
+   font-family:  "Open Sans";
+}
+
+.title{
+   color: #5d5b8d;
+   font-size: 12px;
+   font-family:  "Open Sans" sans-serif;
+}
+
+form{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+input{
+   border: none;
+   border-bottom: 1px solid #a7bcff;
+   padding: 15px;
+   width: 250px;
+   /* color: #000; */
+   /* font-family:  "Open Sans"; */
+   /* font-weight: 400; */
+}
+
+.file{
+   display: none;
+}
+
+label{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   color: #8da4f1;
+   cursor: pointer;
+   font-size: 12px;
+   /* font-family: "Open Sans"; */
+}
+
+img{
+   width: 32px;
+}
+
+button{
+   background-color: #7b96ec;
+   border: none;
+   color: white;
+   cursor: pointer;
+   font-family:  "Open Sans" sans-serif;
+   font-weight: 600;
+   padding: 10px;
+}
+
+p{
+   color: #5d5b8d;
+   font-size: 14px;
+   margin-top: 10px;
+   font-family: "Open Sans" sans-serif; 
+}
+
+.chat {
+   align-items: center;
+   display: flex;
+   height: 100vh;
+   justify-content: center;
+}
+
+.chat__container{
+   border: 1px solid #fff;
+   border-radius: 10px;
+   display: flex;
+   height: 80%;
+   overflow: hidden;
+   width: 100%;
+}
+.sidebar{
+   background-color: #3e3c61;
+   flex: 1 1;
+   position: relative;
+}
+
+.nav{
+   align-items: center;
+   background-color: #2f2d52;
+   color: #ddddf7;
+   display: flex;
+   height: 50px;
+   justify-content: space-between;
+   padding: 10px;
+}
+
+.nav__logo{
+   font-weight: 700;
+}
+
+.nav__userinfo{
+   display: flex;
+   gap: 10px;
+}
+.nav__img{
+   background-color: #ddddf7;
+   border-radius: 50%;
+   height: 24px;
+   object-fit: cover;
+   width: 24px;
+}
+.nav__button{
+   background-color: #5d5b8d;
+   border: none;
+   color: #ddddf7;
+   cursor: pointer;
+   font-size: 10px;
+}
+
+.searchUser{
+   padding: 10px;
+}
+
+.searchUser__form--input{
+   /* background-color: transparent; */
+   background-color: rgb(31, 37, 75);
+    border: none;
+    color: #fff;
+    outline: none;
+}
+
+.chats{
+   background-color: #5d5b8d;
+   border: 2px solid;
+   color: #fff;
+}
+
+.chat__field{
+   flex: 2 1;
+   display: flex;
+   justify-content: space-between;
+   
+   flex-direction: column;
+}
+.chat__field--info{
+   align-items: center;
+   background-color: #5d5b8d;
+   color: #d3d3d3;
+   display: flex;
+   height: 50px;
+   justify-content: space-between;
+   padding: 10px;
+}
+.chatNav{
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+}
+
+.chat__field--messages{
+   background-color: #afafdf;
+   /* height: calc(100% - 160px); */
+   height: 100%;
+   overflow: scroll;
+   padding: 10px;
+}
+
+.chat__field--form{
+   align-items: center;
+   background-color: #fff;
+   display: flex;
+   height: 50px;
+   justify-content: space-between;
+   padding: 10px;
+}
+
+.chat__input{
+   border: none;
+   color: #2f2d52;
+   font-size: 18px;
+   outline: none;
+   width: 100%;
+}
+.send{
+   align-items: center;
+   display: flex;
+   gap: 10px;
+}
+.chat__button{
+   background-color: #8da4f1;
+   border: none;
+   color: #fff;
+   cursor: pointer;
+   padding: 10px 15px;
+}
+.abutton{
+   background-color: #7b96ec;
+   border: none;
+   color: white;
+   cursor: pointer;
+   font-family:  "Open Sans" sans-serif;
+   font-weight: 600;
+   padding: 10px;
+   width: 250px;
+}
