@@ -52,7 +52,7 @@
    font-family:  "Open Sans" sans-serif;
 }
 
-form{
+.formauth{
    display: flex;
    flex-direction: column;
    gap: 15px;
@@ -169,10 +169,17 @@ p{
     outline: none;
 }
 
-.chats{
+.active-user{
    background-color: #5d5b8d;
-   border: 2px solid;
+   /* border: 2px solid; */
    color: #fff;
+   height: 100%;
+   padding: 10px;
+}
+.active-user__row{
+   display: flex;
+   justify-content: flex-start;
+   gap: 20px;
 }
 
 .chat__field{

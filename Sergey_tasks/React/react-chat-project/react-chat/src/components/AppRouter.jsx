@@ -7,18 +7,7 @@ import { auth } from "./firebaseinit/firebaseinit";
 import { LOGIN_ROUTE } from "../consts/consts";
 import { CHAT_ROUTE } from "../consts/consts";
 import { SLASH_ROUTE } from "../consts/consts";
-
 import PageChat from "../pages/PageChat";
-import PageLogin from "../pages/PageLogin";
-
-// function PrivateRoute(props){
-//    const [user, loading] = useAuthState(auth);
-//    console.log(user);
-//    if(loading) return null
-//    if (user) 
-//       return <Route {...props}></Route> 
-   // return  <Redirect to={LOGIN_ROUTE}></Redirect>
-
 
    function PrivatePage (props) {
       const [user, loading] = useAuthState(auth);

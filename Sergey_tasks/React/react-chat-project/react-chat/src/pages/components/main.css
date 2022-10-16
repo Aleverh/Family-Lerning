@@ -37,13 +37,13 @@
 }
 
 
-form{
+.formauth{
    display: flex;
    flex-direction: column;
    gap: 15px;
 }
 
-input{
+.input__auth{
    border: none;
    border-bottom: 1px solid #a7bcff;
    padding: 15px;
@@ -84,7 +84,7 @@ button{
 p{
    color: #5d5b8d;
    font-size: 14px;
-   margin-top: 10px;
+   /* margin-top: 10px; */
    font-family: "Open Sans" sans-serif; 
 }
 
@@ -105,8 +105,11 @@ p{
 }
 .sidebar{
    background-color: #3e3c61;
-   flex: 1 1;
-   position: relative;
+   /* flex: 1 1; */
+   /* position: relative; */
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
 }
 
 .nav{
@@ -143,7 +146,7 @@ p{
 }
 
 .searchUser{
-   padding: 10px;
+   padding: 0 10px;
 }
 
 .searchUser__form--input{
@@ -154,10 +157,19 @@ p{
     outline: none;
 }
 
-.chats{
-   background-color: #5d5b8d;
-   border: 2px solid;
-   color: #fff;
+.active-user{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+.active-user__row{
+   background-color: #7f7aee;
+   border: 3px sollid white;
+
+}
+
+.active-user__name{
+   color: rgb(81, 242, 242);
 }
 
 .chat__field{
@@ -188,6 +200,47 @@ p{
    height: 100%;
    overflow: scroll;
    padding: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   /* align-items: flex-end; */
+}
+
+.message{
+   display: flex;
+   justify-content: flex-end;
+   gap: 5px;
+   align-self: flex-start;
+   /* margin-bottom: 20px; */
+}
+.messageqq{
+   display: flex;
+   justify-content: flex-end;
+   gap: 5px;
+   align-self: flex-end;
+   /* margin-bottom: 20px; */
+}
+
+
+.messages{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 10px;
+   /* margin-bottom: 20px; */
+}
+.message__info{
+   color: gray;
+   display: flex;
+   flex-direction: column;
+   font-weight: 300;
+}
+
+.message__content{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   max-width: 80%;
 }
 
 .chat__field--form{
@@ -195,7 +248,7 @@ p{
    background-color: #fff;
    display: flex;
    height: 50px;
-   justify-content: space-between;
+   justify-content: flex-start;
    padding: 10px;
 }
 
@@ -217,4 +270,13 @@ p{
    color: #fff;
    cursor: pointer;
    padding: 10px 15px;
+}
+
+.userChatData{
+   display: flex;
+   flex-direction: column;
+
+}
+.userChatData__p{
+   color: rgb(220, 185, 185);
 }
