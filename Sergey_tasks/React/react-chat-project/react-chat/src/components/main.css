@@ -176,6 +176,13 @@ p{
    height: 100%;
    padding: 10px;
 }
+
+.active-chat{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
 .active-user__row{
    display: flex;
    justify-content: flex-start;

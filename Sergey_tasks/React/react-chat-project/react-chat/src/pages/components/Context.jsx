@@ -3,28 +3,29 @@ import "../components/main.css";
 import SideBar from './SideBar';
 import Chat from './Chat';
 import Context from '../Context';
+import useUser from './useUser';
 
 function ContextProvider(){
-   const [userData, setUserData] = useState([]);
+   const authUser = useUser();
+
    const [currentUser, setCurrentUser] = useState();
-   const [authUser, setAuthUser] = useState([]);
    const [messages, setMessages] = useState([]);
-   const [chatsAuthUsers, setChatsAuthUsers] = useState(null);
    const [chatId, setChatId] = useState();
+   const [currentChatId, setCurrentChatId] = useState();
+
+
+   // console.log(chatId);
+
 
    const valueData = {
-      userData,
-      setUserData,
       currentUser,
       setCurrentUser,
-      authUser,
-      setAuthUser,
       messages,
       setMessages,
-      chatsAuthUsers,
-      setChatsAuthUsers,
       chatId,
-      setChatId
+      setChatId,
+      currentChatId,
+      setCurrentChatId
    }
 
    return(
@@ -32,8 +33,8 @@ function ContextProvider(){
          <div className='chatWrapper'>
             <div className='chat'>
                <div className='chat__container'>
-                  <SideBar/>
-                  <Chat/>
+                  <SideBar authUser={authUser}/>
+                  <Chat authUser={authUser}/>
                </div>
             </div>
          </div>

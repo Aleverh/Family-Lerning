@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../components/main.css";
 import Nav from './Nav';
 import FindUser from './FindUser';
-import ActiveUser from './SearchUser';
+import SearchUser from './SearchUser';
+// import ExistingsChats from './ExistingsChats';  
 
 
-function SideBar(){
+function SideBar({authUser}){
+   const [foundUsers, setFoundUsers] = useState([]);
+  
    return(
       <div className='sidebar'>
-         <Nav/>
-         <FindUser/>
-         <ActiveUser/>
+         <Nav authUser={authUser}/>
+         <FindUser setFoundUsers={setFoundUsers} foundUsers={foundUsers}/>
+         <SearchUser authUser={authUser} foundUsers={foundUsers}/>
       </div>
    )
 }

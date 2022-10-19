@@ -10,40 +10,37 @@ import { db } from '../../components/firebaseinit/firebaseinit';
 import { async } from '@firebase/util';
 import 'firebase/firestore';
 
-function ChatInput(){
-   const valueData = useContext(Context);
-   const [value, setValue] = useState();
-   const { register, handleSubmit, formState: { errors } } = useForm();
+function ChatInput({authUser}){
+   const { currentChatId, messages, setMessages} = useContext(Context);
+
+   const { register, handleSubmit, reset, formState: { errors } } = useForm();
  
-  
-   const sendMessage = (async(data, e) => {
+   const sendMessage = (async(data) => {
       if(data.data){
          const docData = 
          {
-            uid: valueData.authUser.uid,
-            photoURL: valueData.authUser.photoURL,
+            uid: authUser.uid,
+            photoURL: authUser.photoURL,
             messages: data.data,
             time: "time"
          }
-         const updateLastMessage = doc(db, "users", valueData.authUser.uid);
+         const updateLastMessage = doc(db, "users", authUser.uid);
          await updateDoc(updateLastMessage, {
             lastMessage: data.data
          });
-         console.log(valueData.chatId);
-         const updateMessage = doc(db, "usersChat", valueData.chatId);
+         const updateMessage = doc(db, "usersChat", currentChatId);
          await updateDoc(updateMessage, {
             lastMessage: data.data,
             chatMessages: arrayUnion(docData)
          });
-         valueData.setMessages(valueData.messages.concat(docData));
-         setValue("");
+         setMessages(messages.concat(docData));
+         reset();
       }
    })
 
    return(
       <form className='chat__field--form' onClick={handleSubmit(sendMessage)}>
-         {/* <input className='chat__input' placeholder='Type something...' {...register("data")} ></input> */}
-         <input className='chat__input' placeholder='Type something...' {...register("data")}  onChange={(e) => setValue(e.target.value)} value={value}></input>
+         <input className='chat__input' placeholder='Type something...' {...register("data")}></input>
          <div className='send'>
             <img src={img5}></img>
             <input className='file' type="file" id="file"></input>

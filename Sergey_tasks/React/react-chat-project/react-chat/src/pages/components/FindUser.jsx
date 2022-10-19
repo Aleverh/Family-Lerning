@@ -6,9 +6,10 @@ import { collection, getDocs, query, where  } from "firebase/firestore";
 import Context from '../Context';
 
 
-function FindUser(){
+function FindUser({setFoundUsers, foundUsers}){
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-   const valueData = useContext(Context);
+   // const { setChatId } = useContext(Context);
+   
    const inputInfo = register("displayName");
 
    const onSubmit  = async(data, e) => {
@@ -16,7 +17,7 @@ function FindUser(){
       const userFound = query(usersRef, where("displayName", "==", data.displayName));
       const queryUser = await getDocs(userFound);
       const users = queryUser.docs.map(elem => elem.data());
-      valueData.setUserData(valueData.userData.concat(users));
+      setFoundUsers(foundUsers.concat(users));
       reset();
    }
 

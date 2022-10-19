@@ -1,50 +1,56 @@
 import { async } from '@firebase/util';
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import "../components/main.css";
+import ExistingsChats from './ExistingsChats';
+import FoundUsers from './FoundUsers';
 import Context from '../Context';
 import { db } from '../../components/firebaseinit/firebaseinit';
-import { collection, query, where, getDocs } from "firebase/firestore"; 
+import { collection, doc, setDoc, addDoc, Timestamp, query, where, getDocs, onSnapshot } from "firebase/firestore"; 
 
-function ActiveUser(){
-   const valueData = useContext(Context);
+function SearchUser({authUser, foundUsers}){
+   const { currentUser, setCurrentChatId, chatId, setMessages }  = useContext(Context);
 
-   //выбрать все чаты где есть залогиненый пользователь
    useEffect(() => {
-      async function showChats(){
-         const chatRef =  collection(db, "usersChat");
-         const chatFound = query(chatRef, where("usersId", "array-contains",  valueData.authUser?.uid));
-         const queryUsersChat = await getDocs(chatFound);
-         const users = queryUsersChat.docs.map(elem => elem.data());
-         const id =  users.map(elem => {
-           const www =  elem.usersId.find(elem => elem != valueData.authUser?.uid);
-           return www;
-         });
+      async function setDataChat(){
+         if(!currentUser) return;
+         const newChatId = authUser.uid + currentUser?.uid;
+         console.log(newChatId);
 
-         const usersRef =  collection(db, "users");
-         const userFound = query(usersRef, where("uid", "in", id.map(elem => elem)));
-         const queryUser = await getDocs(userFound);
-         const userDataChats = queryUser.docs.map(elem => elem.data());
-         valueData.setUserData(valueData.userData.concat(userDataChats)); 
-         valueData.setChatsAuthUsers(userDataChats);
+         const docData = {
+            chatMessages: "",
+            lastMessage: "",
+            usersId: [authUser.uid, currentUser?.uid],
+            chatId: newChatId
+         }
+         const validChatId = chatId.find(elem => elem === newChatId);
+         console.log(validChatId);
+         if(!validChatId || undefined){
+            const usersChat = await  setDoc(doc(db, "usersChat", newChatId), docData);
+            // setCurrentChatId(newChatId);
+         }
+         setCurrentChatId(newChatId);
+         
+         const usersMessages =  collection(db, "usersChat");
+         const authUserFound =  query(usersMessages, where("usersId", "in", [[authUser.uid, currentUser.uid], 
+         [currentUser.uid, authUser.uid]]));
+         const chatAuthUser = await getDocs(authUserFound);
+         const chat = chatAuthUser.docs.map(elem => elem.data());
+         const chatMessages = chat[0].chatMessages || [];
+         console.log(chatMessages);
+         setMessages(chatMessages);
+
+
       }
-      showChats();
-   }, [valueData.authUser]);
+      setDataChat(); 
+   }, [currentUser]);
 
-   const handlerClick = (user) => {
-      valueData.setCurrentUser(user);
-   }
       return(
          <div className='active-user' >
-            {  valueData.userData.map((elem) => (
-               <div key={elem.uid} className='active-user__row' onClick={ () => handlerClick(elem)}>
-                  <img src={elem.photoURL} className="nav__img"></img>
-                  <div className='userChatData'>
-                     <span className='active-user__name'>{elem.displayName}</span>
-                     <p className='userChatData__p'>{elem.lastMessage}</p>
-                  </div>
-               </div>
-            ))}
+            <ExistingsChats authUser={authUser}/>
+            {  foundUsers?.map((elem) => (
+               <FoundUsers elem={elem} key={elem.uid}/>
+            ))} 
          </div>
       )
 }
-export default ActiveUser;
+export default SearchUser;

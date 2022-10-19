@@ -3,13 +3,13 @@ import "../components/main.css";
 import Context from '../Context';
 
 
-function Message(){
-   const valueData = useContext(Context);
-   // console.log(valueData.messages);
+function Message({authUser}){
+   const { messages } = useContext(Context);
+
    return(
       <div className='messages'>
-         {(valueData.messages || []).map((message) => (
-            message.uid != valueData.authUser.uid 
+         { messages?.map((message) => (
+            message.uid === authUser?.uid 
                ? 
                   <div key={Math.random()} className='message'>
                      <div className='message__info'>

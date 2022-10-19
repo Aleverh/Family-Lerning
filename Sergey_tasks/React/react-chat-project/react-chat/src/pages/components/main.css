@@ -162,6 +162,14 @@ p{
    flex-direction: column;
    gap: 10px;
 }
+
+
+.active-chat{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
 .active-user__row{
    background-color: #7f7aee;
    border: 3px sollid white;
