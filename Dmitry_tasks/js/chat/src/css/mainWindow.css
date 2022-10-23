@@ -1,0 +1,69 @@
+.chat-container {
+  border-radius: 10px;
+  width: 65%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid white;
+}
+
+.sidebar-1 {
+  border: 0;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background: #3e3c61;
+  width: 200px;
+}
+
+.chat-logo {
+  color: #ddddf7;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav {
+  background: #2f2d52;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  height: 50px;
+}
+
+.user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.user-name {
+  background: #ddddf7;
+  font-weight: 700;
+}
+
+.user-logout {
+  background: #5d5b8d;
+  font-size: 10px;
+  color: #ddddf7;
+  border: none;
+  cursor: pointer;
+}

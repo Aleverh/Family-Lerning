@@ -1,0 +1,29 @@
+$white: white;
+.login-form-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 60px;
+  gap: 10px;
+  align-items: center;
+  background: $white;
+  border-radius: 10px;
+  width: 280px;
+}
+.logo{
+  font-weight: 700;
+  font-size: 24px;
+  color: #5d5b8d;
+  &-button{
+    border: 0;
+    background: #7b96ec;
+    width: 100%;
+    padding: 10px;
+    color: $white;
+  }
+}
+.login-text {
+  height: 17px;
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  color: #5d5b8d;
+}
