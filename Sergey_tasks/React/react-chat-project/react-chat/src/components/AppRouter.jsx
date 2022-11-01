@@ -11,6 +11,7 @@ import PageChat from "../pages/PageChat";
 
    function PrivatePage (props) {
       const [user, loading] = useAuthState(auth);
+      console.log(user);
       if(loading) return null
       if(!user) {
          return <Navigate to={LOGIN_ROUTE}></Navigate>
@@ -19,6 +20,7 @@ import PageChat from "../pages/PageChat";
    }
    function PublicPage (props) {
       const [user, loading] = useAuthState(auth);
+      console.log(user);
       if(loading) return null
       if(user) {
          return <Navigate to={CHAT_ROUTE}></Navigate>

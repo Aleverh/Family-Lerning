@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "../components/main.css";
-import Context from '../Context';
 
-
-function Message({authUser}){
-   const { messages } = useContext(Context);
-
+function Message({authUser, chat}){
+   const today = new Date();
+   if(chat)
    return(
       <div className='messages'>
-         { messages?.map((message) => (
-            message.uid === authUser?.uid 
+         { chat.map((message) => (
+            message.uid != authUser?.uid 
                ? 
                   <div key={Math.random()} className='message'>
+                      <img src={message.imgMessage}></img>
                      <div className='message__info'>
                         <img src={message.photoURL}></img>
-                        <span>time</span>
+                        <span className='time'> {`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}`}</span>
                      </div>
                      <div  className='message__content'>
                         <p>{message.messages}</p>
@@ -25,40 +24,14 @@ function Message({authUser}){
                      <div  className='message__content'>
                         <p>{message.messages}</p>
                      </div>
-
                      <div className='message__info'>
                         <img src={message.photoURL}></img>
-                        <span>time</span>
+                        <span className='time'>{`${today.getDate()}.${today.getMonth() + 1}.${today.getFullYear()}`}</span>
                      </div>
+                     <img src={message.imgMessage}></img>
                   </div>
          ))}
       </div>
    )
 }
 export default Message;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   // useEffect(() => {
-   //    async function showMessages(){
-   //       const usersMessages =  collection(db, "messages");
-   //       const userFound =  query(usersMessages, where(("displayName", "==", valueData.currentUser.displayName)));
-   //       const queryUser = await getDocs(userFound);
-   //       valueData.setMessages(queryUser.docs.map(elem => elem.data()));
-   //       console.log(valueData.messages);
-   //    }
-   //    showMessages();
-   // },[]);

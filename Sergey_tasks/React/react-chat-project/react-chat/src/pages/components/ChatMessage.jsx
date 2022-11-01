@@ -3,10 +3,10 @@ import "../components/main.css";
 import Message from './Message';
 
 
-function ChatMessage(){
+function ChatMessage({chat, authUser}){
    return(
       <div className='chat__field--messages'>
-         <Message/>
+         <Message chat={chat} authUser={authUser}/>
       </div>
    )
 }

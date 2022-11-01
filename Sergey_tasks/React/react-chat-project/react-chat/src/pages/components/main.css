@@ -57,6 +57,10 @@
    display: none;
 }
 
+.file_input{
+   /* display: none; */
+}
+
 label{
    display: flex;
    align-items: center;
@@ -287,4 +291,9 @@ p{
 }
 .userChatData__p{
    color: rgb(220, 185, 185);
+}
+
+.time{
+   color: white;
+   font-size: 8px;
 }

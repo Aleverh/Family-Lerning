@@ -3,7 +3,6 @@ import "../components/main.css";
 import { useForm } from "react-hook-form";
 import { db } from '../../components/firebaseinit/firebaseinit';
 import { collection, getDocs, query, where  } from "firebase/firestore"; 
-import Context from '../Context';
 
 
 function FindUser({setFoundUsers, foundUsers}){

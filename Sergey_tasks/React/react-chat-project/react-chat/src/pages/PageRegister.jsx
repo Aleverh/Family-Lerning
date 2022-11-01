@@ -8,8 +8,7 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db, storage } from '../components/firebaseinit/firebaseinit';
 import { collection, doc, setDoc, addDoc, getDoc } from "firebase/firestore"; 
-import { getStorage, ref, uploadBytes, uploadBytesResumable,  getDownloadURL, uploadTask } from "firebase/storage";
-import Context from './Context';
+import { getStorage, ref, uploadBytes,  getDownloadURL } from "firebase/storage";
 
 function PageRegister(){
    const { register, handleSubmit, formState: { errors } } = useForm();
@@ -40,13 +39,11 @@ function PageRegister(){
    })
 
    const uploadFiles = async(data) => {
-      // console.log(data);
       const storageRef = ref(storage, `images/${data[0].name}`);
       const uploadTask = await  uploadBytes(storageRef, data[0]);
       const photoURL = await getDownloadURL(uploadTask.ref);
       return  photoURL;
    };
-
 
    return(
       <div className='formWrapper'>

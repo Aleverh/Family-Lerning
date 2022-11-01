@@ -72,6 +72,10 @@ input{
    display: none;
 }
 
+.file_input{
+   /* display: none; */
+}
+
 label{
    display: flex;
    align-items: center;
@@ -224,7 +228,7 @@ p{
    background-color: #fff;
    display: flex;
    height: 50px;
-   justify-content: space-between;
+   justify-content: flex-start;
    padding: 10px;
 }
 
@@ -256,4 +260,8 @@ p{
    font-weight: 600;
    padding: 10px;
    width: 250px;
+}
+.time{
+   color: white;
+   font-size: 8px;
 }

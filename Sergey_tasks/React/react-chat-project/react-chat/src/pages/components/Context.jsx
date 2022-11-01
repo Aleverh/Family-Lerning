@@ -7,25 +7,14 @@ import useUser from './useUser';
 
 function ContextProvider(){
    const authUser = useUser();
-
-   const [currentUser, setCurrentUser] = useState();
    const [messages, setMessages] = useState([]);
    const [chatId, setChatId] = useState();
-   const [currentChatId, setCurrentChatId] = useState();
-
-
-   // console.log(chatId);
-
 
    const valueData = {
-      currentUser,
-      setCurrentUser,
       messages,
       setMessages,
       chatId,
       setChatId,
-      currentChatId,
-      setCurrentChatId
    }
 
    return(
@@ -34,12 +23,11 @@ function ContextProvider(){
             <div className='chat'>
                <div className='chat__container'>
                   <SideBar authUser={authUser}/>
-                  <Chat authUser={authUser}/>
+                  <Chat authUser={authUser} chatId={chatId}/>
                </div>
             </div>
          </div>
       </Context.Provider>
-    
    )
 }
 export default ContextProvider;

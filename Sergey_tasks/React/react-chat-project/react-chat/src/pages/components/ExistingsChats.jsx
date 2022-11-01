@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import "../components/main.css";
 import { useForm } from "react-hook-form";
 import { db } from '../../components/firebaseinit/firebaseinit';
@@ -7,44 +7,36 @@ import Context from '../Context';
 import UsersChat from './UsersChat';
 
 
-function ExistingsChats({authUser}){
-   const { setChatId } = useContext(Context);
-
+function ExistingsChats({authUser, foundUsers}){
    const [users, setUsers] = useState([]);
-   // console.log(users);
 
    useEffect(() => {
       async function showChats(){
          const chatRef =  collection(db, "usersChat");
          const chatFound = query(chatRef, where("usersId", "array-contains", authUser.uid));
          const queryUsersChat = await getDocs(chatFound);
-         const users = queryUsersChat.docs.map(elem => elem.data());
-         const chatId = users.map(elem => elem.chatId);
-         setChatId(chatId);
-         // console.log(authUser);
-         const id =  users.map(elem => {
-           const www =  elem.usersId.find(elem => elem !=authUser.uid);
-           return www;
-         });
-         // const bbb = id.map(elem => authUser.uid + elem);
-         // const kk = chatId.concat(bbb)
-         // setChatId(kk);
-         // console.log(kk);
+         const chats = queryUsersChat.docs.map(elem => elem.data());
+         const id = chats.map(elem => elem.usersId.find(elem => elem !== authUser.uid));
 
          const usersRef =  collection(db, "users");
-         const userFound = query(usersRef, where("uid", "in", id.map(elem => elem)));
+         const userFound = query(usersRef, where("uid", "in", id));
          const queryUser = await getDocs(userFound);
-         const userDataChats = queryUser.docs.map(elem => elem.data());
-         // console.log(userDataChats);
+         const userDataChats = queryUser.docs.map(elem => {
+           const data =  elem.data();
+           return {
+              ...data,
+              chatId: chats.find(elem => elem.usersId.includes(data.uid)).chatId
+           }
+         });
          setUsers(userDataChats);
-
       }
       showChats();
    }, [authUser]);
 
    return(
       <div className='active-chat'>
-         {  users.map((users) => <UsersChat key={users.uid} users={users}/>)}
+         {users.map((user) => <UsersChat key={user.chatId} chat={user} authUser={authUser}/>)}
+         {foundUsers.map((user) => <UsersChat key={user.uid} chat={user} authUser={authUser}/>)}
       </div>
    )
 }
