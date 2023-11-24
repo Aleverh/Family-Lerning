@@ -1,0 +1,42 @@
+.register-form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 60px;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  border-radius: 10px;
+  width: 280px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+  color: #5d5b8d;
+}
+.logo-button {
+  border: 0;
+  background: #7b96ec;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.register-text {
+  height: 17px;
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  color: #5d5b8d;
+}
+
+.inpForAva {
+  opacity: 0;
+}
